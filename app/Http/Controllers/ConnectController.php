@@ -139,19 +139,19 @@ class ConnectController extends Controller
 								'module_id' => '1',
 								'module_name' => 'INICIO'])->syncRoles([$role1]);
 
-			Permission::create(['name' => 'admin.colaboradores.index',
+			Permission::create(['name' => 'admin.colaboradors.index',
 								'description' =>'Puede ver listado Colaboradores',
 								'module_id' => '2',
 								'module_name' => 'COLABORADORES']);
-			Permission::create(['name' => 'admin.colaboradores.create'
+			Permission::create(['name' => 'admin.colaboradors.create'
 								,'description' =>'Puede agregar Colaboradores',
 								'module_id' => '2',
 								'module_name' => 'COLABORADORES']);
-			Permission::create(['name' => 'admin.colaboradores.edit',
+			Permission::create(['name' => 'admin.colaboradors.edit',
 								'description' =>'Puede editar Colaboradores',
 								'module_id' => '2',
 								'module_name' => 'COLABORADORES']);
-			Permission::create(['name' => 'admin.colaboradores.destroy'
+			Permission::create(['name' => 'admin.colaboradors.destroy'
 								,'description' =>'Puede eliminar Colaboradores',
 								'module_id' => '2',
 								'module_name' => 'COLABORADORES']);

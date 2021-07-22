@@ -16,33 +16,27 @@ class CreateColantpatologicosTable extends Migration
         Schema::create('colantpatologicos', function (Blueprint $table) {
             $table->id();
             $table->foreignId('colaborador_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->string('alergias',20)->nullable();//ALERGIAS	Character	20
-            $table->string('diabetes',20)->nullable();//DIABETES	Character	20
-            $table->string('tbc',20)->nullable();//TBC	Character	20
-            $table->string('hepatitis',20)->nullable();//HEPATITISB	Character	20
-            $table->string('asma',20)->nullable();//ASMA	Character	20
-            $table->string('hta',20)->nullable();//HTA	Character	20
-            $table->string('its',20)->nullable();//ITS	Character	20
-            $table->string('tifoidea',20)->nullable();//TIFOIDEA	Character	20
-            $table->string('bronquitis',20)->nullable();//BRONQUITIS	Character	20
-            $table->string('neoplasia',20)->nullable();//NEOPLASIA	Character	20
-            $table->string('convulsion',20)->nullable();//CONVULSIONES	Character	20
-            $table->string('intoxicacion',20)->nullable();//INTOXICACION..	Character	20
-            $table->string('quemadura',100)->nullable();//QUEMADURAS	Character	100
-            $table->string('cirujia',100)->nullable();//CIRUGIAS	Character	100
-            $table->string('otros',100)->nullable();//OTROS	Character	100
-            $table->string('alcoh_tipo',20)->nullable();//ALCOH_TPO	Character	20
-            $table->string('alcoh_cant',20)->nullable();//ALCOH_CANT	Character	20
-            $table->string('alcoh_frec',20)->nullable();//ALCOH_FREC	Character	20
-            $table->string('tabac_tipo',20)->nullable();//TABAC_TPO	Character	20
-            $table->string('tabac_cant',20)->nullable();//TABAC_CANT	Character	20
-            $table->string('tabac_frec',20)->nullable();//TABAC_FREC	Character	20
-            $table->string('droga_tipo',20)->nullable();//DROGA_TPO	Character	20
-            $table->string('droga_cant',20)->nullable();//DROGA_CANT	Character	20
-            $table->string('droga_frec',20)->nullable();//DROGA_FREC	Character	20
-            $table->string('medic_tipo',20)->nullable();//MEDIC_TPO	Character	50
-            $table->string('medic_cant',20)->nullable();//MEDIC_CANT	Character	20
-            $table->string('medic_frec',20)->nullable();//MEDIC_FREC	Character	20
+            $table->unsignedTinyInteger('alergias')->default(2);//ALERGIAS	Character	20
+            $table->string('descalergias',40)->nullable();//ALERGIAS	Character	20
+            $table->unsignedTinyInteger('diabetes')->default(2);//DIABETES	Character	20
+            $table->unsignedTinyInteger('tbc')->default(2);//TBC	Character	20
+            $table->unsignedTinyInteger('hepatitis')->default(2);//HEPATITISB	Character	20
+            $table->unsignedTinyInteger('asma')->default(2);//ASMA	Character	20
+            $table->unsignedTinyInteger('its')->default(2);//ITS	Character	20
+            $table->unsignedTinyInteger('tifoidea')->default(2);//TIFOIDEA	Character	20
+            $table->unsignedTinyInteger('bronquitis')->default(2);//BRONQUITIS	Character	20
+            $table->unsignedTinyInteger('neoplasia')->default(2);//NEOPLASIA	Character	20
+            $table->unsignedTinyInteger('convulsion')->default(2);//CONVULSIONES	Character	20
+            $table->unsignedTinyInteger('intoxicacion')->default(2);//INTOXICACION..	Character	20
+            $table->string('medicamento',100)->default('NIEGA');//MEDIC_TPO	Character	50
+            $table->string('quemadura',100)->default('NIEGA');//QUEMADURAS	Character	100
+            $table->string('cirugia',100)->default('NIEGA');//CIRUGIAS	Character	100
+            $table->string('otros',100)->default('NIEGA');//OTROS	Character	100
+            $table->string('alcohol',50)->default('NIEGA');//ALCOH_FREC	Character	20
+            $table->string('tabaco',50)->default('NIEGA');//TABAC_FREC	Character	20
+            $table->string('droga',50)->default('NIEGA');//DROGA_FREC	Character	20
+            $table->string('antfamiliar')->default('NINGUNO');//ANT_FAM	Character	250
+            $table->string('antpersonal')->default('NINGUNO');//ANT_PER	Character	250
 
             $table->softDeletes();
             $table->timestamps();

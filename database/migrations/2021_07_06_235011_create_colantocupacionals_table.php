@@ -18,7 +18,7 @@ class CreateColantocupacionalsTable extends Migration
             $table->foreignId('colaborador_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->string('empresa',50)->nullable();
             $table->integer('area_id')->nullable();//AREA01
-            $table->integer('ocupacion_id')->nullable();//OCU01
+            $table->integer('puesto_id')->nullable();//OCU01
             $table->string('fecha',20)->nullable();//FCH01
             $table->string('tiempo',20)->nullable();//TIE01
             $table->integer('exposicion')->nullable();//EXPO01

@@ -247,11 +247,11 @@ return [
 
         [
             'text' => 'Colaboradores',
-            'route' => 'admin.colaboradores.index',
-            'icon' => 'fas fa-address-card',
+            'route' => 'admin.colaboradors.index',
+            'icon' => 'far fa-user',
             'icon_color' => 'yellow',
-            'can'  => 'admin.colaboradores.index',
-            'active' => ['admin/colaboradores','admin/colaboradores/create','admin/colaboradores/*/edit'],
+            'can'  => 'admin.colaboradors.index',
+            'active' => ['admin/colaboradors','admin/colaboradors/create','admin/colaboradors/*/edit'],
         ],
         [
             'text' => 'Servicios',
@@ -272,6 +272,15 @@ return [
             'can'  => 'admin.tablas',
             'submenu' => [
                 [
+                    'text' => 'Categorías',
+                    'icon'    => 'fas fa-folder-open',
+                    'icon_color' => 'cyan',
+                    'route'  => 'admin.categorias.index',
+                    'active' => ['admin/categorias','admin/categorias/*','admin/categorias/create'
+                                ,'admin/categorias/*/edit'],
+                    'can'  => 'admin.categorias.index',
+                ],
+                [
                     'text' => 'Usuarios',
                     'icon'    => 'fas fa-user-friends',
                     'icon_color' => 'cyan',
@@ -288,6 +297,26 @@ return [
                     'route'  => 'admin.roles.index',
                     'active' => ['admin/roles/index','admin/roles/create','admin/roles/*/edit'],
                     'can'  => 'admin.roles.index',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Utilitarios',
+            'icon'    => 'fas fa-cogs',
+            'icon_color' => 'yellow',
+            'can'  => 'admin.util',
+            'submenu' => [
+                [
+                    'text' => 'Parámetros',
+                    'icon'    => 'fas fa-cog',
+                    'icon_color' => 'cyan',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'Import',
+                    'icon'    => 'fas fa-cog',
+                    'icon_color' => 'cyan',
+                    'route'  => 'admin.imports.index',
                 ],
             ],
         ],

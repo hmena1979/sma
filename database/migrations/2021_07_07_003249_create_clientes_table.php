@@ -26,6 +26,7 @@ class CreateClientesTable extends Migration
             $table->string('email',50)->nullable();
             $table->string('actividad',100)->nullable();
             $table->string('clave',10)->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

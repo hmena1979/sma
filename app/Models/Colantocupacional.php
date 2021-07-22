@@ -18,4 +18,14 @@ class Colantocupacional extends Model
     public function colaborador(){
         return $this->belongsTo('App\Models\Colaborador');
     }
+
+    public function area()
+    {
+        return $this->hasOne('App\Models\Categoria', 'id', 'area_id')->whereIn('modulo',['0','5']);
+    }
+
+    public function puesto()
+    {
+        return $this->hasOne('App\Models\Categoria', 'id', 'puesto_id')->whereIn('modulo',['0','6']);
+    }
 }

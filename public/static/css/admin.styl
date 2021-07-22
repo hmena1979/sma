@@ -48,10 +48,13 @@ colorsec = #343A40
 			color colorprin
 			font-size 1.1em
 			padding 12px 16px
+			// margin-top 1px
 		ul
 			display inline-block
 			float right
 			margin-right 12px
+			margin-top 0px
+			margin-bottom 0px
 			li
 				display inline-block
 				position relative
@@ -67,6 +70,21 @@ colorsec = #343A40
 					&:hover
 						color #fff
 						background-color colorsec
+						text-decoration none
+					i
+						color #fff
+				input
+					// color #fff
+					background-color #fff
+					height 37px
+					line-height: 15px
+					display inline-block
+					padding 10px
+					border-radius 5px
+					margin-top 0px
+					&:hover
+						color #000
+						background-color #fff
 						text-decoration none
 					i
 						color #fff
@@ -95,6 +113,24 @@ colorsec = #343A40
 		padding 16px
 
 ///////////////////////////////////////////////////////////////////////////////////
+
+// .periodo
+// 	margin 0px
+// 	form
+// 		display inline-block
+// 		border 5px solid colorprin
+// 		.custom-select
+// 			margin-top 4px
+// 			height 35px
+// 			// line-height 15px
+// 		.form-control
+// 			margin-top -100px
+// 			padding-top -19px
+// 			height 35px
+
+
+
+
 .cuentas
 	margin-top -6px
 
@@ -115,15 +151,22 @@ colorsec = #343A40
 			color colorsec !important
 			background-color #fff
 	button
-		border-radius 4px
-		border 1px solid #dedede
-		display inline-block
-		padding 0.5px 3px//3px 5px
-		color colorprin
-		background-color #fff
+		border 0px solid #dedede
+		padding 3px 3px//3px 5px
+		background-color #fff !important
 		&:hover
 			color colorsec !important
+			background-color #fff !important
+		i
+			border-radius 4px
+			border 1px solid #dedede
+			display inline-block
+			padding 3px 3px//3px 5px
+			color colorprin
 			background-color #fff
+			&:hover
+				color colorsec !important
+				background-color #fff
 	form
 		display inline-block
 		// padding 2px 5px//3px 5px
@@ -132,6 +175,12 @@ colorsec = #343A40
 		// &:hover
 		// 	color colorsec !important
 		// 	background-color #fff
+
+.tablaao
+	width 100%
+	font-size 8pt
+	table
+        width 100%
 
 .negrita
 	font-weight bold
@@ -262,3 +311,6 @@ label
 		color #fff !important
 		border-color colorsec
 
+.select2-container
+	width 100% !important
+	padding 0

@@ -5,7 +5,7 @@
 
 @section('breadcrumb')
 	<li class="breadcrumb-item">
-		<a href="{{ url('/admin/colaboradores') }}"><i class="fas fa-cog"></i> Colaboradores</a>
+		<a href="{{ route('admin.colaboradors.index') }}"><i class="far fa-user"></i> Colaboradores</a>
 	</li>
 @endsection
 
@@ -16,11 +16,11 @@
 			<div class="col-md-12">
 				<div class="panelprin shadow">
 					<div class="headercontent">
-						<h2 class="title"><i class="fas fa-cog"></i> Roles</h2>
+						<h2 class="title"><i class="far fa-user"></i> Colaboradores</h2>
 						<ul>
-							@can('admin.colaboradores.create')
+							@can('admin.colaboradors.create')
 							<li>
-								<a href="{{ route('admin.colaboradores.index') }}">
+								<a href="{{ route('admin.colaboradors.create') }}">
 									Agregar registro
 								</a>
 							</li>
@@ -49,16 +49,16 @@
 								</tr>
 							</thead>
 							<tbody>
-								@foreach($colaboradores as $colaborador)
+								@foreach($colaboradors as $colaborador)
 								<tr>
-									<td>{{ $colaborador->nombre }}</td>
+									<td>{{ $colaborador->nombres }}</td>
 									<td>{{ $colaborador->numdoc }}</td>
 									<td>{{ $colaborador->fecnac }}</td>
 									<td>{{ $colaborador->telefono }}</td>
 									<td>
 										<div class="opts">
-											@can('admin.roles.edit')
-											<a class="" href="{{ route('admin.roles.edit',$rol) }}"datatoggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></a>
+											@can('admin.colaboradors.edit')
+											<a class="" href="{{ route('admin.colaboradors.edit',$colaborador) }}"datatoggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></a>
 											@endcan
 										</div>
 									</td>

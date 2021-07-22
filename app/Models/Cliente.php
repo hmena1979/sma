@@ -14,4 +14,10 @@ class Cliente extends Model
     protected $table = 'clientes';
     protected $hidden = ['created_at','updated_at'];
     protected $guarded = [];
+
+    // Relacion uno a Muchos
+    public function servicios()
+    {
+        return $this->hasMany('App\Models\Servicio');
+    }
 }

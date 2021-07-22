@@ -4,10 +4,12 @@
 			'1' => 'Tipo documento',
 			'2' => 'Sexo',
 			'3' => 'Estado civil',
-			'4' => 'Moneda',
-			'5' => 'Medio de pago',
-			'6' => 'Status comprobante electrónico',
-			'7' => 'Tipo de Operación'
+			'4' => 'Grado Instrucción',
+			'5' => 'Área',
+			'6' => 'Puesto',
+			'7' => 'Resultado',
+			'8' => 'Escala del Dolor',
+			'9' => 'Tipo Evaluación'
 		];
 		return $a;
 

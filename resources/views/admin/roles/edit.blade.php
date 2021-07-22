@@ -15,7 +15,7 @@
 			<div class="col-md-12">
 				<div class="panelprin shadow">
 					<div class="inside">
-                        {!! Form::model($role, ['route' => ['admin.roles.update',$role], 'method' => 'put']) !!}
+                        {!! Form::model($role, ['route' => ['admin.roles.update',$role],'method' => 'put']) !!}
                             <div class="row">
                                 <div class="col-md-5 form-group">
                                     {!! Form::label('name', 'Nombre') !!}
