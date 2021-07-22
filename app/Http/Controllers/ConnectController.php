@@ -206,6 +206,8 @@ class ConnectController extends Controller
 								'description' =>'Puede editar Roles',
 								'module_id' => '5',
 								'module_name' => 'ROLES'])->syncRoles([$role1]);
+			
+			
 		}
 		$user->assignRole($role1);
 		return true;

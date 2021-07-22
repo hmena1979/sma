@@ -87,15 +87,16 @@ class DashboardController extends Controller
 
 	public function permisosfaltantes()
 	{
-		// $this->agregar_permiso('1','INICIO','admin.imports.index','Puede Importar Tablas iniciales');
+		$this->agregar_permiso('1','INICIO','admin.imports.index','Puede Importar Tablas iniciales');
 
-		// $this->agregar_permiso('6','CATEGORIAS','admin.categorias.index','Puede ver listado Categorías');
-		// $this->agregar_permiso('6','CATEGORIAS','admin.categorias.create','Puede agregar Categorías');
-		// $this->agregar_permiso('6','CATEGORIAS','admin.categorias.edit','Puede editar Categorías');
-		// $this->agregar_permiso('6','CATEGORIAS','admin.categorias.destroy','Puede eliminar Categorías');
+		$this->agregar_permiso('6','CATEGORIAS','admin.categorias.index','Puede ver listado Categorías');
+		$this->agregar_permiso('6','CATEGORIAS','admin.categorias.create','Puede agregar Categorías');
+		$this->agregar_permiso('6','CATEGORIAS','admin.categorias.edit','Puede editar Categorías');
+		$this->agregar_permiso('6','CATEGORIAS','admin.categorias.destroy','Puede eliminar Categorías');
 		
-		// return redirect()->route('admin.inicio')->with('update', 'Permisos Agregados');
-		// return redirect()->route('admin.inicio')->with('update', 'Registro Actualizado');
+		return redirect()->route('admin.inicio')->with('update', 'Permisos Agregados');
+		return redirect()->route('admin.inicio')->with('update', 'Registro Actualizado');
+		
 		return redirect()->route('admin.inicio')->with('message', 'Permisos Agregados')->with('typealert', 'success');
 	}
 }
