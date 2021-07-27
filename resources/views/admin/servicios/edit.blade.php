@@ -10,7 +10,7 @@
 
 @section('contenido')
 	<div class="container-fluid">
-        {!! Form::open(['route'=>'admin.servicios.store']) !!}
+        {!! Form::model($servicio,['route'=>['admin.servicios.update',$servicio],'method' => 'put']) !!}
 		<div class="row">
 			<div class="col-md-12">
 				<div class="panelprin shadow">
@@ -25,7 +25,7 @@
 						<div class="row">
                             <div class="col-md-3 form-group">
                                 {!! Form::label('evaluacion', 'Evaluación:') !!}
-								{!! Form::select('evaluacion',$evaluacion,'2',['class'=>'custom-select']) !!}
+								{!! Form::select('evaluacion',$evaluacion,null,['class'=>'custom-select']) !!}
 							</div>
                             <div class="col-md-2 form-group">
                                 {!! Form::label('fecha', 'Fecha:') !!}
@@ -39,7 +39,7 @@
                         <div class="row">
                             <div class="col-md-2 form-group">
                                 {!! Form::label('departamento', 'Departamento:') !!}
-                                {!! Form::select('departamento',$departamentos,'20',['class'=>'custom-select', 'id'=>'departamento']) !!}
+                                {!! Form::select('departamento',$departamentos,null,['class'=>'custom-select', 'id'=>'departamento']) !!}
 							</div>
                             <div class="col-md-2 form-group">
                                 {!! Form::label('provincia', 'Provincia:') !!}
@@ -47,7 +47,7 @@
 							</div>
                             <div class="col-md-2 form-group">
                                 {!! Form::label('ubigeo', 'Ubigeo:') !!}
-                                {!! Form::select('ubigeo',[],null,['class'=>'custom-select','placeholder'=>'']) !!}
+                                {!! Form::select('ubigeo',$ubigeo,null,['class'=>'custom-select','placeholder'=>'']) !!}
 							</div>
                             <div class="col-md-6 form-group">
                                 {!! Form::label('ubicacion', 'Ubicación:') !!}
@@ -67,7 +67,7 @@
                             @foreach ($examen as $exa)
                             <div class="col-md-3">
                                 <label>
-                                    {!! Form::checkbox('examenes[]', $exa->id, null,['class' => 'mr-1']) !!}
+                                    {!! Form::checkbox('examenes[]', $exa->id, kvfa($servicio->examenes,$exa->id),['class' => 'mr-1']) !!}
                                     {{ $exa->nombre}}
                                 </label>
                             </div>

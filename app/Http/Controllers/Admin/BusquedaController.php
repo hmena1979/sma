@@ -101,6 +101,30 @@ class BusquedaController extends Controller
         }
     }
 
+    public function colaborador(Request $request)
+    {
+        if($request->ajax()){
+            $term = trim($request->q);
+            if (empty($term)) {
+                return response()->json([]);
+            }
+            $colaboradores = Colaborador::select('id','nombres','numdoc')
+                ->where('numdoc','like','%'.$term.'%')
+                ->orWhere('nombres','like','%'.$term.'%')
+                ->limit(5)
+                ->get();
+
+            $respuesta = array();
+            foreach($colaboradores as $colaborador){
+                $respuesta[] = [
+                    'id' => $colaborador->id,
+                    'text' => $colaborador->numdoc.'-'.$colaborador->nombres,
+                ];            
+            }
+            return $respuesta;
+        }
+    }
+
     // public function addao($envio)
     // {
     //     $ao = json_decode($envio);

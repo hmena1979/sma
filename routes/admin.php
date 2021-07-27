@@ -16,7 +16,8 @@ Use App\Http\Controllers\Admin\BusquedaController;
 //     return 'HOla';
 // });
 
-Route::get('/', [DashboardController::class, 'getDashboard'])->name('admin.inicio');
+Route::get('/inicio/{periodo?}', [DashboardController::class, 'getDashboard'])->name('admin.inicio');
+Route::post('inicio/change', [DashboardController::class, 'change'])->name('admin.inicio.change');
 Route::post('/cargainicial', [DashboardController::class, 'cargainicial'])->name('admin.cargainicial');
 Route::get('/permisosfaltantes', [DashboardController::class, 'permisosfaltantes'])->name('admin.permisosfaltantes');
 
@@ -32,6 +33,13 @@ Route::get('/colaboradors/{id}/destroyao',[ColaboradorController::class,'destroy
 
 //Servicios
 Route::post('/servicios/change', [ServicioController::class,'change'])->name('admin.servicios.change');
+Route::get('/servicios/{servicio}/addcolaborador', [ServicioController::class,'addcolaborador'])->name('admin.servicios.addcolaborador');
+Route::post('/servicios/{servicio}/storecolaborador', [ServicioController::class,'storecolaborador'])->name('admin.servicios.storecolaborador');
+Route::get('/servicios/{detservicio}/destroycolaborador', [ServicioController::class,'destroycolaborador'])->name('admin.servicios.destroycolaborador');
+Route::get('/servicios/{detservicio}/evaluacion', [ServicioController::class,'evaluacion'])->name('admin.servicios.evaluacion');
+Route::put('/servicios/{detservicio}/updatevaluacion', [ServicioController::class,'updatevaluacion'])->name('admin.servicios.updatevaluacion');
+Route::get('/servicios/{detservicio}/examedico', [ServicioController::class,'examedico'])->name('admin.servicios.examedico');
+Route::put('/servicios/{examedico}/updatexamed', [ServicioController::class,'updatexamed'])->name('admin.servicios.updatexamed');
 Route::resource('servicios', ServicioController::class)->except('show')->names('admin.servicios');
 Route::get('/servicios/{periodo?}', [ServicioController::class,'index'])->name('admin.servicios.index');
 
@@ -60,6 +68,7 @@ Route::get('/busquedas/{provincia}/ubigeo', [BusquedaController::class,'ubigeo']
 Route::get('/busquedas/{departamento}/provincia', [BusquedaController::class,'provincia'])->name('admin.busquedas.provincia');
 Route::get('/busquedas/{tipo}/{numero}/{id?}/busapi', [BusquedaController::class, 'busapi'])->name('admin.clientes.busapi');
 Route::get('/busquedas/{envio}/addao',[BusquedaController::class,'addao'])->name('admin.busquedas.addao');
+Route::get('/busquedas/colaborador',[BusquedaController::class,'colaborador'])->name('admin.busquedas.colaborador');
 
 
 

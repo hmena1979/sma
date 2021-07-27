@@ -20,7 +20,7 @@
                         <h2 class="title"><i class="far fa-user"></i> Colaboradores</h2>
                         <ul>
                             <li>
-                                {!! Form::submit('Guardar', ['class'=>'btn btn-convertir', 'id'=>'guardar']) !!}
+                                {!! Form::submit('Guardar', ['class'=>'btn btn-convertir mt-2', 'id'=>'guardar']) !!}
                             </li>
                         </ul>
                     </div>
@@ -50,7 +50,7 @@
 							</div>                            
 							<div class="col-md-2 form-group">
                                 {!! Form::label('estciv_id', 'Estado Civil:') !!}
-                                {!! Form::select('estciv_id',$estciv,null,['class'=>'custom-select','placeholder'=>'']) !!}
+                                {!! Form::select('estciv_id',$estciv,1,['class'=>'custom-select']) !!}
 							</div>
 							<div class="col-md-2 form-group">
                                 {!! Form::label('fecnac', 'Fecha nacimiento:') !!}
@@ -102,7 +102,7 @@
 							</div>
                             <div class="col-md-3 form-group">
                                 {!! Form::label('gradinst_id', 'Grado Instrucción:') !!}
-                                {!! Form::select('gradinst_id',$gradins,'01',['class'=>'custom-select','placeholder'=>'']) !!}
+                                {!! Form::select('gradinst_id',$gradins,'07',['class'=>'custom-select']) !!}
                             </div>
                             <div class="col-md-2 form-group">
                                 {!! Form::label('numhijos', '# Hijos:') !!}

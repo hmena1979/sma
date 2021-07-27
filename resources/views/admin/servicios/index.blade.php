@@ -25,7 +25,6 @@
                                         <div class="input-group-append">
                                             {!! Form::submit('Mostar', ['class'=>'btn btn-convertir']) !!}
                                         </div>
-                                        
                                     </div>
                                     {!! Form::close() !!}
                                 </div>
@@ -62,16 +61,18 @@
 							</thead>
 							<tbody>
 								@foreach($servicios as $servicio)
+								{{-- {{ dd($servicio->eval()) }} --}}
 								<tr>
 									<td>{{ $servicio->fecha }}</td>
-									<td>{{ $servicio->evaluacion }}</td>
-									<td>{{ $servicio->cliente_id }}</td>
+									<td>{{ $servicio->eval->nombre }}</td>
+									<td>{{ $servicio->cliente->razsoc }}</td>
 									<td>{{ $servicio->ubicacion }}</td>
 									<td>
 										<div class="opts">
 											@can('admin.servicios.edit')
 											<a class="" href="{{ route('admin.servicios.edit',$servicio) }}"datatoggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></a>
 											@endcan
+											<a class="" href="{{ route('admin.servicios.addcolaborador',$servicio) }}"datatoggle="tooltip" data-placement="top" title="Asignar Colaboradores"><i class="far fa-user"></i></a>
 											@can('admin.servicios.destroy')
 											<form action="{{ route('admin.servicios.destroy',$servicio) }}" method="POST" class="formulario_eliminar">
 												@csrf

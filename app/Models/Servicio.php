@@ -18,4 +18,14 @@ class Servicio extends Model
     public function cliente(){
         return $this->belongsTo('App\Models\Cliente');
     }
+
+    public function detservicios()
+    {
+        return $this->hasMany('App\Models\Detservicio');
+    }
+
+    public function eval()
+    {
+        return $this->hasOne('App\Models\Categoria', 'codigo', 'evaluacion')->where('modulo','9');
+    }
 }

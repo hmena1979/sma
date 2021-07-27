@@ -15,7 +15,7 @@
                 <nav aria-lavel="breadcrumb shadow">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="{{ url('/admin') }}"><i class="fas fa-home"></i>Inicio</a>
+                            <a href="{{ url('/admin/inicio') }}"><i class="fas fa-home"></i>Inicio</a>
                         </li>
                         @section('breadcrumb')
                         @show

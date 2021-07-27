@@ -188,7 +188,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'admin',
+    'dashboard_url' => 'admin/inicio',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -228,7 +228,7 @@ return [
         // Navbar items:
         [
             'text' => 'Inicio',
-            'url' => 'admin',
+            'url' => 'admin/inicio',
             'icon' => 'fas fa-home',
             'icon_color' => 'yellow',
             // 'can'  => 'admin.inicio',
@@ -317,6 +317,14 @@ return [
                     'icon'    => 'fas fa-cog',
                     'icon_color' => 'cyan',
                     'route'  => 'admin.imports.index',
+                    'can'  => 'admin.imports.index',
+                ],
+                [
+                    'text' => 'Permisos Faltantes',
+                    'icon'    => 'fas fa-cog',
+                    'icon_color' => 'cyan',
+                    'route'  => 'admin.permisosfaltantes',
+                    'can'  => 'admin.imports.index',
                 ],
             ],
         ],

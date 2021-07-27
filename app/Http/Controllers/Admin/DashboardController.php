@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+
 use App\Models\Param;
+use App\Models\Servicio;
 // Use App\Models\Empresa;
 // use App\Models\Sede;
 
@@ -20,14 +23,41 @@ class DashboardController extends Controller
         $this->middleware('can:admin.inicio')->only('getDashboard');
     }
     
-    public function getDashboard()
+    // public function getDashboard($periodo = '000000')
+
+    public function getDashboard($periodo = '000000')
     {
-        // return view('admin.dashboard');
-        if(Param::count() <> 0){
-            return view('admin.dashboard');
-        }else{
-            return view('admin.cargainicial');
+        if(Param::count() == 0){
+			return view('admin.cargainicial');
+		}
+		if($periodo == '000000'){
+            $periodo = session('periodo');
         }
+
+		$servicios = Servicio::with('cliente:id,razsoc')
+			->join('detservicios','servicios.id','detservicios.servicio_id')
+            ->join('colaboradors','detservicios.colaborador_id','colaboradors.id')
+            ->select('detservicios.id','servicios.cliente_id','servicios.fecha','detservicios.colaborador_id','colaboradors.nombres')
+            ->where('servicios.periodo', $periodo)
+            ->where('servicios.sede_id', Auth::user()->sede)
+            ->orderBy('colaboradors.nombres')
+            ->get();
+		// return $servicios;
+
+		// $servicios = Servicio::with('detservicios')->where('periodo',$periodo)->where('sede_id', Auth::user()->sede)->get();
+		return view('admin.dashboard',compact('periodo','servicios'));
+		// return view('admin.dashboard');
+    }
+
+	public function change(Request $request)
+    {
+        $periodo = $request->input('mes').$request->input('año');
+        // $servicios = Servicio::with(['cliente','eval'])
+        //     ->select('id','fecha','evaluacion','cliente_id','ubicacion','glosa')
+        //     ->where('periodo',$periodo)
+        //     ->where('sede_id',Auth::user()->sede)
+        //     ->get();
+        return view('admin.dashboard', compact('periodo'));
     }
 
     public function cargainicial(Request $request)
@@ -95,8 +125,7 @@ class DashboardController extends Controller
 		$this->agregar_permiso('6','CATEGORIAS','admin.categorias.destroy','Puede eliminar Categorías');
 		
 		return redirect()->route('admin.inicio')->with('update', 'Permisos Agregados');
-		return redirect()->route('admin.inicio')->with('update', 'Registro Actualizado');
-		
+
 		return redirect()->route('admin.inicio')->with('message', 'Permisos Agregados')->with('typealert', 'success');
 	}
 }

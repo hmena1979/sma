@@ -45,8 +45,21 @@
 				return null;
 			endif;
 		endif;
-		
+	}
 
+	//Key Value From Array
+	function kvfa($arr, $key){
+		if($arr == null):
+			return null;
+		else:
+			$arr = $arr;
+			$arr = json_decode($arr, true);
+			if(in_array($key, $arr)):
+				return true;
+			else:
+				return false;
+			endif;
+		endif;
 	}
 
 	function preProm($cant, $pant, $cnue, $pnue){

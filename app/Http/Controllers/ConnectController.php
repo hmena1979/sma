@@ -68,7 +68,7 @@ class ConnectController extends Controller
 					// session(['principal' => $sede->principal]);
 				}
 				
-    			return redirect('/admin');
+    			return redirect('/admin/inicio');
     		else:
     			return back()->with('message', 'Correo electrónico o clave incorrecto')->with('typealert', 'danger');
     		endif;

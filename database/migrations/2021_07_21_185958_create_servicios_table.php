@@ -24,7 +24,8 @@ class CreateServiciosTable extends Migration
             $table->string('provincia',4)->nullable();
             $table->string('ubigeo',6)->nullable();
             $table->string('ubicacion',100)->nullable();
-            $table->string('glosa',100)->nullable();            
+            $table->string('glosa',100)->nullable();
+            $table->text('examenes')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
