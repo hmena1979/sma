@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ImportController;
 use App\Http\Controllers\Admin\CategoriaController;
 Use App\Http\Controllers\Admin\ColaboradorController;
 Use App\Http\Controllers\Admin\ServicioController;
+use App\Http\Controllers\Admin\ExamenController;
 Use App\Http\Controllers\Admin\UsuarioController;
 
 Use App\Http\Controllers\Admin\BusquedaController;
@@ -38,10 +39,12 @@ Route::post('/servicios/{servicio}/storecolaborador', [ServicioController::class
 Route::get('/servicios/{detservicio}/destroycolaborador', [ServicioController::class,'destroycolaborador'])->name('admin.servicios.destroycolaborador');
 Route::get('/servicios/{detservicio}/evaluacion', [ServicioController::class,'evaluacion'])->name('admin.servicios.evaluacion');
 Route::put('/servicios/{detservicio}/updatevaluacion', [ServicioController::class,'updatevaluacion'])->name('admin.servicios.updatevaluacion');
-Route::get('/servicios/{detservicio}/examedico', [ServicioController::class,'examedico'])->name('admin.servicios.examedico');
-Route::put('/servicios/{examedico}/updatexamed', [ServicioController::class,'updatexamed'])->name('admin.servicios.updatexamed');
 Route::resource('servicios', ServicioController::class)->except('show')->names('admin.servicios');
 Route::get('/servicios/{periodo?}', [ServicioController::class,'index'])->name('admin.servicios.index');
+
+//Examenes
+Route::get('/examens/{detservicio}/examedico', [ExamenController::class,'examedico'])->name('admin.examens.examedico');
+Route::put('/examens/{examedico}/updatexamed', [ExamenController::class,'updatexamed'])->name('admin.examens.updatexamed');
 
 //Categorias
 Route::get('/categorias/{categoria?}',[CategoriaController::class,'index'])->name('admin.categorias.index');

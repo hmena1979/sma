@@ -9,7 +9,8 @@
 			'6' => 'Puesto',
 			'7' => 'Resultado',
 			'8' => 'Escala del Dolor',
-			'9' => 'Tipo Evaluación'
+			'9' => 'Tipo Evaluación',
+			'10' => 'Grado',
 		];
 		return $a;
 
@@ -43,6 +44,33 @@
 				return $json[$key];
 			else:
 				return null;
+			endif;
+		endif;
+	}
+	//Key Value From JSon - Radio Boton Si/No
+	function kvfjsn($json, $key){
+		if($json == null):
+			return 2;
+		else:
+			$json = $json;
+			$json = json_decode($json, true);
+			if(array_key_exists($key, $json)):
+				return $json[$key];
+			else:
+				return 2;
+			endif;
+		endif;
+	}
+	function kvfjns($json, $key){
+		if($json == null):
+			return 1;
+		else:
+			$json = $json;
+			$json = json_decode($json, true);
+			if(array_key_exists($key, $json)):
+				return $json[$key];
+			else:
+				return 2;
 			endif;
 		endif;
 	}

@@ -196,12 +196,7 @@ class ServicioController extends Controller
                 'puesto_id' => $request->input('puesto_id'),
                 'ocuactual' => $request->input('ocuactual'),
             ]);
-            $detservicio->examedico()->create([
-                'fecha' =>$servicio->fecha,
-                'anamnesis' => 'PACIENTE NO REFIERE MOLESTIAS',
-                'ectoscopia' => 'COORDINACIÓN CRONOLÓGICA CON EDAD MENCIONADA, LENGUAJE CLARO Y COHERENTE, AREG, AREH, AREN',
-                'estmental' => 'GLASGOW 15 PUNTOS DESPIERTO LOTEP',
-            ]);
+            
 
             return redirect()->route('admin.servicios.addcolaborador',$servicio)->with('store', 'Colaborador asignado al Servicio');
         }
@@ -221,6 +216,14 @@ class ServicioController extends Controller
         $area = Categoria::where('modulo', 5)->orWhere('modulo', 0)->orderBy('nombre')->pluck('nombre','id');
         $puesto = Categoria::where('modulo', 6)->orWhere('modulo', 0)->orderBy('nombre')->pluck('nombre','id');
         $resultado = Categoria::where('modulo', 7)->orderBy('nombre')->pluck('nombre','codigo');
+        if(kvfa($detservicio->servicio->examenes,'1') && $detservicio->examedico()->count() == 0){
+            $detservicio->examedico()->create([
+                'fecha' => $detservicio->servicio->fecha,
+                'anamnesis' => 'PACIENTE NO REFIERE MOLESTIAS',
+                'ectoscopia' => 'COORDINACIÓN CRONOLÓGICA CON EDAD MENCIONADA, LENGUAJE CLARO Y COHERENTE, AREG, AREH, AREN',
+                'estmental' => 'GLASGOW 15 PUNTOS DESPIERTO LOTEP',
+            ]);
+        }
         return view('admin.servicios.evaluacion', compact(
             'detservicio','area','puesto','resultado'
         ));   
@@ -231,83 +234,7 @@ class ServicioController extends Controller
         return 'Guardo';
     }
 
-    public function examedico(Request $request, Detservicio $detservicio)
-    {
-        $area = Categoria::where('modulo', 5)->orWhere('modulo', 0)->orderBy('nombre')->pluck('nombre','id');
-        $puesto = Categoria::where('modulo', 6)->orWhere('modulo', 0)->orderBy('nombre')->pluck('nombre','id');
-        return view('admin.servicios.examedico', compact(
-            'detservicio','area','puesto'
-        ));  
-    }
-
-    public function updatexamed(Request $request, Examedico $examedico)
-    {
-        $hallazgos = [
-            'piel' => $request->input('piel'),
-            'cabello' => $request->input('cabello'),
-            'ojos' => $request->input('ojos'),
-            'avod' => $request->input('avod'),
-            'avoi' => $request->input('avoi'),
-            'ccod' => $request->input('ccod'),
-            'ccoi' => $request->input('ccoi'),
-            'fojo' => $request->input('fojo'),
-            'vcolores' => $request->input('vcolores'),
-            'vprofundidad' => $request->input('vprofundidad'),
-            'oidos' => $request->input('oidos'),
-            'nariz' => $request->input('nariz'),
-            'boca' => $request->input('boca'),
-            'faringe' => $request->input('faringe'),
-            'cuello' => $request->input('cuello'),
-            'aprespira' => $request->input('aprespira'),
-            'apcardio' => $request->input('apcardio'),
-            'apdiges' => $request->input('apdiges'),
-            'apgenit' => $request->input('apgenit'),
-            'aploco' => $request->input('aploco'),
-            'marcha' => $request->input('marcha'),
-            'columna' => $request->input('columna'),
-            'miesup' => $request->input('miesup'),
-            'mieinf' => $request->input('mieinf'),
-            'sislinf' => $request->input('sislinf'),
-            'sisnerv' => $request->input('sisnerv')
-        ];
-        $hallazgos = json_encode($hallazgos);
-        $movrep = [
-            'mrcabeza' => $request->input('mrcabeza'),
-            'mrtronco' => $request->input('mrtronco'),
-            'mrmmss' => $request->input('mrmmss'),
-            'mrmmii' => $request->input('mrmmii')
-        ];
-        $movrep = json_encode($movrep);
-
-        $examedico->update([
-            'fecha' => $request->input('fecha'),
-            'anamnesis' => $request->input('anamnesis'),
-            'talla' => $request->input('talla'),
-            'peso' => $request->input('peso'),
-            'imc' => $request->input('imc'),
-            'pabdominal' => $request->input('pabdominal'),
-            'fresp' => $request->input('fresp'),
-            'fcard' => $request->input('fcard'),
-            'sato2' => $request->input('sato2'),
-            'temperatura' => $request->input('temperatura'),
-            'cintura' => $request->input('cintura'),
-            'cadera' => $request->input('cadera'),
-            'torax' => $request->input('torax'),
-            'toraxesp' => $request->input('toraxesp'),
-            'pasisto' => $request->input('pasisto'),
-            'padisto' => $request->input('padisto'),
-            'pa' => $request->input('pa'),
-            'otros' => $request->input('otros'),
-            'ectoscopia' => $request->input('ectoscopia'),
-            'estmental' => $request->input('estmental'),
-            'hallazgos' => $hallazgos,
-            'manicarga' => $request->input('manicarga'),
-            'postura' => $request->input('postura'),
-            'pertiempo' => $request->input('pertiempo'),
-            'movrep' => $movrep,
-        ]);
-        return redirect()->route('admin.servicios.evaluacion',$examedico->detservicio)->with('update', 'Examen Médico Actualizado');
-    }
+    
 
     public function destroy(Servicio $servicio)
     {

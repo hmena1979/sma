@@ -29,7 +29,6 @@ class BusquedaController extends Controller
             }
             $departamento = Departamento::select('codigo','nombre')
                 ->where('nombre','like','%'.$term.'%')
-                ->limit(5)
                 ->get();
 
             $respuesta = array();
@@ -48,7 +47,6 @@ class BusquedaController extends Controller
         if($request->ajax()){
             $provincia = Provincia::select('codigo','nombre')
                 ->where('departamento',$departamento)
-                ->limit(5)
                 ->get();
             return response()->json($provincia);
         }
@@ -59,7 +57,6 @@ class BusquedaController extends Controller
         if($request->ajax()){
             $ubigeo = Ubigeo::select('codigo','nombre')
                 ->where('provincia',$provincia)
-                ->limit(5)
                 ->get();
             return response()->json($ubigeo);
         }

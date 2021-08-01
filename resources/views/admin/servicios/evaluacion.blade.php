@@ -146,15 +146,15 @@
                                         {!! Form::label('emedica', 'Médica:',['class' => 'mt-2']) !!}
                                     </div>
                                     <div class="col-md-8">
-                                        {!! Form::select('emresultado',$resultado,'0',['class'=>'custom-select']) !!}
+                                        {!! Form::select('emresultado',$resultado,$detservicio->examedico->resultado,['class'=>'custom-select']) !!}
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                {!! Form::text('emconclusion',null,['class'=>'form-control']) !!}
+                                {!! Form::text('emconclusion',str_replace('.<br />',', ',nl2br($detservicio->examedico->recomendaciones)),['class'=>'form-control']) !!}
                             </div>
                             <div class="col-md-2">
-                                <a href="{{ route('admin.servicios.examedico',$detservicio) }}" class="btn btn-convertir" datatoggle="tooltip" data-placement="top" title="Evaluación Médica">
+                                <a href="{{ route('admin.examens.examedico',$detservicio) }}" class="btn btn-convertir" datatoggle="tooltip" data-placement="top" title="Evaluación Médica">
                                     Examen
                                 </a>
                             </div>

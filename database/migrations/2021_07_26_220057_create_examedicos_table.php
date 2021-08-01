@@ -42,9 +42,25 @@ class CreateExamedicosTable extends Migration
             $table->text('movrep')->nullable();
             $table->string('pertiempo',20)->default('8 HORAS');
             $table->text('cuestionario')->nullable();
-
-
-
+            $table->text('efarticulacion')->nullable();
+            $table->text('eftemmss')->nullable();
+            $table->text('efsimetria')->nullable();
+            $table->text('cvejeantero')->nullable();
+            $table->text('cvejelateral')->nullable();
+            $table->text('cvmovilidad')->nullable();
+            $table->text('cvtest')->nullable();
+            $table->text('cvpalpacion')->nullable();
+            $table->text('metiempo')->nullable();
+            $table->text('meaptitud')->nullable();
+            $table->text('mehoja1')->nullable();
+            $table->text('mehoja2')->nullable();
+            $table->string('hallazgoexafisico')->default('SIN HALLAZGOS');
+            $table->string('hallazgorestante')->default('NIEGA SINTOMATOLOGÍA ACTUAL');
+            $table->string('comentarios')->default('NINGUNO');
+            $table->string('diagosteo')->default('EVALUACIÓN OSTEOMUSCULAR CONSERVADO');
+            $table->string('recomendaciones')->default('MEJORAR POSTURAS ERGONOMETRICA.\nCONTROL MEDICO ANUAL.');
+            $table->string('resultado',1)->default('0');
+            $table->unsignedBigInteger('doctor_id')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

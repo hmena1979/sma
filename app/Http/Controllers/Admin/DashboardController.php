@@ -124,7 +124,7 @@ class DashboardController extends Controller
 		$this->agregar_permiso('6','CATEGORIAS','admin.categorias.edit','Puede editar Categorías');
 		$this->agregar_permiso('6','CATEGORIAS','admin.categorias.destroy','Puede eliminar Categorías');
 		
-		return redirect()->route('admin.inicio')->with('update', 'Permisos Agregados');
+		// return redirect()->route('admin.inicio')->with('update', 'Permisos Agregados');
 
 		return redirect()->route('admin.inicio')->with('message', 'Permisos Agregados')->with('typealert', 'success');
 	}
