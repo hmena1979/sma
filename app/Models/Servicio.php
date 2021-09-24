@@ -28,4 +28,19 @@ class Servicio extends Model
     {
         return $this->hasOne('App\Models\Categoria', 'codigo', 'evaluacion')->where('modulo','9');
     }
+
+    public function depart()
+    {
+        return $this->hasOne('App\Models\Departamento', 'codigo', 'departamento');
+    }
+
+    public function prov()
+    {
+        return $this->hasOne('App\Models\Provincia', 'codigo', 'provincia');
+    }
+
+    public function ubig()
+    {
+        return $this->hasOne('App\Models\Ubigeo', 'codigo', 'ubigeo');
+    }
 }

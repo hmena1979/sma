@@ -117,62 +117,8 @@
         {!! Form::text('piel', kvfj($detservicio->examedico->hallazgos, 'piel'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
     </div>
     <div class="col-md-6 form-group">
-        {!! Form::label('cabello', 'Cabello:') !!}
-        {!! Form::text('cabello', kvfj($detservicio->examedico->hallazgos, 'cabello'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-4 form-group">
-        {!! Form::label('ojos', 'Ojos y Anexos:') !!}
-        {!! Form::text('ojos', kvfj($detservicio->examedico->hallazgos, 'ojos'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
-    </div>
-    <div class="col-md-1 form-group">
-        {!! Form::label('avod', 'AV. O.Der:',['datatoggle'=>"tooltip",'title'=>"Agudeza Visual - Ojo Derecho"]) !!}
-        {!! Form::text('avod', kvfj($detservicio->examedico->hallazgos, 'avod'), ['class'=>'form-control mayuscula','maxlength'=>'7','autocomplete'=>'off','datatoggle'=>"tooltip",'title'=>"Agudeza Visual - Ojo Derecho"]) !!}
-    </div>
-    <div class="col-md-1 form-group">
-        {!! Form::label('avoi', 'AV. O.Izq:',['datatoggle'=>"tooltip",'title'=>"Agudeza Visual - Ojo Izquierdo"]) !!}
-        {!! Form::text('avoi', kvfj($detservicio->examedico->hallazgos, 'avoi'), ['class'=>'form-control mayuscula','maxlength'=>'7','autocomplete'=>'off','datatoggle'=>"tooltip",'title'=>"Agudeza Visual - Ojo Izquierdo"]) !!}
-    </div>
-    <div class="col-md-1 form-group">
-        {!! Form::label('ccod', 'CC. O.Der:',['datatoggle'=>"tooltip",'title'=>"Con Correctores - Ojo Derecho"]) !!}
-        {!! Form::text('ccod', kvfj($detservicio->examedico->hallazgos, 'ccod'), ['class'=>'form-control mayuscula','maxlength'=>'7','autocomplete'=>'off','datatoggle'=>"tooltip",'title'=>"Con Correctores - Ojo Derecho"]) !!}
-    </div>
-    <div class="col-md-1 form-group">
-        {!! Form::label('ccoi', 'CC. O.Izq:',['datatoggle'=>"tooltip",'title'=>"Con Correctores - Ojo Izquierdo"]) !!}
-        {!! Form::text('ccoi', kvfj($detservicio->examedico->hallazgos, 'ccoi'), ['class'=>'form-control mayuscula','maxlength'=>'7','autocomplete'=>'off','datatoggle'=>"tooltip",'title'=>"Con Correctores - Ojo Izquierdo"]) !!}
-    </div>
-    <div class="col-md-1 form-group">
-        {!! Form::label('fojo', 'Fondo Ojo:',['datatoggle'=>"tooltip",'title'=>"Fondo Ojo"]) !!}
-        {!! Form::text('fojo', kvfj($detservicio->examedico->hallazgos, 'fojo'), ['class'=>'form-control mayuscula','maxlength'=>'7','autocomplete'=>'off','datatoggle'=>"tooltip",'title'=>"Fondo Ojo"]) !!}
-    </div>
-    <div class="col-md-1 form-group">
-        {!! Form::label('vcolores', 'V.Colores:',['datatoggle'=>"tooltip",'title'=>"Visión de Colores"]) !!}
-        {!! Form::text('vcolores', kvfj($detservicio->examedico->hallazgos, 'vcolores'), ['class'=>'form-control mayuscula','maxlength'=>'7','autocomplete'=>'off','datatoggle'=>"tooltip",'title'=>"Visión de Colores"]) !!}
-    </div>
-    <div class="col-md-2 form-group">
-        {!! Form::label('vprofundidad', 'Visión Profundidad:',['datatoggle'=>"tooltip",'title'=>"Visión Profundidad"]) !!}
-        {!! Form::text('vprofundidad', kvfj($detservicio->examedico->hallazgos, 'vprofundidad'), ['class'=>'form-control mayuscula','maxlength'=>'7','autocomplete'=>'off','datatoggle'=>"tooltip",'title'=>"Visión Profundidad"]) !!}
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-6 form-group">
-        {!! Form::label('oidos', 'Oidos:') !!}
-        {!! Form::text('oidos', kvfj($detservicio->examedico->hallazgos, 'oidos'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
-    </div>
-    <div class="col-md-6 form-group">
-        {!! Form::label('nariz', 'Nariz:') !!}
-        {!! Form::text('nariz', kvfj($detservicio->examedico->hallazgos, 'nariz'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-6 form-group">
-        {!! Form::label('boca', 'Boca:') !!}
-        {!! Form::text('boca', kvfj($detservicio->examedico->hallazgos, 'boca'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
-    </div>
-    <div class="col-md-6 form-group">
-        {!! Form::label('faringe', 'Faringe:') !!}
-        {!! Form::text('faringe', kvfj($detservicio->examedico->hallazgos, 'faringe'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+        {!! Form::label('cabeza', 'Cabeza:') !!}
+        {!! Form::text('cabeza', kvfj($detservicio->examedico->hallazgos, 'cabeza'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
     </div>
 </div>
 <div class="row">
@@ -181,57 +127,195 @@
         {!! Form::text('cuello', kvfj($detservicio->examedico->hallazgos, 'cuello'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
     </div>
     <div class="col-md-6 form-group">
+        {!! Form::label('nariz', 'Nariz:') !!}
+        {!! Form::text('nariz', kvfj($detservicio->examedico->hallazgos, 'nariz'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 form-group">
+        {!! Form::label('boca', 'Boca, Amígdalas, Faringe, Laringe:') !!}
+        {!! Form::text('boca', kvfj($detservicio->examedico->hallazgos, 'boca'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+    </div>
+    <div class="col-md-3 form-group">
+        {!! Form::label('piezaeme', 'Piezas en mal Estado:') !!}
+        {!! Form::text('piezaeme', kvfj($detservicio->examedico->hallazgos, 'piezaeme'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+    </div>
+    <div class="col-md-3 form-group">
+        {!! Form::label('piezaf', 'Piezas que Faltan:') !!}
+        {!! Form::text('piezaf', kvfj($detservicio->examedico->hallazgos, 'piezaf'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        {!! Form::label('ojos', 'Ojos y Anexos:') !!}
+    </div>
+</div>
+<div class="row cuadro_ojos">
+    <div class="col-md-7">
+        <table class="table table-condensed table-bordered">
+            <thead>
+                <tr>
+                    <th rowspan="2" width="10%" class="align-middle text-center">OJOS</th>
+                    <th colspan="2" width="15%" class="align-middle text-center">SIN CORREGIR</th>
+                    <th colspan="2" width="15%" class="align-middle text-center">CORREGIDA</th>
+                </tr>
+                <tr>
+                    <th width="7.5%" class="align-middle text-center">OD</th>
+                    <th width="7.5%" class="align-middle text-center">OI</th>
+                    <th width="7.5%" class="align-middle text-center">OD</th>
+                    <th width="7.5%" class="align-middle text-center">OI</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="align-middle">VISIÓN DE CERCA</td>
+                    <td>
+                        {!! Form::text('vc_sc_od', $detservicio->exaoftalmo->vc_sc_od, ['class'=>'form-control mayuscula','maxlength'=>'10','autocomplete'=>'off']) !!}
+                    </td>
+                    <td>
+                        {!! Form::text('vc_sc_oi', $detservicio->exaoftalmo->vc_sc_oi, ['class'=>'form-control mayuscula','maxlength'=>'10','autocomplete'=>'off']) !!}
+                    </td>
+                    <td>
+                        {!! Form::text('vc_cc_od', $detservicio->exaoftalmo->vc_cc_od, ['class'=>'form-control mayuscula','maxlength'=>'10','autocomplete'=>'off']) !!}
+                    </td>
+                    <td>
+                        {!! Form::text('vc_cc_oi', $detservicio->exaoftalmo->vc_cc_oi, ['class'=>'form-control mayuscula','maxlength'=>'10','autocomplete'=>'off']) !!}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">VISIÓN DE LEJOS</td>
+                    <td>
+                        {!! Form::text('vl_sc_od', $detservicio->exaoftalmo->vl_sc_od, ['class'=>'form-control mayuscula','maxlength'=>'10','autocomplete'=>'off']) !!}
+                    </td>
+                    <td>
+                        {!! Form::text('vl_sc_oi', $detservicio->exaoftalmo->vl_sc_oi, ['class'=>'form-control mayuscula','maxlength'=>'10','autocomplete'=>'off']) !!}
+                    </td>
+                    <td>
+                        {!! Form::text('vl_cc_od', $detservicio->exaoftalmo->vl_cc_od, ['class'=>'form-control mayuscula','maxlength'=>'10','autocomplete'=>'off']) !!}
+                    </td>
+                    <td>
+                        {!! Form::text('vl_cc_oi', $detservicio->exaoftalmo->vl_cc_oi, ['class'=>'form-control mayuscula','maxlength'=>'10','autocomplete'=>'off']) !!}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-5">
+        <div class="row">
+            <div class="col-md-12">
+                {!! Form::label('oj_enfocu', 'Enfermedades Oculares:') !!}
+                {!! Form::text('oj_enfocu', kvfj($detservicio->examedico->hallazgos, 'oj_enfocu'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {!! Form::label('oj_refpup', 'Reflejos Pupilares:') !!}
+                {!! Form::text('oj_refpup', kvfj($detservicio->examedico->hallazgos, 'oj_refpup'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {!! Form::label('oj_vcol', 'Visión de Colores:') !!}
+                {!! Form::text('oj_vcol', kvfj($detservicio->examedico->hallazgos, 'oj_vcol'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {!! Form::label('oj_vprof', 'Visión de Profundidad:') !!}
+                {!! Form::text('oj_vprof', kvfj($detservicio->examedico->hallazgos, 'oj_vprof'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-md-3 form-group">
+        {!! Form::label('oidoder', 'Oido Derecho:') !!}
+        {!! Form::text('oidoder', $detservicio->exaaudio->oidoder, ['class'=>'form-control mayuscula','maxlength'=>'100','autocomplete'=>'off']) !!}
+    </div>
+    <div class="col-md-3 form-group">
+        {!! Form::label('oidoizq', 'Oido Izquierdo:') !!}
+        {!! Form::text('oidoizq', $detservicio->exaaudio->oidoizq, ['class'=>'form-control mayuscula','maxlength'=>'100','autocomplete'=>'off']) !!}
+    </div>
+    <div class="col-md-6 form-group">
         {!! Form::label('aprespira', 'Aparato Respiratorio:') !!}
         {!! Form::text('aprespira', kvfj($detservicio->examedico->hallazgos, 'aprespira'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
     </div>
 </div>
 <div class="row">
-    <div class="col-md-6 form-group">
+    <div class="col-md-4 form-group">
         {!! Form::label('apcardio', 'Aparato Cardiovascular:') !!}
         {!! Form::text('apcardio', kvfj($detservicio->examedico->hallazgos, 'apcardio'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
     </div>
-    <div class="col-md-6 form-group">
+    <div class="col-md-4 form-group">
         {!! Form::label('apdiges', 'Aparato Digestivo:') !!}
         {!! Form::text('apdiges', kvfj($detservicio->examedico->hallazgos, 'apdiges'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
     </div>
-</div>
-<div class="row">
-    <div class="col-md-6 form-group">
-        {!! Form::label('apgenit', 'Aparato Genitourinario:') !!}
-        {!! Form::text('apgenit', kvfj($detservicio->examedico->hallazgos, 'apgenit'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
-    </div>
-    <div class="col-md-6 form-group">
+    <div class="col-md-4 form-group">
         {!! Form::label('aploco', 'Aparato Locomotor:') !!}
         {!! Form::text('aploco', kvfj($detservicio->examedico->hallazgos, 'aploco'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
     </div>
 </div>
 <div class="row">
-    <div class="col-md-6 form-group">
+    <div class="col-md-4 form-group">
+        {!! Form::label('apgenit', 'Aparato Genitourinario:') !!}
+        {!! Form::text('apgenit', kvfj($detservicio->examedico->hallazgos, 'apgenit'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+    </div>
+    <div class="col-md-4 form-group">
+        {!! Form::label('anillingui', 'Anillos Inguinales:') !!}
+        {!! Form::text('anillingui', kvfj($detservicio->examedico->hallazgos, 'anillingui'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+    </div>
+    <div class="col-md-4 form-group">
+        {!! Form::label("tactorectal", 'Tacto Rectal:') !!}
+        {!! Form::select("tactorectal",[1=>'NO SE HIZO',2=>'NORMAL','3'=>'ANORMAL'],kvfj($detservicio->examedico->hallazgos, 'tactorectal'),['class'=>'custom-select']) !!}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4 form-group">
         {!! Form::label('marcha', 'Marcha:') !!}
         {!! Form::text('marcha', kvfj($detservicio->examedico->hallazgos, 'marcha'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
     </div>
-    <div class="col-md-6 form-group">
-        {!! Form::label('columna', 'Columna:') !!}
+    <div class="col-md-4 form-group">
+        {!! Form::label('columna', 'Columna Vertebral:') !!}
         {!! Form::text('columna', kvfj($detservicio->examedico->hallazgos, 'columna'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+    </div>
+    <div class="col-md-4 form-group">
+        {!! Form::label('refleosteo', 'Reflejos Osteo-Tendinosos:') !!}
+        {!! Form::text('refleosteo', kvfj($detservicio->examedico->hallazgos, 'refleosteo'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
     </div>
 </div>
 <div class="row">
-    <div class="col-md-6 form-group">
+    <div class="col-md-4 form-group">
         {!! Form::label('miesup', 'Miembros Superiores:') !!}
         {!! Form::text('miesup', kvfj($detservicio->examedico->hallazgos, 'miesup'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
     </div>
-    <div class="col-md-6 form-group">
+    <div class="col-md-4 form-group">
         {!! Form::label('mieinf', 'Miembros Inferiores:') !!}
         {!! Form::text('mieinf', kvfj($detservicio->examedico->hallazgos, 'mieinf'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
     </div>
-</div>
-<div class="row">
-    <div class="col-md-6 form-group">
-        {!! Form::label('sislinf', 'Sistema Linfático:') !!}
-        {!! Form::text('sislinf', kvfj($detservicio->examedico->hallazgos, 'sislinf'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
-    </div>
-    <div class="col-md-6 form-group">
+    <div class="col-md-4 form-group">
         {!! Form::label('sisnerv', 'Sistema Nervioso:') !!}
         {!! Form::text('sisnerv', kvfj($detservicio->examedico->hallazgos, 'sisnerv'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
     </div>
+</div>
+<div class="row">
+    <div class="col-md-4 form-group">
+        {!! Form::label('sislinf', 'Sistema Linfático:') !!}
+        {!! Form::text('sislinf', kvfj($detservicio->examedico->hallazgos, 'sislinf'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+    </div>
+    <div class="col-md-4 form-group">
+        {!! Form::label('hernia', 'Hernias:') !!}
+        {!! Form::text('hernia', kvfj($detservicio->examedico->hallazgos, 'hernia'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+    </div>
+    <div class="col-md-4 form-group">
+        {!! Form::label('varice', 'Varices:') !!}
+        {!! Form::text('varice', kvfj($detservicio->examedico->hallazgos, 'varice'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+    </div>    
+</div>
+<div class="row">
+    <div class="col-md-12 form-group">
+        {!! Form::label('lenguaje', 'LENGUAJE, ATENCIÓN, MEMORIA, ORIENTACIÓN, INTELIGENCIA, AFECTIVIDAD:') !!}
+        {!! Form::text('lenguaje', kvfj($detservicio->examedico->hallazgos, 'lenguaje'), ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+    </div>  
 </div>

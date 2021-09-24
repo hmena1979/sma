@@ -16,6 +16,7 @@ class CreateExamensTable extends Migration
         Schema::create('examens', function (Blueprint $table) {
             $table->id();
             $table->string('nombre',50);
+            $table->unsignedTinyInteger('tipo')->default(1);
             $table->decimal('precio',10,2)->nullable();
             $table->timestamps();
         });

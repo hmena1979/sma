@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cie10;
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 
 Use App\Models\Param;
@@ -98,6 +100,42 @@ class BusquedaController extends Controller
         }
     }
 
+    public function busapicli(Request $request, $tipo, $numero, $id = 0)
+    {
+        if($request->ajax()){
+            $parametro = Param::findOrFail(1);
+            $token = $parametro->apitoken;
+            $context = stream_context_create(array(
+                'http' => array('ignore_errors' => true),
+            ));
+            if($id == 0){
+                if(
+                    Cliente::where('numdoc', $numero)->count() > 0){
+                    return 'REPETIDO';
+                }
+            }
+            else{
+                if(Cliente::where('id','<>',$id)->where('numdoc', $numero)->count() > 0){
+                    return 'REPETIDO';
+                }
+            }
+            if($tipo=='1'){
+                $api = file_get_contents('https://dniruc.apisperu.com/api/v1/dni/'.$numero.'?token='.$token,false,$context);
+    
+            }else{
+                $api = file_get_contents('https://dniruc.apisperu.com/api/v1/ruc/'.$numero.'?token='.$token,false,$context);
+            }
+            if($api == false){
+                return 0;
+            }else{
+                $api = str_replace('&Ntilde;','Ñ',$api);
+                $api = json_decode($api);
+                return response()->json($api);
+                //return $api;
+            }
+        }
+    }
+
     public function colaborador(Request $request)
     {
         if($request->ajax()){
@@ -116,6 +154,31 @@ class BusquedaController extends Controller
                 $respuesta[] = [
                     'id' => $colaborador->id,
                     'text' => $colaborador->numdoc.'-'.$colaborador->nombres,
+                ];            
+            }
+            return $respuesta;
+        }
+    }
+
+    public function cie10(Request $request)
+    {
+        if($request->ajax()){
+            $term = trim($request->q);
+            if (empty($term)) {
+                return response()->json([]);
+            }
+            $cie10s = Cie10::select('codigo','nombre')
+                ->where('codigo','like','%'.$term.'%')
+                ->orWhere('nombre','like','%'.$term.'%')
+                ->limit(15)
+                ->orderBy('nombre')
+                ->get();
+
+            $respuesta = array();
+            foreach($cie10s as $cie10){
+                $respuesta[] = [
+                    'id' => $cie10->codigo,
+                    'text' => $cie10->codigo.'-'.$cie10->nombre,
                 ];            
             }
             return $respuesta;

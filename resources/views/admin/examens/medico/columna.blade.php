@@ -27,7 +27,7 @@
                         {!! Form::label('cveacervical', 'Disminuida',['class' =>'form-check-label']) !!}
                     </td>
                     <td class="" width="62%">
-                        {!! Form::text('cveacervicaldes', kvfj($detservicio->examedico->cvejeantero, 'cveacervicaldes'), ['class'=>'form-control mayuscula']) !!}
+                        {!! Form::text('cveacervicaldes', empty(kvfj($detservicio->examedico->cvejeantero, 'cveacervicaldes'))?'X':kvfj($detservicio->examedico->cvejeantero, 'cveacervicaldes'), ['class'=>'form-control mayuscula']) !!}
                     </td>
                 </tr>
             </tbody>
@@ -53,7 +53,7 @@
                         {!! Form::label('cveadorsal', 'Disminuida',['class' =>'form-check-label']) !!}
                     </td>
                     <td class="" width="62%">
-                        {!! Form::text('cveadorsaldes', kvfj($detservicio->examedico->cvejeantero, 'cveadorsaldes'), ['class'=>'form-control mayuscula']) !!}
+                        {!! Form::text('cveadorsaldes', empty(kvfj($detservicio->examedico->cvejeantero, 'cveadorsaldes'))?'X':kvfj($detservicio->examedico->cvejeantero, 'cveadorsaldes'), ['class'=>'form-control mayuscula']) !!}
                     </td>
                 </tr>
             </tbody>
@@ -79,7 +79,7 @@
                         {!! Form::label('cvealumbar', 'Disminuida',['class' =>'form-check-label']) !!}
                     </td>
                     <td class="" width="62%">
-                        {!! Form::text('cvealumbardes', kvfj($detservicio->examedico->cvejeantero, 'cvealumbardes'), ['class'=>'form-control mayuscula']) !!}
+                        {!! Form::text('cvealumbardes', empty(kvfj($detservicio->examedico->cvejeantero, 'cvealumbardes'))?'X':kvfj($detservicio->examedico->cvejeantero, 'cvealumbardes'), ['class'=>'form-control mayuscula']) !!}
                     </td>
                 </tr>
             </tbody>
@@ -110,7 +110,7 @@
                         {!! Form::label('cveldorsal', 'Concavidad Izquierda',['class' =>'form-check-label']) !!}
                     </td>
                     <td class="" width="48%">
-                        {!! Form::text('cveldorsaldes', kvfj($detservicio->examedico->cvejelateral, 'cveldorsaldes'), ['class'=>'form-control mayuscula']) !!}
+                        {!! Form::text('cveldorsaldes', empty(kvfj($detservicio->examedico->cvejelateral, 'cveldorsaldes'))?'X':kvfj($detservicio->examedico->cvejelateral, 'cveldorsaldes'), ['class'=>'form-control mayuscula']) !!}
                     </td>
                 </tr>
             </tbody>
@@ -136,7 +136,7 @@
                         {!! Form::label('cvellumbar', 'Concavidad Izquierda',['class' =>'form-check-label']) !!}
                     </td>
                     <td class="" width="48%">
-                        {!! Form::text('cvellumbardes', kvfj($detservicio->examedico->cvejelateral, 'cvellumbardes'), ['class'=>'form-control mayuscula']) !!}
+                        {!! Form::text('cvellumbardes', empty(kvfj($detservicio->examedico->cvejelateral, 'cvellumbardes'))?'X':kvfj($detservicio->examedico->cvejelateral, 'cvellumbardes'), ['class'=>'form-control mayuscula']) !!}
                     </td>
                 </tr>
             </tbody>

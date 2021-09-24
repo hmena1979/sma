@@ -13,6 +13,14 @@ use App\Imports\DepartamentoImport;
 use App\Imports\ProvinciaImport;
 use App\Imports\UbigeoImport;
 use App\Imports\ExamenImport;
+use App\Imports\PruebaImport;
+use App\Imports\ObshemogImport;
+use App\Imports\OtrhemogImport;
+use App\Imports\CatorinaImport;
+use App\Imports\CatheceImport;
+use App\Imports\Cie10Import;
+use App\Imports\DetreporteImport;
+use App\Imports\ReporteImport;
 
 class ImportController extends Controller
 {
@@ -147,4 +155,198 @@ class ImportController extends Controller
     		return redirect('/admin/import')->with('message', 'Archivo importado')->with('typealert', 'success');
     	endif;
     }
+
+    public function prueba(Request $request)
+    {
+    	$rules = [
+			'archivo' => 'required'
+    	];
+    	$messages = [
+			'archivo.required' => 'No ha selecionado archivo Prueba.xlsx'
+    	];
+
+    	$validator = validator::make($request->all(), $rules, $messages);
+    	if($validator->fails()):
+    		return back()->withErrors($validator)->with('message', 'Se ha producido un error')->with('typealert', 'danger')->withinput();
+		else:
+    		$file = $request->file('archivo');
+    		Excel::import(new PruebaImport, $file);
+
+    		return redirect('/admin/import')->with('message', 'Archivo importado')->with('typealert', 'success');
+    	endif;
+    }
+
+    public function obshemog(Request $request)
+    {
+    	$rules = [
+			'archivo' => 'required'
+    	];
+    	$messages = [
+			'archivo.required' => 'No ha selecionado archivo Obshemog.xlsx'
+    	];
+
+    	$validator = validator::make($request->all(), $rules, $messages);
+    	if($validator->fails()):
+    		return back()->withErrors($validator)->with('message', 'Se ha producido un error')->with('typealert', 'danger')->withinput();
+		else:
+    		$file = $request->file('archivo');
+    		Excel::import(new ObshemogImport, $file);
+
+    		return redirect('/admin/import')->with('message', 'Archivo importado')->with('typealert', 'success');
+    	endif;
+    }
+
+    public function otrhemog(Request $request)
+    {
+    	$rules = [
+			'archivo' => 'required'
+    	];
+    	$messages = [
+			'archivo.required' => 'No ha selecionado archivo Otrhemog.xlsx'
+    	];
+
+    	$validator = validator::make($request->all(), $rules, $messages);
+    	if($validator->fails()):
+    		return back()->withErrors($validator)->with('message', 'Se ha producido un error')->with('typealert', 'danger')->withinput();
+		else:
+    		$file = $request->file('archivo');
+    		Excel::import(new OtrhemogImport, $file);
+
+    		return redirect('/admin/import')->with('message', 'Archivo importado')->with('typealert', 'success');
+    	endif;
+    }
+
+    public function catorina(Request $request)
+    {
+    	$rules = [
+			'archivo' => 'required'
+    	];
+    	$messages = [
+			'archivo.required' => 'No ha selecionado archivo Catorina.xlsx'
+    	];
+
+    	$validator = validator::make($request->all(), $rules, $messages);
+    	if($validator->fails()):
+    		return back()->withErrors($validator)->with('message', 'Se ha producido un error')->with('typealert', 'danger')->withinput();
+		else:
+    		$file = $request->file('archivo');
+    		Excel::import(new CatorinaImport, $file);
+
+    		return redirect('/admin/import')->with('message', 'Archivo importado')->with('typealert', 'success');
+    	endif;
+    }
+
+    public function cathece(Request $request)
+    {
+    	$rules = [
+			'archivo' => 'required'
+    	];
+    	$messages = [
+			'archivo.required' => 'No ha selecionado archivo Cathece.xlsx'
+    	];
+
+    	$validator = validator::make($request->all(), $rules, $messages);
+    	if($validator->fails()):
+    		return back()->withErrors($validator)->with('message', 'Se ha producido un error')->with('typealert', 'danger')->withinput();
+		else:
+    		$file = $request->file('archivo');
+    		Excel::import(new CatheceImport, $file);
+
+    		return redirect('/admin/import')->with('message', 'Archivo importado')->with('typealert', 'success');
+    	endif;
+    }
+
+    public function cie10(Request $request)
+    {
+    	$rules = [
+			'archivo' => 'required'
+    	];
+    	$messages = [
+			'archivo.required' => 'No ha selecionado archivos Cie10.xlsx'
+    	];
+
+    	$validator = validator::make($request->all(), $rules, $messages);
+    	if($validator->fails()):
+    		return back()->withErrors($validator)->with('message', 'Se ha producido un error')->with('typealert', 'danger')->withinput();
+		else:
+    		$file = $request->file('archivo');
+    		Excel::import(new Cie10Import, $file);
+
+    		return redirect('/admin/import')->with('message', 'Archivo importado')->with('typealert', 'success');
+    	endif;
+    }
+
+    public function reporte(Request $request)
+    {
+    	$rules = [
+			'archivo' => 'required'
+    	];
+    	$messages = [
+			'archivo.required' => 'No ha selecionado archivos Reporte.xlsx'
+    	];
+
+    	$validator = validator::make($request->all(), $rules, $messages);
+    	if($validator->fails()):
+    		return back()->withErrors($validator)->with('message', 'Se ha producido un error')->with('typealert', 'danger')->withinput();
+		else:
+    		$file = $request->file('archivo');
+    		Excel::import(new ReporteImport, $file);
+
+    		return redirect('/admin/import')->with('message', 'Archivo importado')->with('typealert', 'success');
+    	endif;
+    }
+
+    public function detreporte(Request $request)
+    {
+    	$rules = [
+			'archivo' => 'required'
+    	];
+    	$messages = [
+			'archivo.required' => 'No ha selecionado archivos DetReporte.xlsx'
+    	];
+
+    	$validator = validator::make($request->all(), $rules, $messages);
+    	if($validator->fails()):
+    		return back()->withErrors($validator)->with('message', 'Se ha producido un error')->with('typealert', 'danger')->withinput();
+		else:
+    		$file = $request->file('archivo');
+    		Excel::import(new DetreporteImport, $file);
+
+    		return redirect('/admin/import')->with('message', 'Archivo importado')->with('typealert', 'success');
+    	endif;
+    }
+
+    public function dni(Request $request)
+    {
+    	// Datos
+		$token = 'apis-token-772.ThFC49Fimrb-a6fsvsWFzNCe8qKe5VyW';
+		$dni = '80486916';
+
+		// Iniciar llamada a API
+		$curl = curl_init();
+
+		// Buscar dni
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => 'https://api.apis.net.pe/v1/dni?numero=' . $dni,
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => '',
+		CURLOPT_MAXREDIRS => 2,
+		CURLOPT_TIMEOUT => 0,
+		CURLOPT_FOLLOWLOCATION => true,
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => 'GET',
+		CURLOPT_HTTPHEADER => array(
+			'Referer: https://apis.net.pe/consulta-dni-api',
+			'Authorization: Bearer ' . $token
+		),
+		));
+
+		$response = curl_exec($curl);
+
+		curl_close($curl);
+		// Datos listos para usar
+		$persona = json_decode($response);
+		// var_dump($persona);
+		return $persona;
+	}
 }

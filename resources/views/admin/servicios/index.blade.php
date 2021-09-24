@@ -53,9 +53,9 @@
 							<thead>
 								<tr>
 									<th width="10%">Fecha</th>
-									<th width="10%">Evaluación</th>
+									<th width="15%">Evaluación</th>
 									<th width="35%">Cliente</th>
-									<th width="35%">Ubicación</th>
+									<th width="30%">Ubicación</th>
 									<th width="10%"></th>
 								</tr>
 							</thead>
@@ -74,7 +74,7 @@
 											@endcan
 											<a class="" href="{{ route('admin.servicios.addcolaborador',$servicio) }}"datatoggle="tooltip" data-placement="top" title="Asignar Colaboradores"><i class="far fa-user"></i></a>
 											@can('admin.servicios.destroy')
-											<form action="{{ route('admin.servicios.destroy',$servicio) }}" method="POST" class="formulario_eliminar">
+											<form action="{{ route('admin.servicios.destroy',$servicio) }}" method="POST" class="formulario_eliminars">
 												@csrf
 												@method('delete')
 												<button type="submit" datatoggle="tooltip" data-placement="top" title="Eliminar">

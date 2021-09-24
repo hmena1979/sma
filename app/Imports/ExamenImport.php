@@ -19,7 +19,8 @@ class ExamenImport implements ToModel
         }
 
         return new Examen([
-            'nombre' => $row[1]
+            'nombre' => $row[1],
+            'tipo' => $row[2],
         ]);
     }
 }

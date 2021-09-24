@@ -18,4 +18,9 @@ class Examedico extends Model
     public function detservicio(){
         return $this->belongsTo('App\Models\Detservicio');
     }
+
+    public function resultad()
+    {
+        return $this->hasOne('App\Models\Categoria', 'codigo', 'resultado')->whereIn('modulo',['7']);
+    }
 }

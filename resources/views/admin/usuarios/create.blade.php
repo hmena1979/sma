@@ -16,13 +16,12 @@
 						{!! Form::open(['route'=>'admin.usuarios.store']) !!}
 						<div class="row">
 							<div class="col-md-2 form-group">
-								<label for="activo">Activo:</label>
 								{!! Form::label('activo', 'Activo') !!}
 								{!! Form::select('activo',['1'=>'Si','2'=>'No'],1,['class'=>'custom-select']) !!}	
 							</div>
 							<div class="col-md-10 form-group">
 								{!! Form::label('name', 'Nombre') !!}
-								{!! Form::text('name', '', ['class'=>'form-control','autocomplete'=>'off']) !!}
+								{!! Form::text('name', '', ['class'=>'form-control mayuscula','autocomplete'=>'off']) !!}
 							</div>
 						</div>
 						<div class="row">
@@ -30,13 +29,17 @@
 								{!! Form::label('email', 'e-mail') !!}
 								{!! Form::text('email', null, ['class'=>'form-control','autocomplete'=>'off']) !!}
 							</div>
-							<div class="col-md-4 form-group">
+							<div class="col-md-3 form-group">
 								{!! Form::label('password', 'Contraseña') !!}
-								{!! Form::password('password', ['class'=>'form-control']) !!}
+								{!! Form::password('password', ['class'=>'form-control','autocomplete'=>'off']) !!}
 							</div>
-							<div class="col-md-4 form-group">
+							<div class="col-md-3 form-group">
 								{!! Form::label('cpassword', 'Confirmar Contraseña') !!}
-								{!! Form::password('cpassword', ['class'=>'form-control']) !!}
+								{!! Form::password('cpassword', ['class'=>'form-control','autocomplete'=>'off']) !!}
+							</div>
+							<div class="col-md-2 form-group">
+								{!! Form::label('sede', 'Sede') !!}
+								{!! Form::select('sede',$sede,1,['class'=>'custom-select']) !!}	
 							</div>
 						</div>
 						{{-- <div class="row mtop16">

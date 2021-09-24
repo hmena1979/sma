@@ -305,7 +305,7 @@
 <div class="row">
     <div class="col-md-4">
         <table class="table table-condensed table-bordered table-sm">
-                <tbody>
+            <tbody>
                 <tr>
                     <th colspan="2">Test del Brazo Caído</th>
                 </tr>
@@ -344,10 +344,10 @@
                     <td width="20%">Der.</td>
                     <td width="80%">
                         <div class="text-center">
-                            {!! Form::radio('Finkelsteind',1,kvfjsn($detservicio->examedico->eftemmss, 'Finkelsteind')==1?'checked':'',['class'=>'form-check-input']) !!}
-                            {!! Form::label('Finkelsteind', 'Positivo',['class' =>'form-check-label mr-5']) !!}
-                            {!! Form::radio('Finkelsteind',2,kvfjsn($detservicio->examedico->eftemmss, 'Finkelsteind')==2?'checked':'',['class'=>'form-check-input']) !!}
-                            {!! Form::label('Finkelsteind', 'Negativo',['class' =>'form-check-label']) !!}
+                            {!! Form::radio('finkelsteind',1,kvfjsn($detservicio->examedico->eftemmss, 'finkelsteind')==1?'checked':'',['class'=>'form-check-input']) !!}
+                            {!! Form::label('finkelsteind', 'Positivo',['class' =>'form-check-label mr-5']) !!}
+                            {!! Form::radio('finkelsteind',2,kvfjsn($detservicio->examedico->eftemmss, 'finkelsteind')==2?'checked':'',['class'=>'form-check-input']) !!}
+                            {!! Form::label('finkelsteind', 'Negativo',['class' =>'form-check-label']) !!}
                         </div>
                     </td>
                 </tr>
@@ -355,10 +355,10 @@
                     <td>Izq.</td>
                     <td>
                         <div class="text-center">
-                            {!! Form::radio('Finkelsteini',1,kvfjsn($detservicio->examedico->eftemmss, 'Finkelsteini')==1?'checked':'',['class'=>'form-check-input']) !!}
-                            {!! Form::label('Finkelsteini', 'Positivo',['class' =>'form-check-label mr-5']) !!}
-                            {!! Form::radio('Finkelsteini',2,kvfjsn($detservicio->examedico->eftemmss, 'Finkelsteini')==2?'checked':'',['class'=>'form-check-input']) !!}
-                            {!! Form::label('Finkelsteini', 'Negativo',['class' =>'form-check-label']) !!}
+                            {!! Form::radio('finkelsteini',1,kvfjsn($detservicio->examedico->eftemmss, 'finkelsteini')==1?'checked':'',['class'=>'form-check-input']) !!}
+                            {!! Form::label('finkelsteini', 'Positivo',['class' =>'form-check-label mr-5']) !!}
+                            {!! Form::radio('finkelsteini',2,kvfjsn($detservicio->examedico->eftemmss, 'finkelsteini')==2?'checked':'',['class'=>'form-check-input']) !!}
+                            {!! Form::label('finkelsteini', 'Negativo',['class' =>'form-check-label']) !!}
                         </div>
                     </td>
                 </tr>
@@ -401,7 +401,7 @@
     <div class="col-md-7">
         <div class="row">
             <div class="col-md-2 mt-1"><strong>Observaciones</strong></div>
-            <div class="col-md-10">{!! Form::text('efmmiiobs', kvfj($detservicio->examedico->efsimetria, 'efmmssobs'), ['class'=>'form-control mayuscula']) !!}</div>
+            <div class="col-md-10">{!! Form::text('efmmiiobs', kvfj($detservicio->examedico->efsimetria, 'efmmiiobs'), ['class'=>'form-control mayuscula']) !!}</div>
         </div>
     </div>
 </div>

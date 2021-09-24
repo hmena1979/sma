@@ -252,15 +252,19 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="row">
-                                    <div class="col-md-4 form-group">
+                                    <div class="col-md-3 form-group">
                                         {!! Form::label("colantpatologicos[asma]", 'Asma:') !!}
                                         {!! Form::select("colantpatologicos[asma]",[1=>'SI',2=>'NO'],$colaborador->colantpatologico->asma,['class'=>'custom-select']) !!}
                                     </div>
-                                    <div class="col-md-4 form-group">
+                                    <div class="col-md-3 form-group">
+                                        {!! Form::label("colantpatologicos[hta]", 'HTA:') !!}
+                                        {!! Form::select("colantpatologicos[hta]",[1=>'SI',2=>'NO'],$colaborador->colantpatologico->its,['class'=>'custom-select']) !!}
+                                    </div>
+                                    <div class="col-md-3 form-group">
                                         {!! Form::label("colantpatologicos[its]", 'ITS:') !!}
                                         {!! Form::select("colantpatologicos[its]",[1=>'SI',2=>'NO'],$colaborador->colantpatologico->its,['class'=>'custom-select']) !!}
                                     </div>
-                                    <div class="col-md-4 form-group">
+                                    <div class="col-md-3 form-group">
                                         {!! Form::label("colantpatologicos[tifoidea]", 'Tifoidea:') !!}
                                         {!! Form::select("colantpatologicos[tifoidea]",[1=>'SI',2=>'NO'],$colaborador->colantpatologico->tifoidea,['class'=>'custom-select']) !!}
                                     </div>
@@ -322,13 +326,17 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6 form-group">
+                            <div class="col-md-4 form-group">
                                 {!! Form::label("colantpatologicos[antpersonal]", 'Antecedente Personal:') !!}
 								{!! Form::text('colantpatologicos[antpersonal]', $colaborador->colantpatologico->antpersonal, ['class'=>'form-control mayuscula','maxlength'=>'255','autocomplete'=>'off']) !!}
                             </div>
-                            <div class="col-md-6 form-group">
+                            <div class="col-md-4 form-group">
                                 {!! Form::label("colantpatologicos[antfamiliar]", 'Antecedente Familiar:') !!}
                                 {!! Form::text('colantpatologicos[antfamiliar]', $colaborador->colantpatologico->antfamiliar, ['class'=>'form-control mayuscula','maxlength'=>'255','autocomplete'=>'off']) !!}
+                            </div>
+                            <div class="col-md-4 form-group">
+                                {!! Form::label("colantpatologicos[inmunizaciones]", 'Inmunizaciones:') !!}
+                                {!! Form::text('colantpatologicos[inmunizaciones]', $colaborador->colantpatologico->inmunizaciones, ['class'=>'form-control mayuscula','maxlength'=>'255','autocomplete'=>'off']) !!}
                             </div>
                         </div>
                     </div>

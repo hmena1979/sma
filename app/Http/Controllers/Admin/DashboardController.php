@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\Param;
 use App\Models\Servicio;
+use App\Models\Sede;
 // Use App\Models\Empresa;
-// use App\Models\Sede;
 
 use Spatie\Permission\Models\Permission;
 
@@ -33,31 +33,52 @@ class DashboardController extends Controller
 		if($periodo == '000000'){
             $periodo = session('periodo');
         }
-
+		$finalizado = 2;
 		$servicios = Servicio::with('cliente:id,razsoc')
 			->join('detservicios','servicios.id','detservicios.servicio_id')
             ->join('colaboradors','detservicios.colaborador_id','colaboradors.id')
             ->select('detservicios.id','servicios.cliente_id','servicios.fecha','detservicios.colaborador_id','colaboradors.nombres')
+			->whereNull('detservicios.deleted_at')
             ->where('servicios.periodo', $periodo)
-            ->where('servicios.sede_id', Auth::user()->sede)
+            ->where('servicios.sede_id',session('sede'))
+			->where('detservicios.finalizado',2)
             ->orderBy('colaboradors.nombres')
             ->get();
 		// return $servicios;
 
 		// $servicios = Servicio::with('detservicios')->where('periodo',$periodo)->where('sede_id', Auth::user()->sede)->get();
-		return view('admin.dashboard',compact('periodo','servicios'));
+		return view('admin.dashboard',compact('periodo','servicios','finalizado'));
 		// return view('admin.dashboard');
     }
 
 	public function change(Request $request)
     {
         $periodo = $request->input('mes').$request->input('año');
-        // $servicios = Servicio::with(['cliente','eval'])
-        //     ->select('id','fecha','evaluacion','cliente_id','ubicacion','glosa')
-        //     ->where('periodo',$periodo)
-        //     ->where('sede_id',Auth::user()->sede)
-        //     ->get();
-        return view('admin.dashboard', compact('periodo'));
+		session(['periodo' => $periodo]);
+		$finalizado = $request->input('finalizado');
+		if($finalizado == 3){
+			$servicios = Servicio::with('cliente:id,razsoc')
+			->join('detservicios','servicios.id','detservicios.servicio_id')
+            ->join('colaboradors','detservicios.colaborador_id','colaboradors.id')
+            ->select('detservicios.id','servicios.cliente_id','servicios.fecha','detservicios.colaborador_id','colaboradors.nombres')
+			->whereNull('detservicios.deleted_at')
+            ->where('servicios.periodo', $periodo)
+            ->where('servicios.sede_id', session('sede'))
+            ->orderBy('colaboradors.nombres')
+            ->get();
+		}else{
+			$servicios = Servicio::with('cliente:id,razsoc')
+				->join('detservicios','servicios.id','detservicios.servicio_id')
+				->join('colaboradors','detservicios.colaborador_id','colaboradors.id')
+				->select('detservicios.id','servicios.cliente_id','servicios.fecha','detservicios.colaborador_id','colaboradors.nombres')
+				->whereNull('detservicios.deleted_at')
+				->where('servicios.periodo', $periodo)
+				->where('servicios.sede_id', session('sede'))
+				->where('detservicios.finalizado',$finalizado)
+				->orderBy('colaboradors.nombres')
+				->get();
+		}
+        return view('admin.dashboard', compact('periodo','servicios','finalizado'));
     }
 
     public function cargainicial(Request $request)
@@ -99,6 +120,14 @@ class DashboardController extends Controller
                     'email' => e($request->input('email')),
                     'direccion' => e($request->input('direccion')),
                 ]);
+				Sede::create([
+					'principal' => 1,
+					'nombre' => 'SEDE PRINCIPAL',
+					'telefono' => e($request->input('telefono')),
+                    'celular' => e($request->input('celular')),
+                    'email' => e($request->input('email')),
+                    'direccion' => e($request->input('direccion')),
+				]);
             }
             return redirect()->route('logoutg');
         }
@@ -117,15 +146,28 @@ class DashboardController extends Controller
 
 	public function permisosfaltantes()
 	{
-		$this->agregar_permiso('1','INICIO','admin.imports.index','Puede Importar Tablas iniciales');
+		// $this->agregar_permiso('1','INICIO','admin.imports.index','Puede Importar Tablas iniciales');
 
-		$this->agregar_permiso('6','CATEGORIAS','admin.categorias.index','Puede ver listado Categorías');
-		$this->agregar_permiso('6','CATEGORIAS','admin.categorias.create','Puede agregar Categorías');
-		$this->agregar_permiso('6','CATEGORIAS','admin.categorias.edit','Puede editar Categorías');
-		$this->agregar_permiso('6','CATEGORIAS','admin.categorias.destroy','Puede eliminar Categorías');
+		// $this->agregar_permiso('6','CATEGORIAS','admin.categorias.index','Puede ver listado Categorías');
+		// $this->agregar_permiso('6','CATEGORIAS','admin.categorias.create','Puede agregar Categorías');
+		// $this->agregar_permiso('6','CATEGORIAS','admin.categorias.edit','Puede editar Categorías');
+		// $this->agregar_permiso('6','CATEGORIAS','admin.categorias.destroy','Puede eliminar Categorías');
 		
-		// return redirect()->route('admin.inicio')->with('update', 'Permisos Agregados');
-
+		// $this->agregar_permiso('7','DOCTORES','admin.doctors.index','Puede ver listado Doctores');
+		// $this->agregar_permiso('7','DOCTORES','admin.doctors.create','Puede agregar Doctores');
+		// $this->agregar_permiso('7','DOCTORES','admin.doctors.edit','Puede editar Doctores');
+		// $this->agregar_permiso('7','DOCTORES','admin.doctors.destroy','Puede eliminar Doctores');
+		
+		// $this->agregar_permiso('8','CLIENTES','admin.clientes.index','Puede ver listado Clientes');
+		// $this->agregar_permiso('8','CLIENTES','admin.clientes.create','Puede agregar Clientes');
+		// $this->agregar_permiso('8','CLIENTES','admin.clientes.edit','Puede editar Clientes');
+		// $this->agregar_permiso('8','CLIENTES','admin.clientes.destroy','Puede eliminar Clientes');
+		
+		// $this->agregar_permiso('9','SEDES','admin.sedes.index','Puede ver listado Sedes');
+		// $this->agregar_permiso('9','SEDES','admin.sedes.create','Puede agregar Sedes');
+		// $this->agregar_permiso('9','SEDES','admin.sedes.edit','Puede editar Sedes');
+		// $this->agregar_permiso('9','SEDES','admin.sedes.destroy','Puede eliminar Sedes');
+		
 		return redirect()->route('admin.inicio')->with('message', 'Permisos Agregados')->with('typealert', 'success');
 	}
 }

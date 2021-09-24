@@ -40,6 +40,6 @@
     </div>
     <div class="col-md-4">
         {!! Form::label('doctor_id', 'DOCTOR:',['class' => 'colorprin']) !!}
-        {!! Form::select('doctor_id',[],null,['class'=>'custom-select']) !!}
+        {!! Form::select('doctor_id',$doctors,null,['class'=>'custom-select','placeholder' => 'Seleccione Doctor']) !!}
     </div>
 </div>

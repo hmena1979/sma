@@ -57,12 +57,12 @@
                                         {!! Form::select('area_id',$area,'1',['class'=>'custom-select']) !!}
                                     </div>
                                     <div class="col-md-4 form-group">
-                                        {!! Form::label('puesto_id', 'Ocupación:') !!}
+                                        {!! Form::label('puesto_id', 'Puesto al que Postula:') !!}
                                         {!! Form::select('puesto_id',$puesto,'1',['class'=>'custom-select']) !!}
                                     </div>
                                     <div class="col-md-4 form-group">
-                                        {!! Form::label('ocuactual', 'Ocupación Actual:') !!}
-                                        {!! Form::text('ocuactual', null, ['class'=>'form-control mayuscula','maxlength'=>'30']) !!}
+                                        {!! Form::label('ocuactual', 'Puesto Actual:') !!}
+                                        {!! Form::text('ocuactual', null, ['class'=>'form-control mayuscula','maxlength'=>'30','autocomplete'=>'off']) !!}
                                     </div>
                                 </div>
                                 

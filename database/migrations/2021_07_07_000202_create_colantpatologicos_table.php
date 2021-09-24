@@ -22,6 +22,7 @@ class CreateColantpatologicosTable extends Migration
             $table->unsignedTinyInteger('tbc')->default(2);//TBC	Character	20
             $table->unsignedTinyInteger('hepatitis')->default(2);//HEPATITISB	Character	20
             $table->unsignedTinyInteger('asma')->default(2);//ASMA	Character	20
+            $table->unsignedTinyInteger('hta')->default(2);//HTA	Character	20
             $table->unsignedTinyInteger('its')->default(2);//ITS	Character	20
             $table->unsignedTinyInteger('tifoidea')->default(2);//TIFOIDEA	Character	20
             $table->unsignedTinyInteger('bronquitis')->default(2);//BRONQUITIS	Character	20
@@ -37,6 +38,7 @@ class CreateColantpatologicosTable extends Migration
             $table->string('droga',50)->default('NIEGA');//DROGA_FREC	Character	20
             $table->string('antfamiliar')->default('NINGUNO');//ANT_FAM	Character	250
             $table->string('antpersonal')->default('NINGUNO');//ANT_PER	Character	250
+            $table->string('inmunizaciones')->default('NINGUNA');//ANT_PER	Character	250
 
             $table->softDeletes();
             $table->timestamps();

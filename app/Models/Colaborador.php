@@ -52,6 +52,10 @@ class Colaborador extends Model
         return $this->hasOne('App\Models\Ubigeo', 'codigo', 'ubigeo');
     }
 
+    public function sexo()
+    {
+        return $this->hasOne('App\Models\Categoria', 'codigo', 'sexo_id')->whereIn('modulo',['2']);
+    }
     public function estciv()
     {
         return $this->hasOne('App\Models\Categoria', 'codigo', 'estciv_id')->whereIn('modulo',['0','3']);
@@ -59,6 +63,10 @@ class Colaborador extends Model
     public function gradinst()
     {
         return $this->hasOne('App\Models\Categoria', 'codigo', 'gradinst_id')->whereIn('modulo',['0','4']);
+    }
+    public function tipdoc()
+    {
+        return $this->hasOne('App\Models\Categoria', 'codigo', 'tipdoc_id')->whereIn('modulo',['1']);
     }
 
     // Relacion uno a Muchos

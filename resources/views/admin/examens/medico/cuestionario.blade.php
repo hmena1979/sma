@@ -12,7 +12,6 @@
                     {!! Form::radio('manicarga',3,['class'=>'form-check-input']) !!}
                     {!! Form::label('manicarga', '> 50',['class' =>'form-check-label']) !!}
                 </div>
-        
             </div>
             <div class="col-md-5 form-group">
                 {!! Form::label('postura', 'Postura Habitual:') !!}
@@ -47,7 +46,6 @@
                 MMII
             </label>
         </div>
-        
     </div>
     <div class="col-md-2 form-group">
         {!! Form::label('pertiempo', 'Periodo Tiempo:') !!}

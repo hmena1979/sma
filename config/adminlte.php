@@ -239,6 +239,13 @@ return [
         //     'topnav_right' => true,
         // ],
         [
+            'text' => 'Sede',
+            'icon'    => 'fas fa-boxes',
+            'route' => 'admin.sedes.getchange',
+            'topnav' => true,
+            'can'  => 'admin.sedes.index',
+        ],
+        [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
         ],
@@ -279,6 +286,34 @@ return [
                     'active' => ['admin/categorias','admin/categorias/*','admin/categorias/create'
                                 ,'admin/categorias/*/edit'],
                     'can'  => 'admin.categorias.index',
+                ],
+                [
+                    'text' => 'Sedes',
+                    'icon'    => 'fas fa-boxes',
+                    'icon_color' => 'cyan',
+                    // 'url'  => 'admin/usuarios',
+                    'route'  => 'admin.sedes.index',
+                    'active' => ['admin/sedes/all','admin/sedes/create','admin/sedes/*/edit'],
+                    'can'  => 'admin.sedes.index',
+                ],
+                [
+                    'text' => 'Doctores',
+                    'icon'    => 'fas fa-user-md',
+                    'icon_color' => 'cyan',
+                    // 'url'  => 'admin/usuarios',
+                    'route'  => 'admin.doctors.index',
+                    'active' => ['admin/doctors/all','admin/doctors/1','admin/doctors/2','admin/doctors/create'
+                                ,'admin/doctors/*/edit'],
+                    'can'  => 'admin.doctors.index',
+                ],
+                [
+                    'text' => 'Clientes',
+                    'icon'    => 'fab fa-creative-commons-by',
+                    'icon_color' => 'cyan',
+                    // 'url'  => 'admin/usuarios',
+                    'route'  => 'admin.clientes.index',
+                    'active' => ['admin/clientes/all','admin/clientes/create','admin/clientes/*/edit'],
+                    'can'  => 'admin.clientes.index',
                 ],
                 [
                     'text' => 'Usuarios',

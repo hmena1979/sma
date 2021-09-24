@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Sede;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -65,11 +66,11 @@ class UsuarioController extends Controller
 
     public function create()
     {
-		// $doctores = Doctor::where('activo', 1)->pluck('nombre','id');
+		$sede = Sede::where('activo', 1)->pluck('nombre','id');
 		$data = [
-            'doctores'=>''
+            'sede'=>$sede
         ];
-        return view('admin.usuarios.create');
+        return view('admin.usuarios.create',$data);
     }
 
     public function store(Request $request)
@@ -99,6 +100,7 @@ class UsuarioController extends Controller
     		$user->email = e($request->input('email'));
 			$user->password = Hash::make($request->input('password'));
 			$user->activo = $request->input('activo');
+			$user->sede = $request->input('sede');
 
     		if($user->save()):
     			return redirect()->route('admin.usuarios.index')->with('store', 'Usuario Agregado');
@@ -109,6 +111,7 @@ class UsuarioController extends Controller
 
 	public function edit(User $user)
 	{
+		$sede = Sede::where('activo', 1)->pluck('nombre','id');
 		// $user = User::findOrFail($id);
 		// $doctores = Doctor::where('activo', 1)->pluck('nombre','id');
 		// $roles = Role::all();
@@ -117,11 +120,12 @@ class UsuarioController extends Controller
 		// 	'user' => $user,
 		// 	'doctores' => ''
 		// ];
-        return view('admin.usuarios.edit', compact('user'));
+        return view('admin.usuarios.edit', compact('user','sede'));
 	}
 
 	public function update(Request $request, User $user)
 	{
+		// return $request->all();
 		$rules = [
     		'name' => 'required',
     		'email' => 'required'
@@ -140,7 +144,12 @@ class UsuarioController extends Controller
     	if($validator->fails()){
 			return back()->withErrors($validator)->with('message', 'Se ha producido un error')->with('typealert', 'danger')->withinput();
 		}else{
-			$user->update($request->all());
+			$user->update([
+				'activo' => $request->input('activo'),
+				'name' => $request->input('name'),
+				'email' => $request->input('email'),
+				'sede' => $request->input('sede'),
+			]);
 			return redirect()->route('admin.usuarios.index')->with('update', 'Usuario Actualizado');
 		}
 	}

@@ -127,10 +127,19 @@
                 this.value = this.value.toUpperCase();
             });
 
+            $('.ekg').keypress(function(event){
+                var regex = new RegExp("^[0-9.+°-]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if(!regex.test(key)){
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
             
         });
         
-        $('.formulario_eliminar').submit(function(e){
+        $('.formulario_eliminars').submit(function(e){
             e.preventDefault();
             Swal.fire({
             title: 'Está Seguro de Eliminar el Registro?',

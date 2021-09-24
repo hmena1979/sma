@@ -4,11 +4,25 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Detservicio;
-use App\Models\Examedico;
 use App\Models\Categoria;
-
+use App\Models\Doctor;
+use App\Models\Examedico;
+use App\Models\Exaoftalmo;
+use App\Models\Exaaudio;
+use App\Models\Exaderma;
+use App\Models\Exaespiro;
+use App\Models\Exapsico;
+use App\Models\Exaconfinado;
+use App\Models\Exaalt18;
+use App\Models\Exaalt25;
+use App\Models\Exacovid;
+use App\Models\Exaekg;
+use App\Models\Exaodonto;
+use App\Models\Exaradio;
 
 class ExamenController extends Controller
 {
@@ -25,8 +39,9 @@ class ExamenController extends Controller
         $puesto = Categoria::where('modulo', 6)->orWhere('modulo', 0)->orderBy('nombre')->pluck('nombre','id');
         $grado = Categoria::where('modulo', 10)->pluck('nombre','codigo');
         $resultado = Categoria::where('modulo', 7)->orderBy('nombre')->pluck('nombre','codigo');
+        $doctors = Doctor::orderBy('nombre')->pluck('nombre','id');
         return view('admin.examens.examedico', compact(
-            'detservicio','area','puesto','grado','resultado'
+            'detservicio','area','puesto','grado','resultado','doctors'
         ));  
     }
 
@@ -34,31 +49,33 @@ class ExamenController extends Controller
     {
         $hallazgos = [
             'piel' => $request->input('piel'),
-            'cabello' => $request->input('cabello'),
-            'ojos' => $request->input('ojos'),
-            'avod' => $request->input('avod'),
-            'avoi' => $request->input('avoi'),
-            'ccod' => $request->input('ccod'),
-            'ccoi' => $request->input('ccoi'),
-            'fojo' => $request->input('fojo'),
-            'vcolores' => $request->input('vcolores'),
-            'vprofundidad' => $request->input('vprofundidad'),
-            'oidos' => $request->input('oidos'),
+            'cabeza' => $request->input('cabeza'),
+            'cuello' => $request->input('cuello'),
             'nariz' => $request->input('nariz'),
             'boca' => $request->input('boca'),
-            'faringe' => $request->input('faringe'),
-            'cuello' => $request->input('cuello'),
+            'piezaeme' => $request->input('piezaeme'),
+            'piezaf' => $request->input('piezaf'),
+            'oj_enfocu' => $request->input('oj_enfocu'),
+            'oj_refpup' => $request->input('oj_refpup'),
+            'oj_vcol' => $request->input('oj_vcol'),
+            'oj_vprof' => $request->input('oj_vprof'),
             'aprespira' => $request->input('aprespira'),
             'apcardio' => $request->input('apcardio'),
             'apdiges' => $request->input('apdiges'),
-            'apgenit' => $request->input('apgenit'),
             'aploco' => $request->input('aploco'),
+            'apgenit' => $request->input('apgenit'),
+            'anillingui' => $request->input('anillingui'),
+            'tactorectal' => $request->input('tactorectal'),
             'marcha' => $request->input('marcha'),
             'columna' => $request->input('columna'),
+            'refleosteo' => $request->input('refleosteo'),
             'miesup' => $request->input('miesup'),
             'mieinf' => $request->input('mieinf'),
+            'sisnerv' => $request->input('sisnerv'),
             'sislinf' => $request->input('sislinf'),
-            'sisnerv' => $request->input('sisnerv')
+            'hernia' => $request->input('hernia'),
+            'varice' => $request->input('varice'),
+            'lenguaje' => $request->input('lenguaje'),
         ];
         $hallazgos = json_encode($hallazgos);
         $movrep = [
@@ -242,8 +259,8 @@ class ExamenController extends Controller
             'tineli' => $request->input('tineli'),
             'brazod' => $request->input('brazod'),
             'brazoi' => $request->input('brazoi'),
-            'Finkelsteind' => $request->input('Finkelsteind'),
-            'Finkelsteini' => $request->input('Finkelsteini')
+            'finkelsteind' => $request->input('finkelsteind'),
+            'finkelsteini' => $request->input('finkelsteini')
         ];
         $eftemmss = json_encode($eftemmss);
 
@@ -334,8 +351,20 @@ class ExamenController extends Controller
             'h2_obs' => $request->input('h2_obs'),
         ];
         $mehoja2 = json_encode($mehoja2);
-
-
+        $examedico->detservicio->exaoftalmo->update([
+            'vc_sc_od' => $request->input('vc_sc_od'),
+            'vc_sc_oi' => $request->input('vc_sc_oi'),
+            'vc_cc_od' => $request->input('vc_cc_od'),
+            'vc_cc_oi' => $request->input('vc_cc_oi'),
+            'vl_sc_od' => $request->input('vl_sc_od'),
+            'vl_sc_oi' => $request->input('vl_sc_oi'),
+            'vl_cc_od' => $request->input('vl_cc_od'),
+            'vl_cc_oi' => $request->input('vl_cc_oi'),
+        ]);
+        $examedico->detservicio->exaaudio->update([
+            'oidoder' => $request->input('oidoder'),
+            'oidoizq' => $request->input('oidoizq'),
+        ]);
         $examedico->update([
             'fecha' => $request->input('fecha'),
             'anamnesis' => $request->input('anamnesis'),
@@ -380,9 +409,231 @@ class ExamenController extends Controller
             'comentarios' => $request->input('comentarios'),
             'recomendaciones' => $request->input('recomendaciones'),
             'resultado' => $request->input('resultado'),
-
+            'doctor_id' => $request->input('doctor_id'),
         ]);
         return redirect()->route('admin.servicios.evaluacion',$examedico->detservicio)->with('update', 'Examen Médico Actualizado');
     }
 
+    public function exaoftalmo(Request $request, Detservicio $detservicio)
+    {
+        $resultado = Categoria::where('modulo', 7)->orderBy('nombre')->pluck('nombre','codigo');
+        $doctors = Doctor::orderBy('nombre')->pluck('nombre','id');
+        return view('admin.examens.exaoftalmo', compact(
+            'detservicio','resultado','doctors'
+        ));
+    }
+
+    public function updatexaoftalmo(Request $request, Exaoftalmo $exaoftalmo)
+    {
+        $exaoftalmo->update($request->all());
+        return redirect()->route('admin.servicios.evaluacion',$exaoftalmo->detservicio)->with('update', 'Examen Oftalmológico Actualizado');
+    }
+
+    public function exaaudio(Request $request, Detservicio $detservicio)
+    {
+        $resultado = Categoria::where('modulo', 7)->orderBy('nombre')->pluck('nombre','codigo');
+        $doctors = Doctor::orderBy('nombre')->pluck('nombre','id');
+        return view('admin.examens.exaaudio', compact(
+            'detservicio','resultado','doctors'
+        ));  
+    }
+
+    public function updatexaaudio(Request $request, Exaaudio $exaaudio)
+    {
+        $rules = [
+            'hora' => "required"
+        ];
+        $messages = [
+    		'hora.required' => 'Ingrese Hora de la Evaluación.',
+        ];
+        $validator = Validator::make($request->all(),$rules,$messages);
+
+    	if($validator->fails()){
+            return back()->withErrors($validator)->with('message', 'Se ha producido un error')->with('typealert', 'danger')->withinput();
+        }else{
+            $exaaudio->update($request->all());
+        return redirect()->route('admin.servicios.evaluacion',$exaaudio->detservicio)->with('update', 'Examen Audiológico Actualizado');
+        }        
+    }
+
+    public function exapsico(Request $request, Detservicio $detservicio)
+    {
+        $resultado = Categoria::where('modulo', 7)->orderBy('nombre')->pluck('nombre','codigo');
+        $doctors = Doctor::orderBy('nombre')->pluck('nombre','id');
+        $area = Categoria::where('modulo', 5)->orWhere('modulo', 0)->orderBy('nombre')->pluck('nombre','id');
+        $puesto = Categoria::where('modulo', 6)->orWhere('modulo', 0)->orderBy('nombre')->pluck('nombre','id');
+        return view('admin.examens.exapsico', compact(
+            'detservicio','resultado','doctors','area','puesto'
+        ));  
+    }
+
+    public function updatexapsico(Request $request, Exapsico $exapsico)
+    {
+        // $exapsico->update($request->all());
+        $exapsico->detservicio->colaborador->colantpatologico->update($request->colantpatologicos);
+        $exapsico->update($request->except(
+            'colaborador_id','colantpatologicos','tipo_i','empresa_i','id_i','area_i','puesto_id_i',
+            'fecha_i','tiempo_i','exposicion_i','epp_i','cretiro_i')
+        );
+        return redirect()->route('admin.servicios.evaluacion',$exapsico->detservicio)->with('update', 'Examen Psicológico Actualizado');
+    }
+
+    public function exaderma(Request $request, Detservicio $detservicio)
+    {
+        $resultado = Categoria::where('modulo', 7)->orderBy('nombre')->pluck('nombre','codigo');
+        $doctors = Doctor::orderBy('nombre')->pluck('nombre','id');
+        return view('admin.examens.exaderma', compact(
+            'detservicio','resultado','doctors'
+        ));
+    }
+
+    public function updatexaderma(Request $request, Exaderma $exaderma)
+    {
+        $exaderma->update($request->all());
+        return redirect()->route('admin.servicios.evaluacion',$exaderma->detservicio)->with('update', 'Examen Dermatológico Actualizado');
+    }
+
+    public function exaespiro(Request $request, Detservicio $detservicio)
+    {
+        $resultado = Categoria::where('modulo', 7)->orderBy('nombre')->pluck('nombre','codigo');
+        $doctors = Doctor::orderBy('nombre')->pluck('nombre','id');
+        return view('admin.examens.exaespiro', compact(
+            'detservicio','resultado','doctors'
+        ));
+    }
+
+    public function updatexaespiro(Request $request, Exaespiro $exaespiro)
+    {
+        $rules = [
+            'hora' => "required"
+        ];
+        $messages = [
+    		'hora.required' => 'Ingrese Hora de la Evaluación.',
+        ];
+        $validator = Validator::make($request->all(),$rules,$messages);
+
+    	if($validator->fails()){
+            return back()->withErrors($validator)->with('message', 'Se ha producido un error')->with('typealert', 'danger')->withinput();
+        }else{
+            $exaespiro->update($request->all());
+            return redirect()->route('admin.servicios.evaluacion',$exaespiro->detservicio)->with('update', 'Espirometria Actualizada');
+        }
+    }
+
+    public function exaconfinado(Request $request, Detservicio $detservicio)
+    {
+        $resultado = Categoria::where('modulo', 7)->orderBy('nombre')->pluck('nombre','codigo');
+        $doctors = Doctor::orderBy('nombre')->pluck('nombre','id');
+        return view('admin.examens.exaconfinado', compact(
+            'detservicio','resultado','doctors'
+        ));
+    }
+
+    public function updatexaconfinado(Request $request, Exaconfinado $exaconfinado)
+    {
+        $hallazgos = json_decode($exaconfinado->detservicio->examedico->hallazgos,true);
+        $hallazgos['apcardio'] = $request->hallazgo['apcardio'];
+        $hallazgos['sisnerv'] = $request->hallazgo['sisnerv'];
+        $hallazgos['refleosteo'] = $request->hallazgo['refleosteo'];
+        $hallazgos['miesup'] = $request->hallazgo['miesup'];
+        $hallazgos['mieinf'] = $request->hallazgo['mieinf'];
+        $hallazgos['marcha'] = $request->hallazgo['marcha'];
+        $hallazgos = json_encode($hallazgos);
+        $exaconfinado->detservicio->examedico->update([
+            'hallazgos' => $hallazgos
+        ]);
+        $exaconfinado->update($request->except('hallazgo'));
+        return redirect()->route('admin.servicios.evaluacion',$exaconfinado->detservicio)->with('update', 'Examen Trabajo en Espacios Confinados Actualizado');
+    }
+
+    public function exaalt18(Request $request, Detservicio $detservicio)
+    {
+        $resultado = Categoria::where('modulo', 7)->orderBy('nombre')->pluck('nombre','codigo');
+        $doctors = Doctor::orderBy('nombre')->pluck('nombre','id');
+        return view('admin.examens.exaalt18', compact(
+            'detservicio','resultado','doctors'
+        ));
+    }
+
+    public function updatexaalt18(Request $request, Exaalt18 $exaalt18)
+    {
+        $exaalt18->update($request->all());
+        return redirect()->route('admin.servicios.evaluacion',$exaalt18->detservicio)->with('update', 'Examen Trabajo en Altura 1.8 metros Actualizado');
+    }
+
+    public function exaalt25(Request $request, Detservicio $detservicio)
+    {
+        $resultado = Categoria::where('modulo', 7)->orderBy('nombre')->pluck('nombre','codigo');
+        $doctors = Doctor::orderBy('nombre')->pluck('nombre','id');
+        return view('admin.examens.exaalt25', compact(
+            'detservicio','resultado','doctors'
+        ));
+    }
+
+    public function updatexaalt25(Request $request, Exaalt25 $exaalt25)
+    {
+        $exaalt25->update($request->all());
+        return redirect()->route('admin.servicios.evaluacion',$exaalt25->detservicio)->with('update', 'Examen para Ascenso a Grandes Superficies(mayor de 2,500 msnm)');
+    }
+
+    public function exaekg(Request $request, Detservicio $detservicio)
+    {
+        $resultado = Categoria::where('modulo', 7)->orderBy('nombre')->pluck('nombre','codigo');
+        $doctors = Doctor::orderBy('nombre')->pluck('nombre','id');
+        return view('admin.examens.exaekg', compact(
+            'detservicio','resultado','doctors'
+        ));
+    }
+
+    public function updatexaekg(Request $request, Exaekg $exaekg)
+    {
+        $exaekg->update($request->all());
+        return redirect()->route('admin.servicios.evaluacion',$exaekg->detservicio)->with('update', 'Electrocargiograma Actualizado');
+    }
+
+    public function exaodonto(Request $request, Detservicio $detservicio)
+    {
+        $resultado = Categoria::where('modulo', 7)->orderBy('nombre')->pluck('nombre','codigo');
+        $doctors = Doctor::orderBy('nombre')->pluck('nombre','id');
+        return view('admin.examens.exaodonto', compact(
+            'detservicio','resultado','doctors'
+        ));
+    }
+
+    public function updatexaodonto(Request $request, Exaodonto $exaodonto)
+    {
+        $exaodonto->update($request->all());
+        return redirect()->route('admin.servicios.evaluacion',$exaodonto->detservicio)->with('update', 'Examen Odontológico Actualizado');
+    }
+
+    public function exaradio(Request $request, Detservicio $detservicio)
+    {
+        $resultado = Categoria::where('modulo', 7)->orderBy('nombre')->pluck('nombre','codigo');
+        $doctors = Doctor::orderBy('nombre')->pluck('nombre','id');
+        return view('admin.examens.exaradio', compact(
+            'detservicio','resultado','doctors'
+        ));
+    }
+
+    public function updatexaradio(Request $request, Exaradio $exaradio)
+    {
+        $exaradio->update($request->all());
+        return redirect()->route('admin.servicios.evaluacion',$exaradio->detservicio)->with('update', 'Radiografía de Torax Actualizada');
+    }
+
+    public function exacovid(Request $request, Exacovid $exacovid)
+    {
+        $resultado = Categoria::where('modulo', 7)->orderBy('nombre')->pluck('nombre','codigo');
+        $doctors = Doctor::orderBy('nombre')->pluck('nombre','id');
+        $detservicio = $exacovid->detservicio;
+        return view('admin.examens.exacovid', compact(
+            'exacovid','resultado','doctors','detservicio'
+        ));
+    }
+
+    public function updatexacovid(Request $request, Exacovid $exacovid)
+    {
+        $exacovid->update($request->all());
+        return redirect()->route('admin.servicios.evaluacion',$exacovid->detservicio)->with('update', 'Examen Covid-19 Actualizada');
+    }
 }

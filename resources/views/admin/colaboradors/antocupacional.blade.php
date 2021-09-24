@@ -4,7 +4,7 @@
             <th width='27%'>Empresa</th>
             <th width='10%'>Área</th>
             <th width='10%'>Ocupación</th>
-            <th width='10%'>Fecha</th>
+            <th width='10%'>Año</th>
             <th width='10%'>Tiempo</th>
             <th width='5%'>Exposición</th>
             <th width='5%'>EPP</th>

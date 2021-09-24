@@ -70,274 +70,61 @@
 				</div>
 			</div>
 		</div>
-		<div class="row mtop16">
+        
+		<div class="row mtop16 mbottom16">
 			<div class="col-md-12">
+                {!! Form::model($detservicio, ['route'=>['admin.servicios.updatevaluacion',$detservicio], 'method'=> 'put','files' => true]) !!}
 				<div class="panelprin shadow">
-                    {!! Form::model($detservicio, ['route'=>['admin.servicios.updatevaluacion',$detservicio], 'method'=> 'put']) !!}
                     <div class="headercontent">
 						<h2 class="title"><i class="fas fa-address-card"></i>
-                            Información del Puesto al que postula
+                            Evaluación Médica
                         </h2>
                         <ul>
                             <li>
                                 {!! Form::submit('Guardar', ['class'=>'btn btn-convertir mt-2']) !!}
                             </li>
-                        </ul>
-                    </div>
-					<div class="inside">
-                        <div class="row">                                    
-                            <div class="col-md-4 form-group">
-                                {!! Form::label('area_id', 'Área:') !!}
-                                {!! Form::select('area_id',$area,null,['class'=>'custom-select']) !!}
-                            </div>
-                            <div class="col-md-4 form-group">
-                                {!! Form::label('puesto_id', 'Ocupación:') !!}
-                                {!! Form::select('puesto_id',$puesto,null,['class'=>'custom-select']) !!}
-                            </div>
-                            <div class="col-md-4 form-group">
-                                {!! Form::label('ocuactual', 'Ocupación Actual:') !!}
-                                {!! Form::text('ocuactual', null, ['class'=>'form-control mayuscula','maxlength'=>'30']) !!}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-2 form-group">
-                                {!! Form::label('lugar', 'Lugar:') !!}
-                                {!! Form::select('lugar',[1=>'SUPERFICIE',2=>'SUBSUELO'],null,['class'=>'custom-select']) !!}
-                            </div>
-                            <div class="col-md-3 form-group">
-                                {!! Form::label('tielabor', 'Tiempo Laborado:') !!}
-								{!! Form::text('tielabor', null, ['class'=>'form-control mayuscula','maxlength'=>'30','autocomplete'=>'off']) !!}
-							</div>
-                            <div class="col-md-3 form-group">
-                                {!! Form::label('riesgos', 'Principales Riesgos:') !!}
-								{!! Form::text('riesgos', null, ['class'=>'form-control mayuscula','maxlength'=>'100','autocomplete'=>'off']) !!}
-							</div>
-                            <div class="col-md-4 form-group">
-                                {!! Form::label('seguridad', ' Medidas de Seguridad:') !!}
-								{!! Form::text('seguridad', null, ['class'=>'form-control mayuscula','maxlength'=>'100','autocomplete'=>'off']) !!}
-							</div>
-                        </div>
-                    </div>
-                    {!! Form::close() !!}
-				</div>
-			</div>
-		</div>
-        <div class="row mtop16 mb-5">
-			<div class="col-md-12">
-				<div class="panelprin shadow">
-                    {{-- {!! Form::model($detservicio, ['route'=>['admin.servicios.updatevaluacion',$detservicio], 'method'=> 'put']) !!} --}}
-                    <div class="headercontent">
-                        {{-- {{ dd($detservicio->colaborador->nombres) }} --}}
-						<h2 class="title"><i class="fas fa-address-card"></i>
-                            Evaluación
-                        </h2>
-                        <ul>
                             <li>
-                                {{-- {!! Form::submit('Guardar', ['class'=>'btn btn-convertir mt-2']) !!} --}}
+                                <a class="btn btn-convertir" href="{{ route('admin.reportes.listado',$detservicio) }}"datatoggle="tooltip" data-placement="top" title="Imprimir Evaluación Médica"><i class="fas fa-print"></i></a>
+                                {{-- <a href="#" class="btn btn-convertir" target="_blank" datatoggle="tooltip" data-placement="top" title="Imprimir Evaluación Médica">
+                                    <i class="fas fa-print"></i>
+                                </a> --}}
                             </li>
                         </ul>
                     </div>
 					<div class="inside">
-                        @if(kvfa($detservicio->servicio->examenes,'1'))
                         <div class="row">
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        {!! Form::label('emedica', 'Médica:',['class' => 'mt-2']) !!}
+                            <div class="col-md-12">
+                                <nav>
+                                    <div class="nav nav-tabs" id="nav-medico" role="tablist">
+                                        <a class="nav-item nav-link active" id="nav-puesto-tab" data-toggle="tab" href="#nav-puesto" role="tab" aria-controls="nav-puesto" aria-selected="true">Información Puesto</a>
+                                        <a class="nav-item nav-link" id="nav-medica-tab" data-toggle="tab" href="#nav-medica" role="tab" aria-controls="nav-medica" aria-selected="true">Evaluación Médica</a>
+                                        <a class="nav-item nav-link" id="nav-laboratorio-tab" data-toggle="tab" href="#nav-laboratorio" role="tab" aria-controls="nav-laboratorio" aria-selected="true">Laboratorio</a>
+                                        <a class="nav-item nav-link" id="nav-informe-tab" data-toggle="tab" href="#nav-informe" role="tab" aria-controls="nav-informe" aria-selected="true">Informe</a>
+                                        <a class="nav-item nav-link" id="nav-resultado-tab" data-toggle="tab" href="#nav-resultado" role="tab" aria-controls="nav-resultado" aria-selected="false">Resultado</a>
                                     </div>
-                                    <div class="col-md-8">
-                                        {!! Form::select('emresultado',$resultado,$detservicio->examedico->resultado,['class'=>'custom-select']) !!}
+                                </nav>
+                                <div class="tab-content" id="nav-tabContent">
+                                    <div class="tab-pane fade show active" id="nav-puesto" role="tabpanel" aria-labelledby="nav-puesto-tab">
+                                        @include('admin.servicios.evaluacion.puesto')
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                {!! Form::text('emconclusion',str_replace('.<br />',', ',nl2br($detservicio->examedico->recomendaciones)),['class'=>'form-control']) !!}
-                            </div>
-                            <div class="col-md-2">
-                                <a href="{{ route('admin.examens.examedico',$detservicio) }}" class="btn btn-convertir" datatoggle="tooltip" data-placement="top" title="Evaluación Médica">
-                                    Examen
-                                </a>
-                            </div>
-                        </div>
-                        @endif
-                        @if(kvfa($detservicio->servicio->examenes,'5'))
-                        <div class="row mt-2">
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        {!! Form::label('epsico', 'Psicológico:',['class' => 'mt-2']) !!}
+                                    <div class="tab-pane fade" id="nav-medica" role="tabpanel" aria-labelledby="nav-medica-tab">
+                                        @include('admin.servicios.evaluacion.medica')
                                     </div>
-                                    <div class="col-md-8">
-                                        {!! Form::select('epsresultado',$resultado,0,['class'=>'custom-select']) !!}
+                                    <div class="tab-pane fade" id="nav-laboratorio" role="tabpanel" aria-labelledby="nav-laboratorio-tab">
+                                        @include('admin.servicios.evaluacion.laboratorio')
+                                    </div>
+                                    <div class="tab-pane fade" id="nav-informe" role="tabpanel" aria-labelledby="nav-informe-tab">
+                                        @include('admin.servicios.evaluacion.informe')
+                                    </div>
+                                    <div class="tab-pane fade" id="nav-resultado" role="tabpanel" aria-labelledby="nav-resultado-tab">
+                                        @include('admin.servicios.evaluacion.resultado')
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                {!! Form::text('epsconclusion',null,['class'=>'form-control']) !!}
-                            </div>
-                            <div class="col-md-2">
-                                <a href="{{ url('admin/inicio') }}" class="btn btn-convertir" target="_blank" datatoggle="tooltip" data-placement="top" title="Evaluación Médica">
-                                    Examen
-                                </a>
-                            </div>
                         </div>
-                        @endif
-                        @if(kvfa($detservicio->servicio->examenes,'3'))
-                        <div class="row mt-2">
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        {!! Form::label('eoftalmo', 'Oftalmológica:',['class' => 'mt-2']) !!}
-                                    </div>
-                                    <div class="col-md-8">
-                                        {!! Form::select('eofresultado',$resultado,null,['class'=>'custom-select']) !!}
-                                    </div>
-                                </div>
-                            </div>                            
-                            <div class="col-md-6">
-                                {!! Form::text('eofconclusion',null,['class'=>'form-control']) !!}
-                            </div>
-                            <div class="col-md-2">
-                                <a href="{{ url('admin/inicio') }}" class="btn btn-convertir" target="_blank" datatoggle="tooltip" data-placement="top" title="Evaluación Médica">
-                                    Examen
-                                </a>
-                            </div>                            
-                        </div>
-                        @endif
-                        @if(kvfa($detservicio->servicio->examenes,'4'))
-                        <div class="row mt-2">
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        {!! Form::label('eodonto', 'Odontológico:',['class' => 'mt-2']) !!}
-                                    </div>
-                                    <div class="col-md-8">
-                                        {!! Form::select('eodresultado',$resultado,null,['class'=>'custom-select']) !!}
-                                    </div>
-                                </div>
-                            </div>                            
-                            <div class="col-md-6">
-                                {!! Form::text('eodconclusion',null,['class'=>'form-control']) !!}
-                            </div>
-                            <div class="col-md-2">
-                                <a href="{{ url('admin/inicio') }}" class="btn btn-convertir" target="_blank" datatoggle="tooltip" data-placement="top" title="Evaluación Médica">
-                                    Examen
-                                </a>
-                            </div>
-                        </div>
-                        @endif
-                        @if(kvfa($detservicio->servicio->examenes,'9'))
-                        <div class="row mt-2">
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        {!! Form::label('eradio', 'Radiográfico:',['class' => 'mt-2']) !!}
-                                    </div>
-                                    <div class="col-md-8">
-                                        {!! Form::select('eradresultado',$resultado,null,['class'=>'custom-select']) !!}
-                                    </div>
-                                </div>
-                            </div>                            
-                            <div class="col-md-6">
-                                {!! Form::text('eradconclusion',null,['class'=>'form-control']) !!}
-                            </div>
-                            <div class="col-md-2">
-                                <a href="{{ url('admin/inicio') }}" class="btn btn-convertir" target="_blank" datatoggle="tooltip" data-placement="top" title="Evaluación Médica">
-                                    Examen
-                                </a>
-                            </div>
-                        </div>
-                        @endif
-                        @if(kvfa($detservicio->servicio->examenes,'6'))
-                        <div class="row mt-2">
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        {!! Form::label('eekg', 'EKG:',['class' => 'mt-2']) !!}
-                                    </div>
-                                    <div class="col-md-8">
-                                        {!! Form::select('eekgresultado',$resultado,null,['class'=>'custom-select']) !!}
-                                    </div>
-                                </div>
-                            </div>                            
-                            <div class="col-md-6">
-                                {!! Form::text('eekgconclusion',null,['class'=>'form-control']) !!}
-                            </div>
-                            <div class="col-md-2">
-                                <a href="{{ url('admin/inicio') }}" class="btn btn-convertir" target="_blank" datatoggle="tooltip" data-placement="top" title="Evaluación Médica">
-                                    Examen
-                                </a>
-                            </div>
-                        </div>
-                        @endif
-                        @if(kvfa($detservicio->servicio->examenes,'8'))
-                        <div class="row mt-2">
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        {!! Form::label('eespiro', 'Espirometría:',['class' => 'mt-2']) !!}
-                                    </div>
-                                    <div class="col-md-8">
-                                        {!! Form::select('eespresultado',$resultado,null,['class'=>'custom-select']) !!}
-                                    </div>
-                                </div>
-                            </div>                            
-                            <div class="col-md-6">
-                                {!! Form::text('eespconclusion',null,['class'=>'form-control']) !!}
-                            </div>
-                            <div class="col-md-2">
-                                <a href="{{ url('admin/inicio') }}" class="btn btn-convertir" target="_blank" datatoggle="tooltip" data-placement="top" title="Evaluación Médica">
-                                    Examen
-                                </a>
-                            </div>
-                        </div>
-                        @endif
-                        @if(kvfa($detservicio->servicio->examenes,'2'))
-                        <div class="row mt-2">
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        {!! Form::label('eaudio', 'Audiometría:',['class' => 'mt-2']) !!}
-                                    </div>
-                                    <div class="col-md-8">
-                                        {!! Form::select('eaudresultado',$resultado,null,['class'=>'custom-select']) !!}
-                                    </div>
-                                </div>
-                            </div>                            
-                            <div class="col-md-6">
-                                {!! Form::text('eaudconclusion',null,['class'=>'form-control']) !!}
-                            </div>
-                            <div class="col-md-2">
-                                <a href="{{ url('admin/inicio') }}" class="btn btn-convertir" target="_blank" datatoggle="tooltip" data-placement="top" title="Evaluación Médica">
-                                    Examen
-                                </a>
-                            </div>
-                        </div>
-                        @endif
-                        @if(kvfa($detservicio->servicio->examenes,'7'))
-                        <div class="row mt-2">
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        {!! Form::label('ederma', 'Dermatológico:',['class' => 'mt-2']) !!}
-                                    </div>
-                                    <div class="col-md-8">
-                                        {!! Form::select('edermresultado',$resultado,null,['class'=>'custom-select']) !!}
-                                    </div>
-                                </div>
-                            </div>                            
-                            <div class="col-md-6">
-                                {!! Form::text('edermconclusion',null,['class'=>'form-control']) !!}
-                            </div>
-                            <div class="col-md-2">
-                                <a href="{{ url('admin/inicio') }}" class="btn btn-convertir" target="_blank" datatoggle="tooltip" data-placement="top" title="Evaluación Médica">
-                                    Examen
-                                </a>
-                            </div>
-                        </div>
-                        @endif
                     </div>
                 </div>
+                {!! Form::close() !!}
             </div>
         </div>
 	</div>
@@ -365,12 +152,40 @@
             }
         });
 
+        $('#btnfirma').click(function(){
+            $('#firma').click();
+        });
+        $('#btnfoto').click(function(){
+            $('#foto').click();
+        });
+        $('#btnhuella').click(function(){
+            $('#huella').click();
+        });
+        
+
         $('#area_id').select2({
             placeholder:"Área"
         });
         $('#puesto_id').select2({
             placeholder:"Ocupación"
         });
+
+        $('.cieselect').select2({
+            placeholder:"CIE10 | Ingrese 3 dígitos del Código o Descripción",
+            minimumInputLength: 3,
+            ajax:{
+                url: "{{ route('admin.busquedas.cie10') }}",
+                dataType:'json',
+                delay:250,
+                processResults:function(response){
+                    return{
+                        results: response
+                    };
+                },
+                cache: true,
+            }
+        });
+        
 
     });
     function destroycol(){
@@ -389,6 +204,40 @@
                this.submit();
             }
             })
+    }
+    // $(document).ready(function(){
+    //     $('#btnfirma').click(function(){
+    //         $('#firma').click();
+    //     });
+    // });
+    document.getElementById('firma').addEventListener('change',cambiarImagen);
+    document.getElementById('foto').addEventListener('change',cambiarFoto);
+    document.getElementById('huella').addEventListener('change',cambiarHuella);
+    
+
+    function cambiarImagen(event){
+        var file = event.target.files[0];
+        var reader = new FileReader();
+        reader.onload = (event) => {
+            document.getElementById('imgfirma').setAttribute('src',event.target.result);
+        }
+        reader.readAsDataURL(file);
+    }
+    function cambiarFoto(event){
+        var file = event.target.files[0];
+        var reader = new FileReader();
+        reader.onload = (event) => {
+            document.getElementById('imgfoto').setAttribute('src',event.target.result);
+        }
+        reader.readAsDataURL(file);
+    }
+    function cambiarHuella(event){
+        var file = event.target.files[0];
+        var reader = new FileReader();
+        reader.onload = (event) => {
+            document.getElementById('imghuella').setAttribute('src',event.target.result);
+        }
+        reader.readAsDataURL(file);
     }
 </script>
 @endsection

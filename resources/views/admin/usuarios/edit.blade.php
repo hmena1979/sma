@@ -20,13 +20,17 @@
 								{!! Form::label('activo', 'Activo') !!}
 								{!! Form::select('activo',['1'=>'Si','2'=>'No'],null,['class'=>'custom-select']) !!}
 							</div>
-							<div class="col-md-6 form-group">
+							<div class="col-md-4 form-group">
 								{!! Form::label('name', 'Nombre') !!}
 								{!! Form::text('name', null, ['class'=>'form-control','autocomplete'=>'off']) !!}
 							</div>
 							<div class="col-md-4 form-group">
 								{!! Form::label('email', 'e-mail') !!}
 								{!! Form::text('email', null, ['class'=>'form-control','autocomplete'=>'off']) !!}
+							</div>
+							<div class="col-md-2 form-group">
+								{!! Form::label('sede', 'Sede') !!}
+								{!! Form::select('sede',$sede, null,['class'=>'custom-select']) !!}	
 							</div>
 						</div>
 						{{-- <div class="row mtop16">

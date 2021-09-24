@@ -58,9 +58,9 @@ class ConnectController extends Controller
 					$param = Param::FindOrFail(1);
 					// $empresa = Empresa::FindOrFail(Auth::user()->empresa);
 					// $sede = Sede::FindOrFail(Auth::user()->sede);
-					session(['periodo' => $param->periodo]);
+					session(['periodo' => periodo()]);
 					// session(['empresa' => Auth::user()->empresa]);
-					// session(['sede' => Auth::user()->sede]);
+					session(['sede' => Auth::user()->sede]);
 					// session(['fecha' => \Carbon\Carbon::now()->format('Y-m-d')]);
 					// session(['igv' => $empresa->por_igv]);
 					// session(['renta' => $empresa->por_renta]);
