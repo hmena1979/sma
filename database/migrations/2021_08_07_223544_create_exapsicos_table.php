@@ -67,7 +67,7 @@ class CreateExapsicosTable extends Migration
             $table->string('dfpatologias_nivel',20)->default('AUSENTES');
             $table->text('dfpatologias_carac')->nullable();
             $table->text('conc_congnitiva')->nullable();
-            $table->text('conc_emocional')->default('ESTABLE');
+            $table->string('conc_emocional')->default('ESTABLE');
             $table->string('recomendaciones')->nullable();
             $table->string('conclusion',100)->default('EL EVALUADO CUMPLE CON EL PERFIL A DESEMPEÑAR');
             $table->string('resultado',1)->default('0');
