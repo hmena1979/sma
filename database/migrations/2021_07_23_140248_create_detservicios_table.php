@@ -44,7 +44,7 @@ class CreateDetserviciosTable extends Migration
             $table->unsignedTinyInteger('orinap')->default(2);
             $table->string('resultado',1)->default('0');
             $table->string('conclusion')->default('DENTRO DE LIMITES NORMALES');
-            $table->text('recomendaciones')->default('CONTROL MEDICO ANUAL');
+            $table->string('recomendaciones')->default('CONTROL MEDICO ANUAL');
             $table->string('restricciones')->default('NINGUNA');
             $table->integer('doctor_id')->nullable();
             $table->unsignedTinyInteger('finalizado')->default(2);

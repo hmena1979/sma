@@ -146,27 +146,27 @@ class DashboardController extends Controller
 
 	public function permisosfaltantes()
 	{
-		// $this->agregar_permiso('1','INICIO','admin.imports.index','Puede Importar Tablas iniciales');
+		$this->agregar_permiso('1','INICIO','admin.imports.index','Puede Importar Tablas iniciales');
 
-		// $this->agregar_permiso('6','CATEGORIAS','admin.categorias.index','Puede ver listado Categorías');
-		// $this->agregar_permiso('6','CATEGORIAS','admin.categorias.create','Puede agregar Categorías');
-		// $this->agregar_permiso('6','CATEGORIAS','admin.categorias.edit','Puede editar Categorías');
-		// $this->agregar_permiso('6','CATEGORIAS','admin.categorias.destroy','Puede eliminar Categorías');
+		$this->agregar_permiso('6','CATEGORIAS','admin.categorias.index','Puede ver listado Categorías');
+		$this->agregar_permiso('6','CATEGORIAS','admin.categorias.create','Puede agregar Categorías');
+		$this->agregar_permiso('6','CATEGORIAS','admin.categorias.edit','Puede editar Categorías');
+		$this->agregar_permiso('6','CATEGORIAS','admin.categorias.destroy','Puede eliminar Categorías');
 		
-		// $this->agregar_permiso('7','DOCTORES','admin.doctors.index','Puede ver listado Doctores');
-		// $this->agregar_permiso('7','DOCTORES','admin.doctors.create','Puede agregar Doctores');
-		// $this->agregar_permiso('7','DOCTORES','admin.doctors.edit','Puede editar Doctores');
-		// $this->agregar_permiso('7','DOCTORES','admin.doctors.destroy','Puede eliminar Doctores');
+		$this->agregar_permiso('7','DOCTORES','admin.doctors.index','Puede ver listado Doctores');
+		$this->agregar_permiso('7','DOCTORES','admin.doctors.create','Puede agregar Doctores');
+		$this->agregar_permiso('7','DOCTORES','admin.doctors.edit','Puede editar Doctores');
+		$this->agregar_permiso('7','DOCTORES','admin.doctors.destroy','Puede eliminar Doctores');
 		
-		// $this->agregar_permiso('8','CLIENTES','admin.clientes.index','Puede ver listado Clientes');
-		// $this->agregar_permiso('8','CLIENTES','admin.clientes.create','Puede agregar Clientes');
-		// $this->agregar_permiso('8','CLIENTES','admin.clientes.edit','Puede editar Clientes');
-		// $this->agregar_permiso('8','CLIENTES','admin.clientes.destroy','Puede eliminar Clientes');
+		$this->agregar_permiso('8','CLIENTES','admin.clientes.index','Puede ver listado Clientes');
+		$this->agregar_permiso('8','CLIENTES','admin.clientes.create','Puede agregar Clientes');
+		$this->agregar_permiso('8','CLIENTES','admin.clientes.edit','Puede editar Clientes');
+		$this->agregar_permiso('8','CLIENTES','admin.clientes.destroy','Puede eliminar Clientes');
 		
-		// $this->agregar_permiso('9','SEDES','admin.sedes.index','Puede ver listado Sedes');
-		// $this->agregar_permiso('9','SEDES','admin.sedes.create','Puede agregar Sedes');
-		// $this->agregar_permiso('9','SEDES','admin.sedes.edit','Puede editar Sedes');
-		// $this->agregar_permiso('9','SEDES','admin.sedes.destroy','Puede eliminar Sedes');
+		$this->agregar_permiso('9','SEDES','admin.sedes.index','Puede ver listado Sedes');
+		$this->agregar_permiso('9','SEDES','admin.sedes.create','Puede agregar Sedes');
+		$this->agregar_permiso('9','SEDES','admin.sedes.edit','Puede editar Sedes');
+		$this->agregar_permiso('9','SEDES','admin.sedes.destroy','Puede eliminar Sedes');
 		
 		return redirect()->route('admin.inicio')->with('message', 'Permisos Agregados')->with('typealert', 'success');
 	}
