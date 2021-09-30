@@ -15,7 +15,8 @@ class CreateColantpatologicosTable extends Migration
     {
         Schema::create('colantpatologicos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('colaborador_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('colaborador_id');
+            // $table->foreignId('colaborador_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedTinyInteger('alergias')->default(2);//ALERGIAS	Character	20
             $table->string('descalergias',40)->nullable();//ALERGIAS	Character	20
             $table->unsignedTinyInteger('diabetes')->default(2);//DIABETES	Character	20

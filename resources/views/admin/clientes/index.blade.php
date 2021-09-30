@@ -27,17 +27,18 @@
 						</ul>
 					</div>
 					<div class="inside">
-						<table id= "grid" class="table table-hover table-sm">
+						<table id= "colcliente" class="table table-hover table-sm">
 							<thead>
 								<tr>
-									<th width="60%">Nombre</th>
+									<th width="50%">Nombre</th>
 									<th width="10%">N° Doc</th>
 									<th width="10%">Celular</th>
 									<th width="10%">Teléfono</th>
+									<th width="10%">Clave</th>
 									<th width="10%"></th>
 								</tr>
 							</thead>
-							<tbody>
+							{{-- <tbody>
 								@foreach($clientes as $cliente)
 								<tr>
 									<td>{{ $cliente->razsoc }}</td>
@@ -62,7 +63,7 @@
 									</td>
 								</tr>
 								@endforeach
-								</tbody>
+							</tbody> --}}
 						</table>
 					</div>				
 				</div>
@@ -75,3 +76,42 @@
 {{-- @section('css')
     <link rel="stylesheet" href="{{ url('/static/css/admin.css?v='.time()) }}">
 @stop --}}
+@section('script')
+<script>
+    var url_global='{{url("/")}}';
+    $(document).ready(function(){
+		$('#colcliente').DataTable({
+           "processing": true,
+            "serverSide": true,
+            "paging": true,
+            "ordering": true,
+            "info": true,
+            "language":{
+                "info": "_TOTAL_ Registros",
+                "search": "Buscar",
+                "paginate":{
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                    },
+                "lengthMenu": "Mostrar <select>"+
+                    "<option value='10'>10</option>"+
+                    "<option value='25'>25</option>"+
+                    "<option value='50'>50</option>"+
+                    "<option value='100'>100</option>"+
+                    "<option value='-1'>Todos</option>"+
+                    "</select> Registros"
+            },
+            "ajax": "{{ url('/admin/clientes/registro') }}",
+            "columns": [
+                {data: 'razsoc'},
+                {data: 'numdoc'},
+                {data: 'celular'},
+                {data: 'telefono'},
+                {data: 'clave'},
+				{data: 'btn'}
+                ]
+            });
+		
+	});
+</script>
+@endsection

@@ -307,6 +307,29 @@
                             </div>
                         </div>
                         <div class="row mtop16">
+                            <div class="card w-100 ml-2">
+                                <div class="card-header">
+                                    <h4 class="title colorprin">Importar Doctores</h4>
+                                </div>
+                                <div class="card-body">
+                                    {!! Form::open(['url'=>'/admin/import/doctor', 'files' => true]) !!}
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="archivo" class="">Archivo:</label>
+                                                <div class="custom-file">
+                                                    {!! Form::file('archivo', ['class'=>'custom-file-input','id'=>'customFile', 'accept'=>'.xlsx']) !!}
+                                                    <label class="custom-file-label" for="customFile" data-browse="Buscar">Buscar archivos Doctor.xlsx</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                {!! Form::submit('Importar', ['class'=>'btn btn-convertir mtop25']) !!}
+                                            </div>
+                                        </div>
+                                        {!! Form::close() !!}
+                                </div>
+                            </div>
+                        </div>
+                        {{-- <div class="row mtop16">
                             <div class="card-group">
                                 <div class="card w-50 ml-2">
                                     <div class="card-header">
@@ -353,8 +376,100 @@
                                     </div>
                                 </div>
                             </div>
+                        </div> --}}
+                        <div class="row mtop16">
+                            <div class="card-group">
+                                <div class="card w-50 ml-2">
+                                    <div class="card-header">
+                                        <h4 class="title colorprin">Importar Colaboradores</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        {!! Form::open(['url'=>'/admin/import/colaborador', 'files' => true]) !!}
+                                            <div class="row">
+                                                <div class="col-md-10">
+                                                    <label for="archivo" class="">Archivo:</label>
+                                                    <div class="custom-file">
+                                                        {!! Form::file('archivo', ['class'=>'custom-file-input','id'=>'customFile', 'accept'=>'.xlsx']) !!}
+                                                        <label class="custom-file-label" for="customFile" data-browse="Buscar">Buscar archivos Colaborador.xlsx</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    {!! Form::submit('Importar', ['class'=>'btn btn-convertir mtop25']) !!}
+                                                </div>
+                                            </div>
+                                            {!! Form::close() !!}
+                                    </div>
+                                </div>
+                                <div class="card w-50 ml-2">
+                                    <div class="card-header">
+                                        <h4 class="title colorprin">Importar Antecedente Familiar - Colaborador</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        {!! Form::open(['url'=>'/admin/import/colantfamiliar', 'files' => true]) !!}
+                                            <div class="row">
+                                                <div class="col-md-10">
+                                                    <label for="archivo" class="">Archivo:</label>
+                                                    <div class="custom-file">
+                                                        {!! Form::file('archivo', ['class'=>'custom-file-input','id'=>'customFile', 'accept'=>'.xlsx']) !!}
+                                                        <label class="custom-file-label" for="customFile" data-browse="Buscar">Buscar archivos Colaborador.xlsx</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    {!! Form::submit('Importar', ['class'=>'btn btn-convertir mtop25']) !!}
+                                                </div>
+                                            </div>
+                                            {!! Form::close() !!}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="row mtop16">
+                            <div class="card-group">
+                                <div class="card w-50 ml-2">
+                                    <div class="card-header">
+                                        <h4 class="title colorprin">Importar Antecedente Patologico - Colaborador</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        {!! Form::open(['url'=>'/admin/import/colantpatologico', 'files' => true]) !!}
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <label for="archivo" class="">Archivo:</label>
+                                                <div class="custom-file">
+                                                    {!! Form::file('archivo', ['class'=>'custom-file-input','id'=>'customFile', 'accept'=>'.xlsx']) !!}
+                                                    <label class="custom-file-label" for="customFile" data-browse="Buscar">Buscar archivos Colaborador.xlsx</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                {!! Form::submit('Importar', ['class'=>'btn btn-convertir mtop25']) !!}
+                                            </div>
+                                        </div>
+                                        {!! Form::close() !!}
+                                    </div>
+                                </div>
+                                <div class="card w-50 ml-2">
+                                    <div class="card-header">
+                                        <h4 class="title colorprin">Importar Antecedente Ocupacional - Colaborador</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        {!! Form::open(['url'=>'/admin/import/colantocupacional', 'files' => true]) !!}
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <label for="archivo" class="">Archivo:</label>
+                                                <div class="custom-file">
+                                                    {!! Form::file('archivo', ['class'=>'custom-file-input','id'=>'customFile', 'accept'=>'.xlsx']) !!}
+                                                    <label class="custom-file-label" for="customFile" data-browse="Buscar">Buscar archivos AntOcupacional.xlsx</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                {!! Form::submit('Importar', ['class'=>'btn btn-convertir mtop25']) !!}
+                                            </div>
+                                        </div>
+                                        {!! Form::close() !!}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- <div class="row mtop16">
                             <div class="card w-100 ml-2">
                                 <div class="card-header">
                                     <h4 class="title colorprin">Prueba DNI</h4>
@@ -377,7 +492,7 @@
                                     {!! Form::close() !!}
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
 				</div>
             </div>

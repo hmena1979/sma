@@ -21,7 +21,7 @@ class CreateHecesTable extends Migration
             $table->string('examen')->default('HECES FUNCIONAL');// 4	MUESTRA	Character	2
             $table->string('consistencia',20)->nullable();// 5	CONSISTENCIA	Character	30
             $table->string('color',20)->nullable();// 6	COLOR	Character	30
-            $table->string('olor',20)->nullable();// 7	OLOR	Character	30
+            $table->string('olor',20)->default('SUIGENERIS');// 7	OLOR	Character	30
             $table->string('mucus',20)->nullable();// 8	MUCUS	Character	30
             $table->string('reaccion',20)->nullable();// 9	REACCION	Character	30
             $table->string('sangre',20)->default('NEGATIVO');// 10	SANGRE	Character	30
@@ -34,6 +34,7 @@ class CreateHecesTable extends Migration
             $table->string('mond',20)->default('NEGATIVO');// 17	MAT_ORG	Character	30
             $table->string('vlipidas',20)->default('NEGATIVO');// 18	VES_LIP	Character	30
             $table->string('levaduras',20)->default('NEGATIVO');// 19	LEVADURAS	Character	30
+            $table->string('grasas',20)->default('NEGATIVO');// 19	LEVADURAS	Character	30
             $table->unsignedTinyInteger('parasito1')->default(1);// 20	PARAS1	Character	2
             $table->unsignedTinyInteger('dparasito1')->default(1);// 21	DPARA1	Character	2
             $table->unsignedTinyInteger('parasito2')->default(1);// 22	PARAS2	Character	2

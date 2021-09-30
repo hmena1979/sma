@@ -20,9 +20,11 @@
                             Evaluación Audiológica
                         </h2>
                         <ul>
+                            @can('admin.audio.edit')
                             <li>
                                 {!! Form::submit('Guardar', ['class'=>'btn btn-convertir mt-2']) !!}
                             </li>
+                            @endcan
                         </ul>
                     </div>
                     <div class="inside">

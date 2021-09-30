@@ -20,9 +20,11 @@
                             Laboratorio Examen de Heces Completa
                         </h2>
                         <ul>
+                            @can('admin.laboratorio.edit')
                             <li>
                                 {!! Form::submit('Guardar', ['class'=>'btn btn-convertir mt-2','id'=>'guardar']) !!}
                             </li>
+                            @endcan
                         </ul>
                     </div>
                     <div class="inside">
@@ -130,6 +132,10 @@
                             <div class="col-md-3 form-group">
                                 {!! Form::label('levaduras', 'CELULAS LEVADURIFORMES:') !!}
                                 {!! Form::text('levaduras', null, ['class'=>'form-control mayuscula','maxlength'=>'15','autocomplete'=>'off']) !!}
+                            </div>
+                            <div class="col-md-3 form-group">
+                                {!! Form::label('grasas', 'GRASAS:') !!}
+                                {!! Form::text('grasas', null, ['class'=>'form-control mayuscula','maxlength'=>'15','autocomplete'=>'off']) !!}
                             </div>
                         </div>
                         <div class="row mt-3">

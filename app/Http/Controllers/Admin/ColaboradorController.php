@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Colaborador;
 use App\Models\Colantocupacional;
 use App\Models\Categoria;
+use App\Models\Sede;
 use App\Models\Departamento;
 use App\Models\Provincia;
 use App\Models\Ubigeo;
@@ -27,8 +28,20 @@ class ColaboradorController extends Controller
 
     public function index()
     {
-        $colaboradors = Colaborador::all();
-        return view('admin.colaboradors.index', compact('colaboradors'));
+        // $colaboradors = Colaborador::all();
+        // return view('admin.colaboradors.index', compact('colaboradors'));
+        return view('admin.colaboradors.index');
+    }
+
+    public function registro(Request $request)
+    {
+        if($request->ajax()){
+            return datatables()
+                ->of(Colaborador::select('id','nombres','numdoc','fecnac','telefono'))
+                ->addColumn('btn','admin.colaboradors.action')
+                ->rawColumns(['btn'])
+                ->toJson();
+        }
     }
 
     public function create()
@@ -37,10 +50,12 @@ class ColaboradorController extends Controller
         $sexo = Categoria::where('modulo', 2)->pluck('nombre','codigo');
         $estciv = Categoria::where('modulo', 3)->pluck('nombre','codigo');
         $gradins = Categoria::where('modulo', 4)->pluck('nombre','codigo');
+        $ubicacion = Sede::where('id',session('sede'))->value('ubigeo');
         $departamentos = Departamento::pluck('nombre','codigo');
-        $provincias = Provincia::where('departamento','20')->pluck('nombre','codigo');
+        $provincias = Provincia::where('departamento',substr($ubicacion,0,2))->pluck('nombre','codigo');
+        $ubigeo = Ubigeo::where('provincia',substr($ubicacion,0,4))->pluck('nombre','codigo');
         return view('admin.colaboradors.create', compact(
-            'tipdoc','sexo','estciv','gradins','departamentos','provincias'
+            'tipdoc','sexo','estciv','gradins','departamentos','provincias','ubigeo','ubicacion'
         ));
     }
 
@@ -52,7 +67,6 @@ class ColaboradorController extends Controller
             'nombre' => 'required',
             'sexo_id' => 'required',
             'estciv_id' => 'required',
-            'fecnac' => 'required',
         ];
         $messages = [
     		'numdoc.required' => 'Ingrese Número de documento.',

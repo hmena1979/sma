@@ -38,7 +38,7 @@
 						</ul>
 					</div>
 					<div class="inside">
-						<table id= "grid" class="table table-hover table-sm">
+						<table id= "colregistro" class="table table-hover table-sm">
 							<thead>
 								<tr>
 									<th width="60%">Nombre</th>
@@ -48,7 +48,7 @@
 									<th width="10%"></th>
 								</tr>
 							</thead>
-							<tbody>
+							{{-- <tbody>
 								@foreach($colaboradors as $colaborador)
 								<tr>
 									<td>{{ $colaborador->nombres }}</td>
@@ -64,7 +64,7 @@
 									</td>
 								</tr>
 								@endforeach
-								</tbody>
+							</tbody> --}}
 						</table>
 					</div>				
 				</div>
@@ -77,3 +77,41 @@
 {{-- @section('css')
     <link rel="stylesheet" href="{{ url('/static/css/admin.css?v='.time()) }}">
 @stop --}}
+@section('script')
+<script>
+    var url_global='{{url("/")}}';
+    $(document).ready(function(){
+		$('#colregistro').DataTable({
+           "processing": true,
+            "serverSide": true,
+            "paging": true,
+            "ordering": true,
+            "info": true,
+            "language":{
+                "info": "_TOTAL_ Registros",
+                "search": "Buscar",
+                "paginate":{
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                    },
+                "lengthMenu": "Mostrar <select>"+
+                    "<option value='10'>10</option>"+
+                    "<option value='25'>25</option>"+
+                    "<option value='50'>50</option>"+
+                    "<option value='100'>100</option>"+
+                    "<option value='-1'>Todos</option>"+
+                    "</select> Registros"
+            },
+            "ajax": "{{ url('/admin/colaboradors/registro') }}",
+            "columns": [
+                {data: 'nombres'},
+                {data: 'numdoc'},
+                {data: 'fecnac'},
+                {data: 'telefono'},
+				{data: 'btn'}
+                ]
+            });
+		
+	});
+</script>
+@endsection

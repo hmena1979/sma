@@ -65,7 +65,7 @@
 								<tr>
 									<td>{{ $servicio->fecha }}</td>
 									<td>{{ $servicio->eval->nombre }}</td>
-									<td>{{ $servicio->cliente->razsoc }}</td>
+									<td>{{ substr($servicio->cliente->razsoc,0,42) }}</td>
 									<td>{{ $servicio->ubicacion }}</td>
 									<td>
 										<div class="opts">

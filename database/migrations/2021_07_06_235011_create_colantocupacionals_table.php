@@ -15,7 +15,8 @@ class CreateColantocupacionalsTable extends Migration
     {
         Schema::create('colantocupacionals', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('colaborador_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('colaborador_id');
+            // $table->foreignId('colaborador_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->string('empresa',50)->nullable();
             $table->integer('area_id')->nullable();//AREA01
             $table->integer('puesto_id')->nullable();//OCU01

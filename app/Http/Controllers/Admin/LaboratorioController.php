@@ -19,7 +19,10 @@ use App\Models\Otrhemog;
 use App\Models\Prueba;
 use App\Models\Orina;
 use App\Models\Hece;
+use App\Models\Metalpesado;
 use App\Models\Parasitologia;
+use App\Models\Toxicologico;
+use App\Models\Urocultivo;
 
 class LaboratorioController extends Controller
 {
@@ -90,7 +93,6 @@ class LaboratorioController extends Controller
         $bioquimica->delete();
         return true;
     }
-
 
 
     public function hemograma(Request $request, Detservicio $detservicio)
@@ -181,6 +183,101 @@ class LaboratorioController extends Controller
     {
         $bacteriologia->update($request->all());
         return redirect()->route('admin.servicios.evaluacion',$bacteriologia->detservicio)->with('update', 'Microbiología Clínica Actualizado');
+    }
+
+    public function urocultivo(Request $request, Detservicio $detservicio)
+    {
+        $doctors = Doctor::orderBy('nombre')->pluck('nombre','id');
+        $cantidad = Catorina::whereIn('modulo',['0','1'])->pluck('nombre','id');
+        $germen = Cathece::whereIn('modulo',['0','4'])->orderBy('nombre')->pluck('nombre','id');
+        $otros = Catorina::whereIn('modulo',['0','4'])->pluck('nombre','id');
+        $antibiograma = Cathece::whereIn('modulo',['0','5'])->pluck('nombre','id');
+        return view('admin.laboratorio.urocultivo', compact(
+            'detservicio','doctors','cantidad','germen','otros','antibiograma'
+        ));
+    }
+
+    public function updaturocultivo(Request $request, Urocultivo $urocultivo)
+    {
+        // return $request->all();
+        $urocultivo->update($request->all());
+        return redirect()->route('admin.servicios.evaluacion',$urocultivo->detservicio)->with('update', 'Urocultivo Actualizado');
+    }
+
+    public function toxicologico(Request $request, Detservicio $detservicio)
+    {
+        $realizadas = $detservicio->toxicologico->pluck('prueba_id');
+        // return $realizadas;
+        $resultado = Categoria::where('modulo', 7)->orderBy('nombre')->pluck('nombre','codigo');
+        $doctors = Doctor::orderBy('nombre')->pluck('nombre','id');
+        $pruebas = Prueba::orderBy('nombre')->where('toxicologico',1)->whereNotIn('id',$realizadas)->pluck('nombre','id');
+        $pruebast = Prueba::orderBy('nombre')->where('toxicologico',1)->pluck('nombre','id');
+        return view('admin.laboratorio.toxicologico', compact(
+            'detservicio','resultado','doctors','pruebas','pruebast'
+        ));
+    }
+
+    public function updattoxicologico(Request $request, Detservicio $detservicio)
+    {
+        $detservicio->update([
+            'fecha_tox' => $request->input('fecha_tox'),
+            'doctor_tox' => $request->input('doctor_tox'),
+        ]);
+        return redirect()->route('admin.servicios.evaluacion',$detservicio)->with('update', 'Examen Toxicológico Actualizado');
+    }
+
+    public function tabla_tox($id)
+    {
+        $toxicologico = Toxicologico::where('detservicio_id',$id)->get();
+        return view('admin.laboratorio.toxicologico.realizadas',compact('toxicologico'));
+    }
+
+    public function addtox($envio)
+    {
+        $pr = json_decode($envio);
+        if($pr->tipo == 1){
+            $t = Toxicologico::create([
+                'detservicio_id' => $pr->id,
+                'prueba_id' => $pr->prueba_id,
+                'resultado' => $pr->resultado,
+            ]);
+
+        }else{
+            $ao = Toxicologico::where('id',$pr->id)->update([
+                'prueba_id' => $pr->prueba_id,
+                'resultado' => $pr->resultado,
+            ]);
+        }
+
+        return true;
+        // return true;
+    }
+
+    public function bustox($id)
+    {
+        $ao = Toxicologico::findOrFail($id);
+        return response()->json($ao);
+    }
+
+    public function destroytox(Toxicologico $toxicologico)
+    {
+        $toxicologico->delete();
+        return true;
+    }
+
+    public function metalpesado(Request $request, Detservicio $detservicio)
+    {
+        $doctors = Doctor::orderBy('nombre')->pluck('nombre','id');
+        return view('admin.laboratorio.metalpesado', compact(
+            'detservicio','doctors'
+        ));
+    }
+
+    public function updatmetalpesado(Request $request, Metalpesado $metalpesado)
+    {
+        // return $request->all();
+        $metalpesado->update($request->all());
+        return redirect()->route('admin.servicios.evaluacion',$metalpesado->detservicio)->with('update', 'Metales Pesados Actualizado');
     }
 
 }

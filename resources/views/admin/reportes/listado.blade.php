@@ -124,10 +124,12 @@
                                             {!! Form::checkbox('detalle[]', 10, false,['class' => 'mr-1']) !!}
                                             APTITUD
                                         </label><br>
+                                        @if ($detservicio->informe()->count() > 0)
                                         <label>
                                             {!! Form::checkbox('detalle[]', 11, false,['class' => 'mr-1']) !!}
                                             APTITUD MODELO II
-                                        </label><br>
+                                        </label><br>                                            
+                                        @endif
                                         <label>
                                             {!! Form::checkbox('detalle[]', 12, false,['class' => 'mr-1']) !!}
                                             FICHA N° 16
@@ -361,6 +363,36 @@
                                         <label>
                                             {!! Form::checkbox('detalle[]', 34, false,['class' => 'mr-1']) !!}
                                             BACTERIOLOGIA
+                                        </label><br>
+                                        @endif
+                                        @if ($detservicio->urocultivo()->count() <> 0)
+                                        <label>
+                                            {!! Form::checkbox('detalle[]', 35, false,['class' => 'mr-1']) !!}
+                                            UROCULTIVO
+                                        </label><br>
+                                        @endif
+                                        @if ($detservicio->toxicologico()->count() <> 0)
+                                        <label>
+                                            {!! Form::checkbox('detalle[]', 36, false,['class' => 'mr-1']) !!}
+                                            TOXICOLÓGICO
+                                        </label><br>
+                                        @endif
+                                        @if ($detservicio->metalpesado()->count() <> 0)
+                                        <label>
+                                            {!! Form::checkbox('detalle[]', 37, false,['class' => 'mr-1']) !!}
+                                            METALES PESADOS
+                                        </label><br>
+                                        @endif
+                                        @if ($detservicio->bioquimica()->count() <> 0)
+                                        <label>
+                                            {!! Form::checkbox('detalle[]', 38, false,['class' => 'mr-1']) !!}
+                                            PERFIL LIPIDICO
+                                        </label><br>
+                                        @endif
+                                        @if ($detservicio->bioquimica()->count() <> 0)
+                                        <label>
+                                            {!! Form::checkbox('detalle[]', 39, false,['class' => 'mr-1']) !!}
+                                            RESUMEN
                                         </label><br>
                                         @endif
                                     </div>

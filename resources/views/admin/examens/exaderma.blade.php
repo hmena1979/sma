@@ -20,9 +20,11 @@
                             Evaluación Dermatológica
                         </h2>
                         <ul>
+                            @can('admin.derma.edit')
                             <li>
                                 {!! Form::submit('Guardar', ['class'=>'btn btn-convertir mt-2']) !!}
                             </li>
+                            @endcan
                         </ul>
                     </div>
                     <div class="inside">

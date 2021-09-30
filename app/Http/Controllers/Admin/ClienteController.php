@@ -22,8 +22,18 @@ class ClienteController extends Controller
 
     public function index()
     {
-        $clientes = Cliente::all();
-        return view('admin.clientes.index', compact('clientes'));
+        return view('admin.clientes.index');
+    }
+
+    public function registro(Request $request)
+    {
+        if($request->ajax()){
+            return datatables()
+                ->of(Cliente::select('id','razsoc','numdoc','celular','telefono','clave'))
+                ->addColumn('btn','admin.clientes.action')
+                ->rawColumns(['btn'])
+                ->toJson();
+        }
     }
 
     public function create()

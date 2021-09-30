@@ -80,9 +80,11 @@
                             Evaluación Médica
                         </h2>
                         <ul>
+                            @can('admin.medica.edit')
                             <li>
                                 {!! Form::submit('Guardar', ['class'=>'btn btn-convertir mt-2']) !!}
                             </li>
+                            @endcan
                             <li>
                                 <a class="btn btn-convertir" href="{{ route('admin.reportes.listado',$detservicio) }}"datatoggle="tooltip" data-placement="top" title="Imprimir Evaluación Médica"><i class="fas fa-print"></i></a>
                                 {{-- <a href="#" class="btn btn-convertir" target="_blank" datatoggle="tooltip" data-placement="top" title="Imprimir Evaluación Médica">
@@ -98,7 +100,9 @@
                                     <div class="nav nav-tabs" id="nav-medico" role="tablist">
                                         <a class="nav-item nav-link active" id="nav-puesto-tab" data-toggle="tab" href="#nav-puesto" role="tab" aria-controls="nav-puesto" aria-selected="true">Información Puesto</a>
                                         <a class="nav-item nav-link" id="nav-medica-tab" data-toggle="tab" href="#nav-medica" role="tab" aria-controls="nav-medica" aria-selected="true">Evaluación Médica</a>
-                                        <a class="nav-item nav-link" id="nav-laboratorio-tab" data-toggle="tab" href="#nav-laboratorio" role="tab" aria-controls="nav-laboratorio" aria-selected="true">Laboratorio</a>
+                                        @can('admin.laboratorio.index')
+                                        <a class="nav-item nav-link" id="nav-laboratorio-tab" data-toggle="tab" href="#nav-laboratorio" role="tab" aria-controls="nav-laboratorio" aria-selected="true">Laboratorio</a>                                            
+                                        @endcan
                                         <a class="nav-item nav-link" id="nav-informe-tab" data-toggle="tab" href="#nav-informe" role="tab" aria-controls="nav-informe" aria-selected="true">Informe</a>
                                         <a class="nav-item nav-link" id="nav-resultado-tab" data-toggle="tab" href="#nav-resultado" role="tab" aria-controls="nav-resultado" aria-selected="false">Resultado</a>
                                     </div>

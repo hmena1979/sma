@@ -19,7 +19,12 @@ use App\Imports\OtrhemogImport;
 use App\Imports\CatorinaImport;
 use App\Imports\CatheceImport;
 use App\Imports\Cie10Import;
+use App\Imports\ColaboradorImport;
+use App\Imports\ColantfamiliarImport;
+use App\Imports\ColantocupacionalImport;
+use App\Imports\ColantpatologicoImport;
 use App\Imports\DetreporteImport;
+use App\Imports\DoctorImport;
 use App\Imports\ReporteImport;
 
 class ImportController extends Controller
@@ -311,6 +316,105 @@ class ImportController extends Controller
 		else:
     		$file = $request->file('archivo');
     		Excel::import(new DetreporteImport, $file);
+
+    		return redirect('/admin/import')->with('message', 'Archivo importado')->with('typealert', 'success');
+    	endif;
+    }
+
+	public function colaborador(Request $request)
+    {
+    	$rules = [
+			'archivo' => 'required'
+    	];
+    	$messages = [
+			'archivo.required' => 'No ha selecionado archivo Colaborador.xlsx'
+    	];
+
+    	$validator = validator::make($request->all(), $rules, $messages);
+    	if($validator->fails()):
+    		return back()->withErrors($validator)->with('message', 'Se ha producido un error')->with('typealert', 'danger')->withinput();
+		else:
+    		$file = $request->file('archivo');
+    		Excel::import(new ColaboradorImport, $file);
+
+    		return redirect('/admin/import')->with('message', 'Archivo importado')->with('typealert', 'success');
+    	endif;
+    }
+	public function colantfamiliar(Request $request)
+    {
+    	$rules = [
+			'archivo' => 'required'
+    	];
+    	$messages = [
+			'archivo.required' => 'No ha selecionado archivo Colaborador.xlsx'
+    	];
+
+    	$validator = validator::make($request->all(), $rules, $messages);
+    	if($validator->fails()):
+    		return back()->withErrors($validator)->with('message', 'Se ha producido un error')->with('typealert', 'danger')->withinput();
+		else:
+    		$file = $request->file('archivo');
+    		Excel::import(new ColantfamiliarImport, $file);
+
+    		return redirect('/admin/import')->with('message', 'Archivo importado')->with('typealert', 'success');
+    	endif;
+    }
+
+	public function colantpatologico(Request $request)
+    {
+    	$rules = [
+			'archivo' => 'required'
+    	];
+    	$messages = [
+			'archivo.required' => 'No ha selecionado archivo Colaborador.xlsx'
+    	];
+
+    	$validator = validator::make($request->all(), $rules, $messages);
+    	if($validator->fails()):
+    		return back()->withErrors($validator)->with('message', 'Se ha producido un error')->with('typealert', 'danger')->withinput();
+		else:
+    		$file = $request->file('archivo');
+    		Excel::import(new ColantpatologicoImport, $file);
+
+    		return redirect('/admin/import')->with('message', 'Archivo importado')->with('typealert', 'success');
+    	endif;
+    }
+
+	public function colantocupacional(Request $request)
+    {
+    	$rules = [
+			'archivo' => 'required'
+    	];
+    	$messages = [
+			'archivo.required' => 'No ha selecionado archivo AntOcupacional.xlsx'
+    	];
+
+    	$validator = validator::make($request->all(), $rules, $messages);
+    	if($validator->fails()):
+    		return back()->withErrors($validator)->with('message', 'Se ha producido un error')->with('typealert', 'danger')->withinput();
+		else:
+    		$file = $request->file('archivo');
+    		Excel::import(new ColantocupacionalImport, $file);
+
+    		return redirect('/admin/import')->with('message', 'Archivo importado')->with('typealert', 'success');
+    	endif;
+    }
+
+	public function doctor(Request $request)
+    {
+    	$rules = [
+			'archivo' => 'required'
+    	];
+    	$messages = [
+			'archivo.required' => 'No ha selecionado archivo Doctor.xlsx'
+    	];
+
+    	$validator = validator::make($request->all(), $rules, $messages);
+    	if($validator->fails()):
+    		return back()->withErrors($validator)->with('message', 'Se ha producido un error')->with('typealert', 'danger')->withinput();
+		else:
+    		$file = $request->file('archivo');
+    		Excel::import(new DoctorImport, $file);
 
     		return redirect('/admin/import')->with('message', 'Archivo importado')->with('typealert', 'success');
     	endif;

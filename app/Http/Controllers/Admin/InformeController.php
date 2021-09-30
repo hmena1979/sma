@@ -141,6 +141,11 @@ class InformeController extends Controller
 
     public function realizados(Request $request, Detservicio $detservicio)
     {
+        if($detservicio->informe()->count() == 0){
+            $detservicio->informe()->create([
+                $examenes = [],
+            ]);
+        }
         return view('admin.informes.realizados', compact(
             'detservicio'
         ));
@@ -149,8 +154,14 @@ class InformeController extends Controller
     public function updatrealizados(Request $request, Informe $informe)
     {
         // return $request->all();
+        if($request->input('examenes') == null){
+            $examenes = [];
+        }
+        else{
+            $examenes = json_encode($request->input('examenes'));
+        }
         $informe->update([
-            'examenes' => json_encode($request->input('examenes')),
+            'examenes' => $examenes,
         ]);
         return redirect()->route('admin.servicios.evaluacion',$informe->detservicio)->with('update', 'Examenes Realizados Actualizado');
     }

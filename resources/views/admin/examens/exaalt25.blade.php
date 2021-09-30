@@ -20,9 +20,11 @@
                             Evaluación Médica para Ascenso a Grandes Superficies(2,500 msnm)
                         </h2>
                         <ul>
+                            @can('admin.altura25.edit')
                             <li>
                                 {!! Form::submit('Guardar', ['class'=>'btn btn-convertir mt-2']) !!}
                             </li>
+                            @endcan
                         </ul>
                     </div>
                     <div class="inside">

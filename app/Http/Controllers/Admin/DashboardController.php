@@ -167,7 +167,35 @@ class DashboardController extends Controller
 		$this->agregar_permiso('9','SEDES','admin.sedes.create','Puede agregar Sedes');
 		$this->agregar_permiso('9','SEDES','admin.sedes.edit','Puede editar Sedes');
 		$this->agregar_permiso('9','SEDES','admin.sedes.destroy','Puede eliminar Sedes');
-		
+
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.medica.index','Ver Examen Médico');
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.medica.edit','Modificar Examen Médico');
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.psico.index','Ver Evaluación Psicológica');
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.psico.edit','Editar Evaluación Psicológica');
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.oftalmo.index','Ver Evaluación Oftalmológica');
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.oftalmo.edit','Editar Evaluación Oftalmológica');
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.odonto.index','Ver Evaluación Odontológico');
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.odonto.edit','Editar Evaluación Odontológico');
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.radio.index','Ver Evaluación Radiográfico');
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.radio.edit','Editar Evaluación Radiográfico');
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.espiro.index','Ver Evaluación Espirometría');
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.espiro.edit','Editar Evaluación Espirometría');
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.audio.index','Ver Evaluación Audiometría');
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.audio.edit','Editar Evaluación Audiometría');
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.ekg.index','Ver Electrocardiograma');
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.ekg.edit','Editar Electrocardiograma');
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.derma.index','Ver Evaluación Dermatológico');
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.derma.edit','Editar Evaluación Dermatológico');		
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.altura18.index','Ver Evaluación Altura 1.8m');
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.altura18.edit','Editar Evaluación Altura 1.8m');		
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.altura25.index','Ver Evaluación Altura 2500msnm');
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.altura25.edit','Editar Evaluación Altura 2500msnm');		
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.confinado.index','Ver Espacio Confinado');
+		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.confinado.edit','Editar Espacio Confinado');
+
+		$this->agregar_permiso('11','LABORATORIO','admin.laboratorio.index','Ver Pruebas');
+		$this->agregar_permiso('11','LABORATORIO','admin.laboratorio.edit','Editar Pruebas');
+
 		return redirect()->route('admin.inicio')->with('message', 'Permisos Agregados')->with('typealert', 'success');
 	}
 }

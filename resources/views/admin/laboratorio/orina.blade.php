@@ -20,9 +20,11 @@
                             Laboratorio Examen de Orina
                         </h2>
                         <ul>
+                            @can('admin.laboratorio.edit')
                             <li>
                                 {!! Form::submit('Guardar', ['class'=>'btn btn-convertir mt-2','id'=>'guardar']) !!}
-                            </li>
+                            </li>  
+                            @endcan
                         </ul>
                     </div>
                     <div class="inside">

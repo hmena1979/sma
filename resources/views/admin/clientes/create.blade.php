@@ -68,7 +68,7 @@
 							</div>
                             <div class="col-md-2 form-group">
                                 {!! Form::label('clave', 'Clave:') !!}
-								{!! Form::text('clave', null, ['class'=>'form-control mayusculas','maxlength'=>'10','autocomplete'=>'off']) !!}
+								{!! Form::text('clave', azarMayusculas(), ['class'=>'form-control mayusculas','maxlength'=>'10','autocomplete'=>'off']) !!}
 							</div>
 						</div>
 					</div>

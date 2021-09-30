@@ -197,7 +197,6 @@
         </tr>
     </tbody>
 </table>
-<br>
 <table class="cuadrosborde letra10">
     <tbody>
         <tr>

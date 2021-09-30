@@ -31,6 +31,7 @@ Route::get('/permisosfaltantes', [DashboardController::class, 'permisosfaltantes
 Route::resource('roles', RoleController::class)->except('show')->names('admin.roles');
 
 //Colaborador
+Route::get('/colaboradors/registro', [ColaboradorController::class, 'registro'])->name('admin.colaboradors.registro');
 Route::resource('colaboradors', ColaboradorController::class)->names('admin.colaboradors');
 Route::get('/colaboradors/{colaborador}/tabla_ao', [ColaboradorController::class, 'tabla_ao'])->name('admin.colaboradors.tabla_ao');
 Route::get('/colaboradors/{envio}/addao',[ColaboradorController::class,'addao'])->name('admin.colaboradors.addao');
@@ -39,6 +40,7 @@ Route::get('/colaboradors/{id}/destroyao',[ColaboradorController::class,'destroy
 // Route::get('/colaboradors/{envio}/editao', [ColaboradorController::class, 'editao'])->name('admin.colaboradors.editao');
 
 //Clientes
+Route::get('/clientes/registro', [ClienteController::class, 'registro'])->name('admin.clientes.registro');
 Route::resource('clientes', ClienteController::class)->names('admin.clientes');
 
 //Sedes
@@ -101,6 +103,17 @@ Route::get('/laboratorio/{detservicio}/parasitologia', [LaboratorioController::c
 Route::put('/laboratorio/{parasitologia}/updatparasitologia', [LaboratorioController::class,'updatparasitologia'])->name('admin.laboratorio.updatparasitologia');
 Route::get('/laboratorio/{detservicio}/bacteriologia', [LaboratorioController::class,'bacteriologia'])->name('admin.laboratorio.bacteriologia');
 Route::put('/laboratorio/{bacteriologia}/updatbacteriologia', [LaboratorioController::class,'updatbacteriologia'])->name('admin.laboratorio.updatbacteriologia');
+Route::get('/laboratorio/{detservicio}/urocultivo', [LaboratorioController::class,'urocultivo'])->name('admin.laboratorio.urocultivo');
+Route::put('/laboratorio/{urocultivo}/updaturocultivo', [LaboratorioController::class,'updaturocultivo'])->name('admin.laboratorio.updaturocultivo');
+Route::get('/laboratorio/{detservicio}/toxicologico', [LaboratorioController::class,'toxicologico'])->name('admin.laboratorio.toxicologico');
+Route::put('/laboratorio/{detservicio}/updattoxicologico', [LaboratorioController::class,'updattoxicologico'])->name('admin.laboratorio.updattoxicologico');
+Route::get('/laboratorio/{id}/tabla_tox', [LaboratorioController::class, 'tabla_tox'])->name('admin.laboratorio.tabla_tox');
+Route::get('/laboratorio/{envio}/addtox',[LaboratorioController::class,'addtox'])->name('admin.laboratorio.addtox');
+Route::get('/laboratorio/{id}/bustox',[LaboratorioController::class,'bustox'])->name('admin.laboratorio.bustox');
+Route::get('/laboratorio/{toxicologico}/destroytox',[LaboratorioController::class,'destroytox'])->name('admin.laboratorio.destroytox');
+Route::get('/laboratorio/{detservicio}/metalpesado', [LaboratorioController::class,'metalpesado'])->name('admin.laboratorio.metalpesado');
+Route::put('/laboratorio/{metalpesado}/updatmetalpesado', [LaboratorioController::class,'updatmetalpesado'])->name('admin.laboratorio.updatmetalpesado');
+
 
 //Informe
 Route::get('/informes/{detservicio}/confidencial', [InformeController::class,'confidencial'])->name('admin.informes.confidencial');
@@ -167,4 +180,11 @@ Route::post('/import/cathece', [ImportController::class,'cathece'])->name('admin
 Route::post('/import/cie10', [ImportController::class,'cie10'])->name('admin.imports.cie10');
 Route::post('/import/reporte', [ImportController::class,'reporte'])->name('admin.imports.reporte');
 Route::post('/import/detreporte', [ImportController::class,'detreporte'])->name('admin.imports.detreporte');
+Route::post('/import/colaborador', [ImportController::class,'colaborador'])->name('admin.imports.colaborador');
+Route::post('/import/colantfamiliar', [ImportController::class,'colantfamiliar'])->name('admin.imports.colantfamiliar');
+Route::post('/import/colantpatologico', [ImportController::class,'colantpatologico'])->name('admin.imports.colantpatologico');
+Route::post('/import/colantocupacional', [ImportController::class,'colantocupacional'])->name('admin.imports.colantocupacional');
+Route::post('/import/doctor', [ImportController::class,'doctor'])->name('admin.imports.doctor');
+
+
 Route::post('/import/dni', [ImportController::class,'dni'])->name('admin.imports.dni');

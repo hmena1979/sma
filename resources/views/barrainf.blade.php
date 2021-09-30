@@ -1,3 +1,4 @@
+@if ($param)
 <div class="footer mtop16">
 	<div class="container-fluid">
 	<div class="row">
@@ -30,3 +31,4 @@
 	<a class="btn telfinf" href="#"><i class="fas fa-phone-alt"></i> {{ $param->contacto }}</a>
 	<a class="btn telfinf ml-4" href="#"><i class="fas fa-check-double"></i> Verifica tu examen</a>
 </nav>
+@endif

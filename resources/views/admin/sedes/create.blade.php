@@ -67,6 +67,23 @@
 								{!! Form::text('aud_calibra', null, ['class'=>'form-control mayuscula','maxlength'=>'20','autocomplete'=>'off']) !!}
 							</div>
 						</div>
+                        <div class="colorprin mt-1">
+                            <h4>Ubicación por defecto para Colaboradores</h4>
+                        </div>
+						<div class="row">
+							<div class="col-md-2 form-group">
+                                {!! Form::label('departamento', 'Departamento:') !!}
+                                {!! Form::select('departamento',$departamentos,'20',['class'=>'custom-select', 'id'=>'departamento']) !!}
+							</div>
+                            <div class="col-md-2 form-group">
+                                {!! Form::label('provincia', 'Provincia:') !!}
+                                {!! Form::select('provincia',$provincias,null,['class'=>'custom-select','placeholder'=>'']) !!}
+							</div>
+                            <div class="col-md-2 form-group">
+                                {!! Form::label('ubigeo', 'Ubigeo:') !!}
+                                {!! Form::select('ubigeo',[],null,['class'=>'custom-select','placeholder'=>'']) !!}
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -82,11 +99,43 @@
 <script>
     var url_global='{{url("/")}}';
     $(document).ready(function(){
-        // document.getElementById('guardar').addEventListener("click",function(){
-        //     // document.getElementById("ape_pat").disabled = false;
-        //     // document.getElementById("ape_mat").disabled = false;
-        //     // document.getElementById("nombres").disabled = false;
-        // });
+        $('#departamento').select2({
+            placeholder:"Departamento"
+        });
+
+        $('#provincia').select2({
+            placeholder:"Provincia"
+        });
+
+        $('#ubigeo').select2({
+            placeholder:"Ubigeo"
+        });
+
+        $('#departamento').on('select2:close',function(){
+            var departamento = this.value;
+            $.get(url_global+"/admin/busquedas/"+departamento+"/provincia/",function(response){
+                $('#provincia').empty();
+                for(i=0;i<response.length;i++){
+                    $('#provincia').append("<option value='"+response[i].codigo+"'>"
+                        + response[i].nombre
+                        + "</option>");
+                }
+                $('#provincia').val(null);
+                $('#ubigeo').empty();
+            });
+        });
+
+        $('#provincia').on('select2:close',function(){
+            var provincia = this.value;
+            $.get(url_global+"/admin/busquedas/"+provincia+"/ubigeo/",function(response){
+                $('#ubigeo').empty();
+                for(i=0;i<response.length;i++){
+                    $('#ubigeo').append("<option value='"+response[i].codigo+"'>"
+                        + response[i].nombre
+                        + "</option>");
+                }
+            });
+        });
     });
 </script>
 @endsection

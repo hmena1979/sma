@@ -24,6 +24,9 @@ class CreateSedesTable extends Migration
             $table->string('aud_marca',30)->nullable();
             $table->string('aud_modelo',20)->nullable();
             $table->string('aud_calibra',20)->nullable();
+            $table->string('departamento',2)->nullable();//DEPARTAMENTO	Character	20
+            $table->string('provincia',4)->nullable();//PROVINCIA	Character	20
+            $table->string('ubigeo',6)->nullable();//DISTRITO	Character	20            
             $table->unsignedTinyInteger('activo')->default(1);
             $table->softDeletes();
             $table->timestamps();

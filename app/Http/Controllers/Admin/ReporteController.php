@@ -109,6 +109,11 @@ class ReporteController extends Controller
                     'FactorRH' => $bio->valor
                 ]);
             }
+            if($bio->prueba_id == 64){
+                $laboratorio = array_merge($laboratorio,[
+                    'VLDL' => $bio->valor
+                ]);
+            }
         }
         
         $inteligencia = [

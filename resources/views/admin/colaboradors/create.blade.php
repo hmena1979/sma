@@ -46,7 +46,7 @@
 						<div class="row">
                             <div class="col-md-2 form-group">
                                 {!! Form::label('sexo_id', 'Sexo:') !!}
-                                {!! Form::select('sexo_id',$sexo,null,['class'=>'custom-select','placeholder'=>'']) !!}
+                                {!! Form::select('sexo_id',$sexo,'M',['class'=>'custom-select','placeholder'=>'']) !!}
 							</div>                            
 							<div class="col-md-2 form-group">
                                 {!! Form::label('estciv_id', 'Estado Civil:') !!}
@@ -72,7 +72,7 @@
                         <div class="row">
                             <div class="col-md-2 form-group">
                                 {!! Form::label('nacionalidad', 'Nacionalidad:') !!}
-								{!! Form::text('nacionalidad', 'PERUANO', ['class'=>'form-control mayuscula','maxlength'=>'30','autocomplete'=>'off']) !!}
+								{!! Form::text('nacionalidad', 'PERUANA', ['class'=>'form-control mayuscula','maxlength'=>'30','autocomplete'=>'off']) !!}
 							</div>
                             <div class="col-md-4 form-group">
                                 {!! Form::label('domicilio', 'Domicilio:') !!}
@@ -80,15 +80,15 @@
 							</div>
                             <div class="col-md-2 form-group">
                                 {!! Form::label('departamento', 'Departamento:') !!}
-                                {!! Form::select('departamento',$departamentos,'20',['class'=>'custom-select', 'id'=>'departamento']) !!}
+                                {!! Form::select('departamento',$departamentos,substr($ubicacion,0,2),['class'=>'custom-select', 'id'=>'departamento']) !!}
 							</div>
                             <div class="col-md-2 form-group">
                                 {!! Form::label('provincia', 'Provincia:') !!}
-                                {!! Form::select('provincia',$provincias,null,['class'=>'custom-select','placeholder'=>'']) !!}
+                                {!! Form::select('provincia',$provincias,substr($ubicacion,0,4),['class'=>'custom-select','placeholder'=>'']) !!}
 							</div>
                             <div class="col-md-2 form-group">
                                 {!! Form::label('ubigeo', 'Ubigeo:') !!}
-                                {!! Form::select('ubigeo',[],null,['class'=>'custom-select','placeholder'=>'']) !!}
+                                {!! Form::select('ubigeo',$ubigeo,$ubicacion,['class'=>'custom-select','placeholder'=>'']) !!}
 							</div>
                         </div>
 						<div class="row">
@@ -171,7 +171,6 @@
                         + response[i].nombre
                         + "</option>");
                 }
-                // $('#ubigeo').val(null);
             });
         });
 

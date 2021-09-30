@@ -130,7 +130,29 @@
                         </a>
                     </td>
                 </tr>
-                @endif               
+                @endif
+                @if(kvfa($examenes,'13'))
+                <tr>
+                    <th class="align-middle">Covid19 - Antígeno</th>
+                    <td class="align-middle">
+                        <a href="{{ route('admin.examens.exacovid',$detservicio->exacovidant) }}" class="btn btn-convertir" datatoggle="tooltip" data-placement="top" title="Prueba Antígeno | Covid-19">
+                            <i class="fas fa-virus"></i>
+                        </a>
+                    </td>
+                </tr>
+                @endif  
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <table class="table table-hover table-bordered table-estrecha">
+            <thead>
+                <tr>
+                    <th width='80%'>EVALUACIÓN</th>
+                    <th width='20%'></th>
+                </tr>
+            </thead>
+            <tbody>
                 @if(kvfa($examenes,'21'))
                 <tr>
                     <th class="align-middle">Bacteriología Clínica</th>
@@ -141,6 +163,56 @@
                     </td>
                 </tr>
                 @endif               
+                @if(kvfa($examenes,'22'))
+                <tr>
+                    <th class="align-middle">Urocultivo</th>
+                    <td class="align-middle">
+                        <a href="{{ route('admin.laboratorio.urocultivo',$detservicio) }}" class="btn btn-convertir" datatoggle="tooltip" data-placement="top" title="Urocultivo">
+                            <i class="fas fa-bacterium"></i>
+                        </a>
+                    </td>
+                </tr>
+                @endif               
+                @if(kvfa($examenes,'23'))
+                <tr>
+                    <th class="align-middle">Toxicológico</th>
+                    <td class="align-middle">
+                        <a href="{{ route('admin.laboratorio.toxicologico',$detservicio) }}" class="btn btn-convertir" datatoggle="tooltip" data-placement="top" title="Toxicológico">
+                            <i class="fas fa-bacterium"></i>
+                        </a>
+                    </td>
+                </tr>
+                @endif               
+                @if(kvfa($examenes,'24'))
+                <tr>
+                    <th class="align-middle">Metales Pesados</th>
+                    <td class="align-middle">
+                        <a href="{{ route('admin.laboratorio.metalpesado',$detservicio) }}" class="btn btn-convertir" datatoggle="tooltip" data-placement="top" title="Metales Pesados">
+                            <i class="fas fa-bacterium"></i>
+                        </a>
+                    </td>
+                </tr>
+                @endif
+                @if(kvfa($examenes,'14'))
+                <tr>
+                    <th class="align-middle">Covid19 - Prueba Rápida</th>
+                    <td class="align-middle">
+                        <a href="{{ route('admin.examens.exacovid',$detservicio->exacovidpr) }}" class="btn btn-convertir" datatoggle="tooltip" data-placement="top" title="Prueba Rápida | Covid-19">
+                            <i class="fas fa-viruses"></i>
+                        </a>
+                    </td>
+                </tr>
+                @endif
+                @if(kvfa($examenes,'15'))
+                <tr>
+                    <th class="align-middle">Covid19 - PCR</th>
+                    <td class="align-middle">
+                        <a href="{{ route('admin.examens.exacovid',$detservicio->exacovidpcr) }}" class="btn btn-convertir" datatoggle="tooltip" data-placement="top" title="Prueba PCR | Covid-19">
+                            <i class="fas fa-lungs-virus"></i>
+                        </a>
+                    </td>
+                </tr>
+                @endif
             </tbody>
         </table>
     </div>

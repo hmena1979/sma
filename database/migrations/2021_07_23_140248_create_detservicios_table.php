@@ -41,6 +41,8 @@ class CreateDetserviciosTable extends Migration
             $table->date('fecha_bio')->nullable();
             $table->string('hemoglobina',10)->nullable();
             $table->integer('doctor_bio')->nullable();
+            $table->date('fecha_tox')->nullable();
+            $table->integer('doctor_tox')->nullable();
             $table->unsignedTinyInteger('orinap')->default(2);
             $table->string('resultado',1)->default('0');
             $table->string('conclusion')->default('DENTRO DE LIMITES NORMALES');

@@ -21,6 +21,7 @@ class CreatePruebasTable extends Migration
             $table->string('valorref01',30)->nullable();
             $table->string('valorref02',30)->nullable();
             $table->string('metodo',20)->default('BIOQUIMICA');
+            $table->unsignedTinyInteger('toxicologico')->default(1);
             $table->softDeletes();
             $table->timestamps();
         });

@@ -19,5 +19,10 @@ class Prueba extends Model
     {
         return $this->hasOne('App\Models\Bioquimica');
     }
+
+    public function toxicologico()
+    {
+        return $this->hasOne('App\Models\Toxicologico');
+    }
     
 }

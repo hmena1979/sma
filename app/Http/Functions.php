@@ -33,6 +33,13 @@
 		return $m;
 	}
 
+	function getHemograma(){
+		$m = [
+			'1' => 'Observaciones',
+			'2' => 'Otros',
+		];
+		return $m;
+	}
 	function getOrina(){
 		$m = [
 			'1' => 'Cantidad',
@@ -306,6 +313,14 @@
 		$periodo = substr($dia,5,2).substr($dia,0,4);
 		return $periodo;
 	}
+
+	function generateRandomString($length = 10) { 
+		return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length); 
+	}
+
+	function azarMayusculas($length = 10) { 
+		return substr(str_shuffle("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length); 
+	} 
 
 
 ?>

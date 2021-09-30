@@ -10,6 +10,7 @@
                 </tr>
             </thead>
             <tbody>
+                @can('admin.medica.index')
                 @if(kvfa($examenes,'1'))
                 <tr>
                     <th class="align-middle">Médica</th>
@@ -22,6 +23,8 @@
                     </td>
                 </tr>
                 @endif
+                @endcan
+                @can('admin.psico.index')
                 @if(kvfa($examenes,'5'))
                 <tr>
                     <th class="align-middle">Psicológica</th>
@@ -34,6 +37,8 @@
                     </td>
                 </tr>
                 @endif
+                @endcan
+                @can('admin.oftalmo.index')
                 @if(kvfa($examenes,'3'))
                 <tr>
                     <th class="align-middle">Oftalmológica</th>
@@ -45,7 +50,9 @@
                         </a>
                     </td>
                 </tr>
-                @endif
+                @endif                    
+                @endcan
+                @can('admin.odonto.index')
                 @if(kvfa($examenes,'4'))
                 <tr>
                     <th class="align-middle">Odontológico</th>
@@ -57,7 +64,9 @@
                         </a>
                     </td>
                 </tr>
-                @endif
+                @endif                    
+                @endcan
+                @can('admin.radio.index')
                 @if(kvfa($examenes,'9'))
                 <tr>
                     <th class="align-middle">Radiográfico</th>
@@ -69,7 +78,9 @@
                         </a>
                     </td>
                 </tr>
-                @endif
+                @endif                    
+                @endcan
+                @can('admin.espiro.index')
                 @if(kvfa($examenes,'8'))
                 <tr>
                     <th class="align-middle">Espirometría</th>
@@ -82,6 +93,8 @@
                     </td>
                 </tr>
                 @endif
+                @endcan
+                @can('admin.audio.index')
                 @if(kvfa($examenes,'8'))
                 <tr>
                     <th class="align-middle">Audiometría</th>
@@ -94,6 +107,8 @@
                     </td>
                 </tr>
                 @endif
+                @endcan
+                @can('admin.ekg.index')
                 @if(kvfa($examenes,'6'))
                 <tr>
                     <th class="align-middle">Electrocardiograma</th>
@@ -106,6 +121,8 @@
                     </td>
                 </tr>
                 @endif
+                @endcan
+                @can('admin.derma.index')
                 @if(kvfa($examenes,'6'))
                 <tr>
                     <th class="align-middle">Dermatológico</th>
@@ -118,6 +135,8 @@
                     </td>
                 </tr>
                 @endif
+                @endcan
+                @can('admin.altura18.index')
                 @if(kvfa($examenes,'10'))
                 <tr>
                     <th class="align-middle">Altura 1.8m</th>
@@ -130,6 +149,8 @@
                     </td>
                 </tr>
                 @endif
+                @endcan
+                @can('admin.altura25.index')
                 @if(kvfa($examenes,'11'))
                 <tr>
                     <th class="align-middle">Altura 2500msnm</th>
@@ -142,6 +163,8 @@
                     </td>
                 </tr>
                 @endif
+                @endcan
+                @can('admin.confinado.index')
                 @if(kvfa($examenes,'12'))
                 <tr>
                     <th class="align-middle">Espacio Confinado</th>
@@ -154,7 +177,8 @@
                     </td>
                 </tr>
                 @endif
-                @if(kvfa($examenes,'13'))
+                @endcan
+                {{-- @if(kvfa($examenes,'13'))
                 <tr>
                     <th class="align-middle">Covid19 - Antígeno</th>
                     <td class="align-middle">COVID-19 - PRUEBA ANTÍGENO </td>
@@ -193,7 +217,7 @@
                         </a>
                     </td>
                 </tr>
-                @endif
+                @endif --}}
             </tbody>
         </table>
     </div>

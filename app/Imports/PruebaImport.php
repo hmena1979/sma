@@ -25,6 +25,7 @@ class PruebaImport implements ToModel
             'valorref01' => $row[4],
             'valorref02' => $row[5],
             'metodo' => $row[6],
+            'toxicologico' => $row[7],
         ]);
     }
 }

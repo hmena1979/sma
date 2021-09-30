@@ -134,6 +134,21 @@ class Detservicio extends Model
         return $this->hasOne('App\Models\Bacteriologia');
     }
 
+    public function urocultivo()
+    {
+        return $this->hasOne('App\Models\Urocultivo');
+    }
+
+    public function toxicologico()
+    {
+        return $this->hasMany('App\Models\Toxicologico');
+    }
+
+    public function metalpesado()
+    {
+        return $this->hasOne('App\Models\Metalpesado');
+    }
+
     public function otros()
     {
         return $this->hasMany('App\Models\Otro');

@@ -19,7 +19,7 @@ class CreateColaboradorsTable extends Migration
             $table->string('apellido',50);//APELLIDO	Character	50
             $table->string('nombre',50);//NOMBRE	Character	50
             $table->string('nombres');//NOMBRES	Character	100
-            $table->date('fecnac');//FEC_NAC	Date	8
+            $table->date('fecnac')->nullable();//FEC_NAC	Date	8
             $table->string('sexo_id',1)->default('M');
             $table->string('tipdoc_id',1)->default('1');//TIP_DOC	Character	2
             $table->string('numdoc',15);//NUM_DOC	Character	10

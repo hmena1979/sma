@@ -25,8 +25,8 @@ class ClienteImport implements ToModel
             'contacto' => $row[3],
             'direccion' => $row[4],
             'telefono' => $row[5],
-            'celular' => $row[6],
-            'actividad' => $row[7]
+            'actividad' => $row[6],
+            'clave' => azarMayusculas(),
         ]);
     }
 }

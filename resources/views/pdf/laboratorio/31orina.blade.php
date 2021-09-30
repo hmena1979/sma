@@ -80,31 +80,31 @@
                 </tr>
                 <tr>
                     <td>- GLUCOSA</td>
-                    <td>{{ $detservicio->orina->glucosa }}</td>
+                    <td>{{ $detservicio->orina->glucosa==1?'POSITIVO':'NEGATIVO' }}</td>
                 </tr>
                 <tr>
                     <td>- PROTEINAS</td>
-                    <td>{{ $detservicio->orina->proteinas }}</td>
+                    <td>{{ $detservicio->orina->proteinas==1?'POSITIVO':'NEGATIVO' }}</td>
                 </tr>
                 <tr>
                     <td>- NITRITOS</td>
-                    <td>{{ $detservicio->orina->nitritos }}</td>
+                    <td>{{ $detservicio->orina->nitritos==1?'POSITIVO':'NEGATIVO' }}</td>
                 </tr>
                 <tr>
                     <td>- P.BILIARES</td>
-                    <td>{{ $detservicio->orina->pbiliares }}</td>
+                    <td>{{ $detservicio->orina->pbiliares==1?'POSITIVO':'NEGATIVO' }}</td>
                 </tr>
                 <tr>
                     <td>- THEVENON</td>
-                    <td>{{ $detservicio->orina->thevenon }}</td>
+                    <td>{{ $detservicio->orina->thevenon==1?'POSITIVO':'NEGATIVO' }}</td>
                 </tr>
                 <tr>
                     <td>- UROBILINOGENO</td>
-                    <td>{{ $detservicio->orina->urobilinogeno }}</td>
+                    <td>{{ $detservicio->orina->urobilinogeno==1?'POSITIVO':'NEGATIVO' }}</td>
                 </tr>
                 <tr>
                     <td>- CETONAS</td>
-                    <td>{{ $detservicio->orina->cetonas }}</td>
+                    <td>{{ $detservicio->orina->cetonas==1?'POSITIVO':'NEGATIVO' }}</td>
                 </tr>
                 <tr>
                     <th colspan="2">EXAMEN DE SEDIMENTO 450 X</th>
@@ -115,7 +115,7 @@
                 </tr>
                 <tr>
                     <td>- PIOCITOS</td>
-                    <td>{{ $detservicio->orina->piocitos }}</td>
+                    <td>{{ $detservicio->orina->piocitos==1?'POSITIVO':'NEGATIVO' }}</td>
                 </tr>
                 <tr>
                     <td>- HEMATIES</td>

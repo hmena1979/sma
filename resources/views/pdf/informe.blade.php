@@ -264,5 +264,40 @@
             @php $pagina = 1; @endphp
             @include('pdf.laboratorio.34bacteriologia')
         @endif
+        @if (kvfa2($detalle,'35') && $detservicio->urocultivo()->count() <> 0)
+            @if ($pagina <> 0)
+                <div style="page-break-after:always;"></div>
+            @endif
+            @php $pagina = 1; @endphp
+            @include('pdf.laboratorio.35urocultivo')
+        @endif
+        @if (kvfa2($detalle,'36') && $detservicio->toxicologico()->count() <> 0)
+            @if ($pagina <> 0)
+                <div style="page-break-after:always;"></div>
+            @endif
+            @php $pagina = 1; @endphp
+            @include('pdf.laboratorio.36toxicologico')
+        @endif
+        @if (kvfa2($detalle,'37') && $detservicio->metalpesado()->count() <> 0)
+            @if ($pagina <> 0)
+                <div style="page-break-after:always;"></div>
+            @endif
+            @php $pagina = 1; @endphp
+            @include('pdf.laboratorio.37metalpesado')
+        @endif
+        @if (kvfa2($detalle,'38') && $detservicio->bioquimica()->count() <> 0)
+            @if ($pagina <> 0)
+                <div style="page-break-after:always;"></div>
+            @endif
+            @php $pagina = 1; @endphp
+            @include('pdf.laboratorio.38lipidico')
+        @endif
+        @if (kvfa2($detalle,'39') && $detservicio->bioquimica()->count() <> 0)
+            @if ($pagina <> 0)
+                <div style="page-break-after:always;"></div>
+            @endif
+            @php $pagina = 1; @endphp
+            @include('pdf.laboratorio.39resumen')
+        @endif
 	</body>
 </html>

@@ -15,7 +15,8 @@ class CreateColantfamiliarsTable extends Migration
     {
         Schema::create('colantfamiliars', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('colaborador_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('colaborador_id');
+            // $table->foreignId('colaborador_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->string('padre',20)->default('SANO');//PADRE	Character	15
             $table->string('madre',20)->default('SANO');//MADRE	Character	15
             $table->string('hermano',20)->default('SANO');//HERMANO	Character	15

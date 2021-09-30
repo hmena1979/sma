@@ -201,6 +201,7 @@ class ServicioController extends Controller
                 'puesto_id' => $request->input('puesto_id'),
                 'ocuactual' => $request->input('ocuactual'),
                 'fecha_bio' => $servicio->fecha,
+                'fecha_tox' => $servicio->fecha,
             ]);
             
 
@@ -547,6 +548,18 @@ class ServicioController extends Controller
         if(kvfa($examenes,'21') && $detservicio->bacteriologia()->count() == 0){
         // if(kvfa($detservicio->servicio->examenes,'15')){
             $detservicio->bacteriologia()->create([
+                'fecha' => $fecha,
+            ]);
+        }
+        if(kvfa($examenes,'22') && $detservicio->urocultivo()->count() == 0){
+        // if(kvfa($detservicio->servicio->examenes,'15')){
+            $detservicio->urocultivo()->create([
+                'fecha' => $fecha,
+            ]);
+        }
+        if(kvfa($examenes,'24') && $detservicio->metalpesado()->count() == 0){
+        // if(kvfa($detservicio->servicio->examenes,'15')){
+            $detservicio->metalpesado()->create([
                 'fecha' => $fecha,
             ]);
         }

@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Sede;
+use App\Models\Departamento;
+use App\Models\Provincia;
+use App\Models\Ubigeo;
 
 class SedeController extends Controller
 {
@@ -27,7 +30,9 @@ class SedeController extends Controller
 
     public function create()
     {
-        return view('admin.sedes.create');
+        $departamentos = Departamento::pluck('nombre','codigo');
+        $provincias = Provincia::where('departamento','20')->pluck('nombre','codigo');
+        return view('admin.sedes.create',compact('departamentos','provincias'));
     }
     
     public function getchange()
@@ -46,9 +51,15 @@ class SedeController extends Controller
     {
         $rules = [
             'nombre' => 'required',
+            'departamento' => 'required',
+            'provincia' => 'required',
+            'ubigeo' => 'required',
         ];
         $messages = [
     		'nombre.required' => 'Ingrese Nombre.',
+    		'departamento.required' => 'Ingrese Departamento',
+    		'provincia.required' => 'Ingrese Provincia.',
+    		'ubigeo.required' => 'Ingrese Ubigeo.',
         ];
         $validator = Validator::make($request->all(),$rules,$messages);
     	if($validator->fails()){
@@ -66,16 +77,25 @@ class SedeController extends Controller
 
     public function edit(Sede $sede)
     {
-        return view('admin.sedes.edit',compact('sede'));
+        $departamentos = Departamento::pluck('nombre','codigo');
+        $provincias = Provincia::where('departamento',$sede->departamento)->pluck('nombre','codigo');
+        $ubigeo = Ubigeo::where('provincia',$sede->provincia)->pluck('nombre','codigo');
+        return view('admin.sedes.edit',compact('sede','departamentos','provincias','ubigeo'));
     }
 
     public function update(Request $request, Sede $sede)
     {
         $rules = [
             'nombre' => 'required',
+            'departamento' => 'required',
+            'provincia' => 'required',
+            'ubigeo' => 'required',
         ];
         $messages = [
     		'nombre.required' => 'Ingrese Nombre.',
+            'departamento.required' => 'Ingrese Departamento',
+    		'provincia.required' => 'Ingrese Provincia.',
+    		'ubigeo.required' => 'Ingrese Ubigeo.',
         ];
         $validator = Validator::make($request->all(),$rules,$messages);
     	if($validator->fails()){
