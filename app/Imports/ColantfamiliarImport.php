@@ -44,6 +44,6 @@ class ColantfamiliarImport implements ToModel, WithBatchInserts
 
     public function batchSize(): int
     {
-        return 50;
+        return 750;
     }
 }
