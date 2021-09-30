@@ -50,6 +50,6 @@ class ColantocupacionalImport implements ToModel, WithBatchInserts
 
     public function batchSize(): int
     {
-        return 750;
+        return 300;
     }
 }
