@@ -290,6 +290,7 @@ class ServicioController extends Controller
         $cie10s = Cie10::whereIn('codigo',$cie)->orderBy('codigo')->get()->pluck('codigo_nombre','codigo');
         $examenes = $detservicio->servicio->examenes;
         $fecha = $detservicio->servicio->fecha;
+        $user = Auth::user();
         
         // if(kvfa($detservicio->servicio->examenes,'1') && !$detservicio->examedico()->exists()){
         if(kvfa($examenes,'1') && $detservicio->examedico()->count() == 0){
@@ -563,8 +564,24 @@ class ServicioController extends Controller
                 'fecha' => $fecha,
             ]);
         }
+        $emed = Auth::user()->hasAnyPermission([
+            'admin.medica.index', 'admin.psico.index', 'admin.oftalmo.index','admin.odonto.index',
+            'admin.radio.index','admin.espiro.index','admin.audio.index','admin.ekg.index','admin.derma.index',
+            'admin.altura18.index','admin.altura25.index','admin.confinado.index']);
+        $elab = $user->hasPermissionTo('admin.laboratorio.index');
+        
+        if(!$emed && !$elab){
+            $pagina = 1;
+        }
+        if($elab){
+            $pagina = 3;
+        }
+        if($emed){
+            $pagina = 1;
+        }
+        
         return view('admin.servicios.evaluacion', compact(
-            'detservicio','area','puesto','resultado','altitud','laboratorio','examenes','doctors','cie10s'
+            'detservicio','area','puesto','resultado','altitud','laboratorio','examenes','doctors','cie10s','emed','pagina'
         ));   
     }
 

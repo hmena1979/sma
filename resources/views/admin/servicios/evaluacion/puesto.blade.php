@@ -164,6 +164,7 @@
         </div>
     </div>
 </div>
+@can('admin.medica.edit')
 <div class="row mt-3">
     <div class="col-md-2 d-flex">
         <div class="panelprin shadow">
@@ -222,3 +223,4 @@
         </div>
     </div>
 </div>
+@endcan

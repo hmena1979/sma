@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 use App\Models\Detservicio;
 use App\Models\Categoria;
@@ -23,6 +24,7 @@ use App\Models\Exacovid;
 use App\Models\Exaekg;
 use App\Models\Exaodonto;
 use App\Models\Exaradio;
+use App\Models\Otro;
 
 class ExamenController extends Controller
 {
@@ -635,5 +637,55 @@ class ExamenController extends Controller
     {
         $exacovid->update($request->all());
         return redirect()->route('admin.servicios.evaluacion',$exacovid->detservicio)->with('update', 'Examen Covid-19 Actualizada');
+    }
+
+    public function addotros(Request $request)
+    {
+        $rules = [
+            'fecotr' => 'required',
+            'tipotr' => 'required',
+            'concotr' => 'required',
+            'imgotr' => 'required',
+        ];
+        $messages = [
+    		'fecotr.required' => 'Ingrese Fecha.',
+    		'tipotr.required' => 'Ingrese Tipo.',
+    		'concotr.required' => 'Ingrese Conclusión.',
+    		'imgotr.required' => 'Elija Archivo.',
+        ];
+        $validator = Validator::make($request->all(),$rules,$messages);
+    	if($validator->fails()){
+            return back()->withErrors($validator)->with('message', 'Se ha producido un error')->with('typealert', 'danger')->withinput();
+        }else{
+            if($request->hasFile('imgotr')){
+                // $archivo = $request->file('imgotr');
+                // Storage::disk('examenes')->makeDirectory('examenes');
+                // $examen = Storage::disk('examenes')->put($request->input('id'), $archivo);
+
+                $archivo = $request->file('imgotr');
+                Storage::disk('examenes')->makeDirectory($request->input('id'));
+                $examen = Storage::disk('examenes')->put($request->input('id'), $archivo);
+            }else{
+                $examen = null;
+                return back()->with('message', 'No es un archivo válido')->with('typealert', 'danger')->withinput();
+            }
+            Otro::create([
+                'detservicio_id' => $request->input('id'),
+                'fecha' => $request->input('fecotr'),
+                'tipo' => $request->input('tipotr'),
+                'conclusion' => $request->input('concotr'),
+                'ruta' => $examen
+            ]);
+            return redirect()->route('admin.servicios.evaluacion',$request->input('id'))->with('update', 'Examen Agregado');
+        }        
+    }
+
+    public function destroyotr(Otro $otro){
+        $ruta = $otro->ruta;
+        $id = $otro->detservicio_id;
+        if($otro->delete()):
+            Storage::disk('examenes')->delete($ruta);
+            return redirect()->route('admin.servicios.evaluacion',$id)->with('destroy', 'Examen Eliminado');
+        endif;
     }
 }

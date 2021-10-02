@@ -67,8 +67,10 @@
 									<td>{{ $servicio->cliente->razsoc }}</td>
 									<td>
 										<div class="opts">
-											<a class="" href="{{ route('admin.colaboradors.edit',$servicio->colaborador_id) }}"datatoggle="tooltip" data-placement="top" title="Antecedentes Colaboradores"><i class="far fa-user"></i></a>
-											@can('admin.servicios.edit')
+											@can('admin.colaboradors.edit')
+											<a class="" href="{{ route('admin.colaboradors.edit',$servicio->colaborador_id) }}"datatoggle="tooltip" data-placement="top" title="Antecedentes Colaboradores"><i class="far fa-user"></i></a>												
+											@endcan
+											@can('admin.evaluacion')
 											<a class="" href="{{ route('admin.servicios.evaluacion',$servicio->id) }}"datatoggle="tooltip" data-placement="top" title="Evaluación"><i class="fas fa-laptop-medical"></i></a>
 											@endcan
 											<a class="" href="{{ route('admin.reportes.listado',$servicio->id) }}"datatoggle="tooltip" data-placement="top" title="Reportes"><i class="fas fa-print"></i></a>

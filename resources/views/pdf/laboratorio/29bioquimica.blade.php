@@ -60,6 +60,7 @@
         </thead>
         <tbody>
             @foreach($detservicio->bioquimica as $bio)
+            @if (!empty($bio->valor))
             <tr>
                 <td>{{ $bio->prueba->nombre }}</td>
                 <td class="text-center">{{ $bio->valor.' '.$bio->prueba->medida }}</td>
@@ -68,7 +69,8 @@
                     $bio->detservicio->colaborador->sexo_id,$bio->prueba->valorref01,$bio->prueba->valorref02) }}
                 </td>
                 <td class="text-center">{{ $bio->prueba->metodo }}</td>
-            </tr>
+            </tr>                
+            @endif
             @endforeach
         </tbody>
     </table>

@@ -9,7 +9,7 @@
 @endsection
 
 @section('contenido')
-	<div class="container-fluid">
+	<div class="container-fluid mbottom16">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="panelprin shadow">
@@ -98,23 +98,29 @@
                             <div class="col-md-12">
                                 <nav>
                                     <div class="nav nav-tabs" id="nav-medico" role="tablist">
-                                        <a class="nav-item nav-link active" id="nav-puesto-tab" data-toggle="tab" href="#nav-puesto" role="tab" aria-controls="nav-puesto" aria-selected="true">Información Puesto</a>
-                                        <a class="nav-item nav-link" id="nav-medica-tab" data-toggle="tab" href="#nav-medica" role="tab" aria-controls="nav-medica" aria-selected="true">Evaluación Médica</a>
+                                        @if ($pagina==1)
+                                        <a class="nav-item nav-link @if($pagina==1) active @endif " id="nav-puesto-tab" data-toggle="tab" href="#nav-puesto" role="tab" aria-controls="nav-puesto" aria-selected="true">Información Puesto</a>
+                                        <a class="nav-item nav-link" id="nav-medica-tab" data-toggle="tab" href="#nav-medica" role="tab" aria-controls="nav-medica" aria-selected="true">Evaluación Médica</a>                                            
+                                        @endif
                                         @can('admin.laboratorio.index')
-                                        <a class="nav-item nav-link" id="nav-laboratorio-tab" data-toggle="tab" href="#nav-laboratorio" role="tab" aria-controls="nav-laboratorio" aria-selected="true">Laboratorio</a>                                            
+                                        <a class="nav-item nav-link @if($pagina==3) active @endif " id="nav-laboratorio-tab" data-toggle="tab" href="#nav-laboratorio" role="tab" aria-controls="nav-laboratorio" aria-selected="true">Laboratorio</a>                                            
                                         @endcan
+                                        @can('admin.informes.index')
                                         <a class="nav-item nav-link" id="nav-informe-tab" data-toggle="tab" href="#nav-informe" role="tab" aria-controls="nav-informe" aria-selected="true">Informe</a>
+                                        @endcan
+                                        @can('admin.medica.edit')
                                         <a class="nav-item nav-link" id="nav-resultado-tab" data-toggle="tab" href="#nav-resultado" role="tab" aria-controls="nav-resultado" aria-selected="false">Resultado</a>
+                                        @endcan
                                     </div>
                                 </nav>
                                 <div class="tab-content" id="nav-tabContent">
-                                    <div class="tab-pane fade show active" id="nav-puesto" role="tabpanel" aria-labelledby="nav-puesto-tab">
+                                    <div class="tab-pane fade @if($pagina==1) show active @endif" id="nav-puesto" role="tabpanel" aria-labelledby="nav-puesto-tab">
                                         @include('admin.servicios.evaluacion.puesto')
                                     </div>
                                     <div class="tab-pane fade" id="nav-medica" role="tabpanel" aria-labelledby="nav-medica-tab">
                                         @include('admin.servicios.evaluacion.medica')
                                     </div>
-                                    <div class="tab-pane fade" id="nav-laboratorio" role="tabpanel" aria-labelledby="nav-laboratorio-tab">
+                                    <div class="tab-pane fade @if($pagina==3) show active @endif" id="nav-laboratorio" role="tabpanel" aria-labelledby="nav-laboratorio-tab">
                                         @include('admin.servicios.evaluacion.laboratorio')
                                     </div>
                                     <div class="tab-pane fade" id="nav-informe" role="tabpanel" aria-labelledby="nav-informe-tab">
@@ -131,6 +137,90 @@
                 {!! Form::close() !!}
             </div>
         </div>
+        @can('admin.medica.edit')
+        <div class="row mbottom16">
+            <div class="col-md-12">
+                <div class="panelprin shadow">
+                    <div class="headercontent">
+                        <h2 class="title">Ingresar Otras Evaluaciones:</h2>
+                        <ul>
+                            {{-- @can('admin.clientes.create') --}}
+                            <li>
+                                {{-- <a href="{{ route('admin.clientes.create') }}">
+                                    Agregar
+                                </a> --}}
+                            </li>
+                            {{-- @endcan --}}
+                        </ul>
+                    </div>
+                    <div class="inside">
+                        {!! Form::open(['route'=>'admin.examens.addotros','files' => true]) !!}
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label class="lsinmargen" for="fecha">Fecha:</label>
+                                {!! Form::hidden('id',$detservicio->id) !!}
+                                {!! Form::date('fecotr', null, ['class'=>'form-control','id'=>'fecotr']) !!}
+                            </div>
+                            <div class="col-md-3">
+                                <label class="lsinmargen" for="tipotr">Tipo:</label>
+                                {!! Form::text('tipotr', null, ['class'=>'form-control mayuscula','id'=>'tipotr','autocomplete'=>'off']) !!}
+                            </div>
+                            <div class="col-md-4">
+                                <label class="lsinmargen" for="concotr">Conclusión:</label>
+                                {!! Form::text('concotr', null, ['class'=>'form-control mayuscula','id'=>'concotr','autocomplete'=>'off']) !!}
+                            </div>
+                            <div class="col-md-2">
+                                <label class="lsinmargen" for="imgotr" class="mtop16">Examen:</label>
+                                <div class="custom-file">
+                                    {!! Form::file('imgotr', ['class'=>'custom-file-input','id'=>'imgotr', 'accept'=>'image/*, .pdf']) !!}
+                                    <label class="custom-file-label" for="imgotr" data-browse="Buscar"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                {!! Form::submit('Agregar', ['class'=>'btn btn-convertir mtop23']) !!}
+                            </div>
+                        </div>
+                        {!! Form::close() !!}
+                        <div class="row">
+                            <table class="table table-hover table-bordered table-estrecha">
+                                <thead>
+                                    <tr>
+                                        <th width='10%'>FECHA</th>
+                                        <th width='30%'>TIPO</th>
+                                        <th width='50%'>CONCLUSIÓN</th>
+                                        <td width='10%'></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($detservicio->otros as $otro)
+                                        <tr>
+                                            <td>{{ $otro->fecha }}</td>
+                                            <td>{{ $otro->tipo }}</td>
+                                            <td>{{ $otro->conclusion }}</td>
+                                            <td>
+                                                <div class="opts">
+                                                    <a href="{{ url('/examenes/'.$otro->ruta) }}" class="btn btn-outline-info" target="_blank" datatoggle="tooltip" data-placement="top" title="Visualizar documento">
+                                                        <i class="fas fa-notes-medical"></i>
+                                                    </a>
+                                                    <form action="{{ route('admin.examens.destroyotr',$otro) }}" method="POST" class="formulario_eliminars">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" datatoggle="tooltip" data-placement="top" title="Eliminar">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>            
+        @endcan
 	</div>
 @endsection
 {{-- @section('css')
@@ -188,8 +278,7 @@
                 },
                 cache: true,
             }
-        });
-        
+        });        
 
     });
     function destroycol(){
@@ -243,5 +332,6 @@
         }
         reader.readAsDataURL(file);
     }
+    
 </script>
 @endsection

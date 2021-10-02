@@ -21,9 +21,11 @@
                             Declaración Jurada
                         </h2>
                         <ul>
+                            @can('admin.informes.edit')
                             <li>
                                 {!! Form::submit('Guardar', ['class'=>'btn btn-convertir mt-2','id'=>'guardar']) !!}
                             </li>
+                            @endcan
                         </ul>
                     </div>
                     <div class="inside">

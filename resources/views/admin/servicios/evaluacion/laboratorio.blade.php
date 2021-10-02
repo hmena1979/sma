@@ -1,3 +1,4 @@
+@if ($pagina==1)
 <div class="row mt-3">
     <h5 class="colorprin ml-2">
         Valores:
@@ -64,13 +65,14 @@
     </div>
     <div class="col-md-2 form-group">
         {!! Form::label("bioquimica[factorrh]", 'Factor RH:') !!}
-        {!! Form::text('bioquimica[factorrh]', $laboratorio['FactorRH']==''?'POSITIVO':$laboratorio['FactorRH'], ['class'=>'form-control mayuscula','maxlength'=>'10','autocomplete'=>'off']) !!}
+        {!! Form::text('bioquimica[factorrh]', $laboratorio['FactorRH'], ['class'=>'form-control mayuscula','maxlength'=>'10','autocomplete'=>'off']) !!}
     </div>
     <div class="col-md-2 form-group">
         {!! Form::label("orinap", 'Orina:') !!}
         {!! Form::select('orinap',[1=> 'POSITIVO', 2=>'NEGATIVO'],null,['class'=>'custom-select']) !!}
     </div>
-</div>
+</div>    
+@endif
 <div class="row">
     <div class="col-md-6">
         <table class="table table-hover table-bordered table-estrecha">
