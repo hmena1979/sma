@@ -26,7 +26,7 @@
 	@section('content')
 	@show
     
-    <script src="{{ url('/js/jquery-3.5.1.min.js') }}"></script>
+    <script src="{{ url('/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ url('/js/all.js') }}"></script>
 
     @if(Session::has('message'))

@@ -55,8 +55,8 @@
 									<th width="10%">Fecha</th>
 									<th width="15%">Evaluación</th>
 									<th width="35%">Cliente</th>
-									<th width="30%">Ubicación</th>
-									<th width="10%"></th>
+									<th width="28%">Ubicación</th>
+									<th width="12%"></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -73,6 +73,7 @@
 											<a class="" href="{{ route('admin.servicios.edit',$servicio) }}"datatoggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-edit"></i></a>
 											@endcan
 											<a class="" href="{{ route('admin.servicios.addcolaborador',$servicio) }}"datatoggle="tooltip" data-placement="top" title="Asignar Colaboradores"><i class="far fa-user"></i></a>
+											<a class="" href="{{ route('admin.reportes.listcolaboradores',$servicio) }}" target="_blank" datatoggle="tooltip" data-placement="top" title="Listar Colaboradores"><i class="fas fa-print"></i></a>
 											@can('admin.servicios.destroy')
 											<form action="{{ route('admin.servicios.destroy',$servicio) }}" method="POST" class="formulario_eliminars">
 												@csrf

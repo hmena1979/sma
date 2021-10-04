@@ -9,7 +9,7 @@
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		<ul class="navbar-nav ml-auto text-center">
 			<li class="nav-item">
-				<a class="nav-link" href="{{ url('/contacto') }}">Clientes</a>
+				<a class="nav-link" href="{{ route('company.login') }}">Clientes</a>
 			</li>
 			<li class="nav-item">
 				{{-- <a class="nav-link" href="{{ url('/admin') }}">Corporativo</a> --}}

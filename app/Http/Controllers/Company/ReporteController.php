@@ -1,37 +1,53 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
-use App\Models\Detservicio;
-use App\Models\Param;
-use App\Models\Reporte;
-use App\Models\Sede;
 use App\Models\Categoria;
-use App\Models\Cathece;
-use App\Models\Catorina;
-use App\Models\Doctor;
-use App\Models\Obshemog;
-use App\Models\Otrhemog;
-use App\Models\Servicio;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
+use App\Models\Sede;
+Use App\Models\Cliente;
+use App\Models\Detservicio;
+use App\Models\Servicio;
+use App\Models\Param;
+use App\Models\Doctor;
+use App\Models\Obshemog;
+use App\Models\Otrhemog;
+use App\Models\Catorina;
+use App\Models\Cathece;
+use App\Models\Reporte;
+
+
 class ReporteController extends Controller
 {
-    public function __construct()
+    public function index(Sede $sede)
     {
-    	$this->middleware('auth');
-    	$this->middleware('isadmin');
-        // $this->middleware('can:admin.inicio')->only('getDashboard');
+        $cliente = Cliente::findOrFail(session('cliente'));
+        $sedes = Sede::get();
+        $servicios = Servicio::with('eval')->where('cliente_id',session('cliente'))->where('sede_id',$sede->id)->get();
+        return view('company.reportes.index', compact('cliente','sedes','sede','servicios'));
+    }
+
+    public function detalle(Servicio $servicio)
+    {
+        $cliente = Cliente::findOrFail(session('cliente'));
+        $sedes = Sede::get();
+        $sede = Sede::findOrFail($servicio->sede_id);
+        $resultado = Categoria::where('modulo', 7)->orderBy('nombre')->pluck('nombre','codigo');
+        return view('company.reportes.detalle', compact('cliente','sedes','sede','servicio','resultado'));
     }
 
     public function listado(Detservicio $detservicio)
     {
         $reportes = Reporte::with('detreportes')->get();
-        return view('admin.reportes.listado', compact(
-            'detservicio','reportes'
+        $cliente = Cliente::findOrFail(session('cliente'));
+        $sedes = Sede::get();
+        $sede = Sede::findOrFail($detservicio->servicio->sede_id);
+        return view('company.reportes.listado', compact(
+            'detservicio','reportes','cliente','sedes','sede'
         )); 
 
     }
@@ -172,6 +188,7 @@ class ReporteController extends Controller
                     'detservicios.area_id','detservicios.puesto_id','detservicios.resultado')
 			->whereNull('detservicios.deleted_at')
             ->where('detservicios.servicio_id', $servicio->id)
+            ->where('detservicios.finalizado', 1)
             ->orderBy('colaboradors.nombres')
             ->get();
         $carea =  Detservicio::where('servicio_id',$servicio->id)->pluck('area_id');

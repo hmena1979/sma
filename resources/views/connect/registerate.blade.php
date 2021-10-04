@@ -1,5 +1,5 @@
 @extends('connect.master')
-@section('title','Tienda - Registro de usuario')
+@section('title','CSO SMA - Registro de usuario')
 
 @section('content')
 <div class="box box_register shadow">

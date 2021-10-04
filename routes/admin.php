@@ -165,6 +165,7 @@ Route::get('/busquedas/cie10',[BusquedaController::class,'cie10'])->name('admin.
 //reportes
 Route::get('/reportes/{detservicio}/listado', [ReporteController::class,'listado'])->name('admin.reportes.listado');
 Route::post('/reportes/{detservicio}/print', [ReporteController::class,'print'])->name('admin.reportes.print');
+Route::get('/reportes/{servicio}/listcolaboradores', [ReporteController::class,'listcolaboradores'])->name('admin.reportes.listcolaboradores');
 
 //Modulo importaciones
 Route::get('/import', [ImportController::class,'index'])->name('admin.imports.index');

@@ -1,5 +1,5 @@
 @extends('connect.master')
-@section('title','Tienda - Ingreso')
+@section('title','CSO SMA - Ingreso')
 
 @section('content')
 <div class="box box_login shadow">
@@ -20,7 +20,7 @@
 			<div class="input-group-text"><i class="fas fa-unlock-alt"></i></div>
 			{!! Form::password('password', ['class'=>'form-control']) !!}
 		</div>
-		{!! Form::submit('Ingresar',['class'=>'btn btn-convertir btn-block mtop16']) !!}
+		{!! Form::submit('Ingresar',['class'=>'btn btn-login btn-block mtop16']) !!}
 		{!! Form::close() !!}
 
 		<div class="footer">

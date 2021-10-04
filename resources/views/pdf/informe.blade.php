@@ -3,8 +3,7 @@
 	<head>
         <meta charset="utf-8">
         <title>Informe</title>
-
-               <link rel="stylesheet" href="{{ url('/static/css/report.css?v='.time()) }}">
+        <link rel="stylesheet" href="{{ url('/static/css/report.css?v='.time()) }}">
 	</head>
 	<body>
         <div class="footer letra9">

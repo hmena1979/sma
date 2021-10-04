@@ -79,7 +79,9 @@
                                         <th width="20%">Área</th>
                                         <th width="20%">Ocupación</th>
                                         <th width="20%">Ocupación Actual</th>
-                                        <th width="10%"></th>
+                                        <th width="10%">
+                                            <a class="" href="{{ route('admin.reportes.listcolaboradores',$servicio) }}" target="_blank" datatoggle="tooltip" data-placement="top" title="Listar Colaboradores"><i class="fas fa-print"></i></a>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
