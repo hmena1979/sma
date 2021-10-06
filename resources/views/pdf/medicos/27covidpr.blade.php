@@ -119,16 +119,16 @@
             </td>
             <td width='50%' class="text-center">
                 <div>
-                    @if (empty($detservicio->exacovidant->doctor_id))
+                    @if (empty($detservicio->exacovidpr->doctor_id))
                     <br><br><br><br>
                     @else
-                        @if (empty($docfirma[$detservicio->exacovidant->doctor_id]))
+                        @if (empty($docfirma[$detservicio->exacovidpr->doctor_id]))
                         <br><br><br><br>
                         @else
-                        <img src="{{ url('firmas/'.$docfirma[$detservicio->exacovidant->doctor_id]) }}" height="90px" alt=""><br>
+                        <img src="{{ url('firmas/'.$docfirma[$detservicio->exacovidpr->doctor_id]) }}" height="90px" alt=""><br>
                         @endif
                     @endif
-                    @if (!empty($detservicio->exacovidant->doctor_id))
+                    @if (!empty($detservicio->exacovidpr->doctor_id))
                     ...........................................................
                     <div class="lchicas">
                         Nombre, Firma y sello del médico Evaluador
