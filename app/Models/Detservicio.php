@@ -89,6 +89,11 @@ class Detservicio extends Model
         return $this->hasOne('App\Models\Exaalt25');
     }
 
+    public function exapsicosometrica()
+    {
+        return $this->hasOne('App\Models\Exapsicosometrica');
+    }
+
     public function exacovidant()
     {
         return $this->hasOne('App\Models\Exacovid')->where('examen',1);

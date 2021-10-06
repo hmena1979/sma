@@ -293,6 +293,21 @@
                                 </div>
                             </div>                                
                             @endif
+                            @if ($detservicio->exapsicosometrica()->count() <> 0)
+                            <div class="col-md-4 d-flex">
+                                <div class="card flex-fill">
+                                    <div class="card-header colorprin">
+                                        <strong>PSICOSOMÉTRICA</strong>
+                                    </div>
+                                    <div class="card-body">
+                                        <label>
+                                            {!! Form::checkbox('detalle[]', 40, false,['class' => 'mr-1']) !!}
+                                            EVALUACIÓN PSICOSOMÉTRICA
+                                        </label><br>
+                                    </div>
+                                </div>
+                            </div>                                
+                            @endif
                             @if ($detservicio->exacovidant()->count() <> 0 || $detservicio->exacovidpr()->count() <> 0 || 
                                 $detservicio->exacovidpcr()->count() <> 0)
                             <div class="col-md-4 d-flex">

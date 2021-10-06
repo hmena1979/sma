@@ -64,6 +64,7 @@ class ReporteController extends Controller
         $otrhemoval = Otrhemog::pluck('valorref','id');
         $catorina = Catorina::pluck('nombre','id');
         $cathece = Cathece::pluck('nombre','id');
+        $aprobado = ['0'=>'PENDIENTE','1'=>'APROBADO','2'=>'DESAPROBADO'];
         $laboratorio = [];
         foreach($detservicio->bioquimica as $bio){
             if($bio->prueba_id == 1){
@@ -172,7 +173,8 @@ class ReporteController extends Controller
             'inteligencia' => $inteligencia,
             'memoria' => $memoria,
             'doctor' => $doctor,
-            'docfirma' => $docfirma
+            'docfirma' => $docfirma,
+            'aprobado' => $aprobado
         ];
         // return view('pdf.informe', $data);
         $pdf = PDF::loadView('pdf.informe', $data)->setPaper('A4', 'portrait');

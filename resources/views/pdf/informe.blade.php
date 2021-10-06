@@ -182,6 +182,13 @@
             @php $pagina = 1; @endphp
             @include('pdf.medicos.25confinados')
         @endif
+        @if (kvfa2($detalle,'40') && $detservicio->exapsicosometrica()->count() <> 0)
+            @if ($pagina <> 0)
+                <div style="page-break-after:always;"></div>
+            @endif
+            @php $pagina = 1; @endphp
+            @include('pdf.medicos.40psicosometrica')
+        @endif
         @if (kvfa2($detalle,'26') && $detservicio->exacovidant()->count() <> 0)
             @if ($pagina <> 0)
                 <div style="page-break-after:always;"></div>

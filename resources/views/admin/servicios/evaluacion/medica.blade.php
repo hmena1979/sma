@@ -178,6 +178,20 @@
                 </tr>
                 @endif
                 @endcan
+                @can('admin.psicosometrica.index')
+                @if(kvfa($examenes,'25'))
+                <tr>
+                    <th class="align-middle">Psicosometrica</th>
+                    <td class="align-middle">{{ $detservicio->exapsicosometrica->observaciones }}</td>
+                    <td class="align-middle">{{ $aprobado[$detservicio->exapsicosometrica->aprobado] }}</td>
+                    <td class="align-middle">
+                        <a href="{{ route('admin.examens.exapsicosometrica',$detservicio) }}" class="btn btn-convertir" datatoggle="tooltip" data-placement="top" title="Evaluación Psicosometrica">
+                            <i class="fas fa-arrows-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+                @endif
+                @endcan
                 {{-- @if(kvfa($examenes,'13'))
                 <tr>
                     <th class="align-middle">Covid19 - Antígeno</th>

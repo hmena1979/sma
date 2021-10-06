@@ -86,6 +86,8 @@ Route::get('/examens/{detservicio}/exaradio', [ExamenController::class,'exaradio
 Route::put('/examens/{exaradio}/updatexaradio', [ExamenController::class,'updatexaradio'])->name('admin.examens.updatexaradio');
 Route::get('/examens/{exacovid}/exacovid', [ExamenController::class,'exacovid'])->name('admin.examens.exacovid');
 Route::put('/examens/{exacovid}/updatexacovid', [ExamenController::class,'updatexacovid'])->name('admin.examens.updatexacovid');
+Route::get('/examens/{detservicio}/exapsicosometrica', [ExamenController::class,'exapsicosometrica'])->name('admin.examens.exapsicosometrica');
+Route::put('/examens/{exapsicosometrica}/updatexapsicosometrica', [ExamenController::class,'updatexapsicosometrica'])->name('admin.examens.updatexapsicosometrica');
 Route::post('/examens/addotros', [ExamenController::class,'addotros'])->name('admin.examens.addotros');
 Route::delete('/examens/{otro}/destroyotr', [ExamenController::class,'destroyotr'])->name('admin.examens.destroyotr');
 

@@ -23,6 +23,7 @@ use App\Models\Exaalt25;
 use App\Models\Exacovid;
 use App\Models\Exaekg;
 use App\Models\Exaodonto;
+use App\Models\Exapsicosometrica;
 use App\Models\Exaradio;
 use App\Models\Otro;
 
@@ -637,6 +638,20 @@ class ExamenController extends Controller
     {
         $exacovid->update($request->all());
         return redirect()->route('admin.servicios.evaluacion',$exacovid->detservicio)->with('update', 'Examen Covid-19 Actualizada');
+    }
+
+    public function exapsicosometrica(Request $request, Detservicio $detservicio)
+    {
+        $doctors = Doctor::orderBy('nombre')->pluck('nombre','id');
+        return view('admin.examens.exapsicosometrica', compact(
+            'detservicio','doctors'
+        ));
+    }
+
+    public function updatexapsicosometrica(Request $request, Exapsicosometrica $exapsicosometrica)
+    {
+        $exapsicosometrica->update($request->all());
+        return redirect()->route('admin.servicios.evaluacion',$exapsicosometrica->detservicio)->with('update', 'Examen Psicosometrico Actualizado');
     }
 
     public function addotros(Request $request)
