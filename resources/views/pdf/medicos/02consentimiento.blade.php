@@ -43,20 +43,20 @@
         personas con problemas de coagulación pueden presentar hemorragia y en caso de repetidas punciones pueden 
         producirse trombos en el interior de un vaso sanguíneo o incluso flebitis o infecciones de las venas punzadas.<br>
         2.- Autorizo se me analice la muestra de orina para el examen microscópico y sedimento urinario, que entregare en el laboratorio.<br>
-        3.- Autorizo se me realice la prueba de espirometría la cual le puede producir un sincope o desmayo, sensación de 
+        {{-- 3.- Autorizo se me realice la prueba de espirometría la cual le puede producir un sincope o desmayo, sensación de 
         mareo o incluso la pérdida de conocimiento, broncoespasmo, dolor de pecho, dolor de cabeza por aumento de la 
-        presión intracraneal, neumotorax y accesos persistentes de tos.<br>
-        4.- Autorizo se me realice una audiometría, ecografía abdominal y en caso de mayores de 40 años 
+        presión intracraneal, neumotorax y accesos persistentes de tos.<br> --}}
+        3.- Autorizo se me realice una audiometría, ecografía abdominal y en caso de mayores de 40 años 
         electrocardiograma y en mayores de 50 años ecografía prostética los cuales son procedimientos no invasivos que 
         pueden tener efectos adversos de menor consideración.<br>
-        5.- Autorizo se me tome una radiografía posteroanterior de tórax lo que implica exposición a rayos x en una dosis baja.<br>
-        6.-Autorizo se me realice prueba de esfuerzo, si es necesario de acuerdo al protocolo médico y a las enfermedades 
+        4.- Autorizo se me tome una radiografía posteroanterior de tórax lo que implica exposición a rayos x en una dosis baja.<br>
+        5.-Autorizo se me realice prueba de esfuerzo, si es necesario de acuerdo al protocolo médico y a las enfermedades 
         que padezco, y se le informa que durante la prueba de esfuerzo puede sufrir: Sincope o desmayo, mareos, fatiga 
         severa con malestar, dolor muscular, traumatismo o caídas, infarto agudo de miocardio, arritmias cardiacas 
         accidentes cerebro vascular agudo, edema agudo de pulmón e incluso la muerte.<br>
-        7.-Autorizo se me realice el  examen clínico por el médico ocupacionai así como el examen oftalmológico y dental 
+        6.-Autorizo se me realice el  examen clínico por el médico ocupacionai así como el examen oftalmológico y dental 
         por los correspondientes facultativos.<br>
-        8.- La firma de este documento es voluntaria, Ud. Tiene la opción de negarse al examen médico ocupacional, lo 
+        7.- La firma de este documento es voluntaria, Ud. Tiene la opción de negarse al examen médico ocupacional, lo 
         cual trae como consecuencia que el servicio médico de su empresa desconozca su estado de salud actual, por lo 
         que cualquier enfermedad ocupacional que Ud. Padezca puede complicarse o incluso poner en riesgo su vida. Sise 
         trata de un examen pre ocupacional no se podrá emitir la aptitud médica ya que no sabemos los riesgos a los que 

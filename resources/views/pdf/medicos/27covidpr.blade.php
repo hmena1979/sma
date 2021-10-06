@@ -128,10 +128,12 @@
                         <img src="{{ url('firmas/'.$docfirma[$detservicio->exacovidant->doctor_id]) }}" height="90px" alt=""><br>
                         @endif
                     @endif
+                    @if (!empty($detservicio->exacovidant->doctor_id))
                     ...........................................................
                     <div class="lchicas">
                         Nombre, Firma y sello del médico Evaluador
                     </div>
+                    @endif
                 </div>
             </td>
         </tr>

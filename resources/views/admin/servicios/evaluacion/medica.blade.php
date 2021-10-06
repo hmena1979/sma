@@ -95,7 +95,7 @@
                 @endif
                 @endcan
                 @can('admin.audio.index')
-                @if(kvfa($examenes,'8'))
+                @if(kvfa($examenes,'2'))
                 <tr>
                     <th class="align-middle">Audiometría</th>
                     <td class="align-middle">{{ $detservicio->exaaudio->conclusion }}</td>
@@ -123,7 +123,7 @@
                 @endif
                 @endcan
                 @can('admin.derma.index')
-                @if(kvfa($examenes,'6'))
+                @if(kvfa($examenes,'7'))
                 <tr>
                     <th class="align-middle">Dermatológico</th>
                     <td class="align-middle">{{ $detservicio->exaderma->conclusion }}</td>

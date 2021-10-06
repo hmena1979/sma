@@ -333,6 +333,22 @@ return [
                     'active' => ['admin/roles/index','admin/roles/create','admin/roles/*/edit'],
                     'can'  => 'admin.roles.index',
                 ],
+                [
+                    'text'    => 'Laboratorio',
+                    'icon'    => 'fas fa-folder-open',
+                    'icon_color' => 'yellow',
+                    'can'  => 'admin.tablas',
+                    'submenu' => [
+                        [
+                            'text' => 'Pruebas Bioquímica',
+                            'icon'    => 'fas fa-microscope',
+                            'icon_color' => 'cyan',
+                            'route'  => 'admin.pruebas.index',
+                            'active' => ['admin/pruebas/index','admin/pruebas/create','admin/pruebas/*/edit'],
+                            'can'  => 'admin.pruebas.index',
+                        ],
+                    ],
+                ],
             ],
         ],
         [

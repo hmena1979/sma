@@ -154,10 +154,12 @@
                         <img src="{{ url('firmas/'.$docfirma[$detservicio->exacovidpcr->biologo_id]) }}" height="90px" alt=""><br>
                         @endif
                     @endif
+                    @if (!empty($detservicio->exacovidpcr->biologo_id))
                     ...........................................................
                     <div class="lchicas">
                         Biólogo
                     </div>
+                    @endif
                 </div>
             </td>
             <td width='50%' class="text-center">
@@ -171,10 +173,12 @@
                         <img src="{{ url('firmas/'.$docfirma[$detservicio->exacovidpcr->doctor_id]) }}" height="90px" alt=""><br>
                         @endif
                     @endif
+                    @if (!empty($detservicio->exacovidpcr->doctor_id))
                     ...........................................................
                     <div class="lchicas">
                         Nombre, Firma y sello del médico Evaluador
                     </div>
+                    @endif
                 </div>
             </td>
         </tr>

@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\InformeController;
 use App\Http\Controllers\Admin\ClienteController;
 
 Use App\Http\Controllers\Admin\BusquedaController;
+use App\Http\Controllers\Admin\PruebaController;
 use App\Http\Controllers\Admin\ReporteController;
 use App\Http\Controllers\Admin\SedeController;
 
@@ -151,6 +152,9 @@ Route::post('/doctors',[DoctorController::class,'store'])->name('admin.doctors.s
 Route::get('/doctors/{doctor}/edit',[DoctorController::class,'edit'])->name('admin.doctors.edit');
 Route::put('/doctors/{doctor}/update',[DoctorController::class,'update'])->name('admin.doctors.update');
 Route::get('/doctors/{activo?}',[DoctorController::class,'index'])->name('admin.doctors.index');
+
+//Pruebas
+Route::resource('pruebas', PruebaController::class)->names('admin.pruebas');
 
 //Modulo Busquedas
 Route::get('/busquedas/departamento', [BusquedaController::class,'departamento'])->name('admin.busquedas.departamento');

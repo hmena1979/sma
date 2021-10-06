@@ -6,22 +6,22 @@
 <div class="row">
     <div class="col-md-6 form-group">
         {!! Form::label("colantpatologicos[alcohol]", 'Frecuencia Alcohol:') !!}
-        {!! Form::text('colantpatologicos[alcohol]', $detservicio->colaborador->colantpatologico->alcohol, ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+        {!! Form::text('colantpatologicos[alcohol]', empty($detservicio->colaborador->colantpatologico->alcohol)?'NIEGA':$detservicio->colaborador->colantpatologico->alcohol, ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
     </div>
     <div class="col-md-6 form-group">
         {!! Form::label("colantpatologicos[tabaco]", 'Frecuencia Tabaco:') !!}
-        {!! Form::text('colantpatologicos[tabaco]', $detservicio->colaborador->colantpatologico->tabaco, ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+        {!! Form::text('colantpatologicos[tabaco]', empty($detservicio->colaborador->colantpatologico->tabaco)?'NIEGA':$detservicio->colaborador->colantpatologico->tabaco, ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
     </div>
     
 </div>
 <div class="row">
     <div class="col-md-6 form-group">
         {!! Form::label("colantpatologicos[droga]", 'Frecuencia Drogas:') !!}
-        {!! Form::text('colantpatologicos[droga]', $detservicio->colaborador->colantpatologico->droga, ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+        {!! Form::text('colantpatologicos[droga]', empty($detservicio->colaborador->colantpatologico->droga)?'NIEGA':$detservicio->colaborador->colantpatologico->droga, ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
     </div>
     <div class="col-md-6 form-group">
         {!! Form::label("colantpatologicos[medicamento]", 'Medicamentos:') !!}
-        {!! Form::text('colantpatologicos[medicamento]', $detservicio->colaborador->colantpatologico->medicamento, ['class'=>'form-control mayuscula','maxlength'=>'100','autocomplete'=>'off']) !!}
+        {!! Form::text('colantpatologicos[medicamento]', empty($detservicio->colaborador->colantpatologico->medicamento)?'NIEGA':$detservicio->colaborador->colantpatologico->medicamento, ['class'=>'form-control mayuscula','maxlength'=>'100','autocomplete'=>'off']) !!}
     </div>
 </div>
 

@@ -197,6 +197,11 @@ class DashboardController extends Controller
 		// $this->agregar_permiso('11','LABORATORIO','admin.laboratorio.edit','Editar Pruebas');
 		// $this->agregar_permiso('12','INFORMES','admin.informes.index','Ver Informes');
 		// $this->agregar_permiso('12','INFORMES','admin.informes.edit','Editar Informes');
+//-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+		$this->agregar_permiso('13','PRUEBAS BIOQUÍMICA','admin.pruebas.index','Puede ver listado Pruebas');
+		$this->agregar_permiso('13','PRUEBAS BIOQUÍMICA','admin.pruebas.create','Puede agregar Pruebas');
+		$this->agregar_permiso('13','PRUEBAS BIOQUÍMICA','admin.pruebas.edit','Puede editar Pruebas');
+		$this->agregar_permiso('13','PRUEBAS BIOQUÍMICA','admin.pruebas.destroy','Puede eliminar Pruebas');
 
 		return redirect()->route('admin.inicio')->with('message', 'Permisos Agregados')->with('typealert', 'success');
 	}

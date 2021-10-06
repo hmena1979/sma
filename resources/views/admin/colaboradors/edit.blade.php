@@ -294,49 +294,49 @@
                         <div class="row">
                             <div class="col-md-6 form-group">
                                 {!! Form::label("colantpatologicos[medicamento]", 'Medicamentos:') !!}
-								{!! Form::text('colantpatologicos[medicamento]', $colaborador->colantpatologico->medicamento, ['class'=>'form-control mayuscula','maxlength'=>'100','autocomplete'=>'off']) !!}
+								{!! Form::text('colantpatologicos[medicamento]', empty($colaborador->colantpatologico->medicamento)?'NIEGA':$colaborador->colantpatologico->medicamento, ['class'=>'form-control mayuscula','maxlength'=>'100','autocomplete'=>'off']) !!}
                             </div>
                             <div class="col-md-6 form-group">
                                 {!! Form::label("colantpatologicos[quemadura]", 'Quemadura:') !!}
-                                {!! Form::text('colantpatologicos[quemadura]', $colaborador->colantpatologico->quemadura, ['class'=>'form-control mayuscula','maxlength'=>'100','autocomplete'=>'off']) !!}
+                                {!! Form::text('colantpatologicos[quemadura]', empty($colaborador->colantpatologico->quemadura)?'NIEGA':$colaborador->colantpatologico->quemadura, ['class'=>'form-control mayuscula','maxlength'=>'100','autocomplete'=>'off']) !!}
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 form-group">
                                 {!! Form::label("colantpatologicos[cirugia]", 'Cirugía:') !!}
-								{!! Form::text('colantpatologicos[cirugia]', $colaborador->colantpatologico->cirugia, ['class'=>'form-control mayuscula','maxlength'=>'100','autocomplete'=>'off']) !!}
+								{!! Form::text('colantpatologicos[cirugia]', empty($colaborador->colantpatologico->cirugia)?'NIEGA':$colaborador->colantpatologico->cirugia, ['class'=>'form-control mayuscula','maxlength'=>'100','autocomplete'=>'off']) !!}
                             </div>
                             <div class="col-md-6 form-group">
                                 {!! Form::label("colantpatologicos[otros]", 'Otros:') !!}
-                                {!! Form::text('colantpatologicos[otros]', $colaborador->colantpatologico->otros, ['class'=>'form-control mayuscula','maxlength'=>'100','autocomplete'=>'off']) !!}
+                                {!! Form::text('colantpatologicos[otros]', empty($colaborador->colantpatologico->otros)?'NIEGA':$colaborador->colantpatologico->otros, ['class'=>'form-control mayuscula','maxlength'=>'100','autocomplete'=>'off']) !!}
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4 form-group">
                                 {!! Form::label("colantpatologicos[alcohol]", 'Frecuencia Alcohol:') !!}
-								{!! Form::text('colantpatologicos[alcohol]', $colaborador->colantpatologico->alcohol, ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+								{!! Form::text('colantpatologicos[alcohol]', empty($colaborador->colantpatologico->alcohol)?'NIEGA':$colaborador->colantpatologico->alcohol, ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
                             </div>
                             <div class="col-md-4 form-group">
                                 {!! Form::label("colantpatologicos[tabaco]", 'Frecuencia Tabaco:') !!}
-                                {!! Form::text('colantpatologicos[tabaco]', $colaborador->colantpatologico->tabaco, ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+                                {!! Form::text('colantpatologicos[tabaco]', empty($colaborador->colantpatologico->tabaco)?'NIEGA':$colaborador->colantpatologico->tabaco, ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
                             </div>
                             <div class="col-md-4 form-group">
                                 {!! Form::label("colantpatologicos[droga]", 'Frecuencia Drogas:') !!}
-                                {!! Form::text('colantpatologicos[droga]', $colaborador->colantpatologico->droga, ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+                                {!! Form::text('colantpatologicos[droga]', empty($colaborador->colantpatologico->droga)?'NIEGA':$colaborador->colantpatologico->droga, ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4 form-group">
                                 {!! Form::label("colantpatologicos[antpersonal]", 'Antecedente Personal:') !!}
-								{!! Form::text('colantpatologicos[antpersonal]', $colaborador->colantpatologico->antpersonal, ['class'=>'form-control mayuscula','maxlength'=>'255','autocomplete'=>'off']) !!}
+								{!! Form::text('colantpatologicos[antpersonal]', empty($colaborador->colantpatologico->antpersonal)?'NINGUNO':$colaborador->colantpatologico->antpersonal, ['class'=>'form-control mayuscula','maxlength'=>'255','autocomplete'=>'off']) !!}
                             </div>
                             <div class="col-md-4 form-group">
                                 {!! Form::label("colantpatologicos[antfamiliar]", 'Antecedente Familiar:') !!}
-                                {!! Form::text('colantpatologicos[antfamiliar]', $colaborador->colantpatologico->antfamiliar, ['class'=>'form-control mayuscula','maxlength'=>'255','autocomplete'=>'off']) !!}
+                                {!! Form::text('colantpatologicos[antfamiliar]', empty($colaborador->colantpatologico->antfamiliar)?'NINGUNO':$colaborador->colantpatologico->antfamiliar, ['class'=>'form-control mayuscula','maxlength'=>'255','autocomplete'=>'off']) !!}
                             </div>
                             <div class="col-md-4 form-group">
                                 {!! Form::label("colantpatologicos[inmunizaciones]", 'Inmunizaciones:') !!}
-                                {!! Form::text('colantpatologicos[inmunizaciones]', $colaborador->colantpatologico->inmunizaciones, ['class'=>'form-control mayuscula','maxlength'=>'255','autocomplete'=>'off']) !!}
+                                {!! Form::text('colantpatologicos[inmunizaciones]', empty($colaborador->colantpatologico->inmunizaciones)?'NINGUNO':$colaborador->colantpatologico->inmunizaciones, ['class'=>'form-control mayuscula','maxlength'=>'255','autocomplete'=>'off']) !!}
                             </div>
                         </div>
                     </div>

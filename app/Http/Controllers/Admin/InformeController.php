@@ -37,8 +37,10 @@ class InformeController extends Controller
             $p6 = ', QUE, DECLARA CONOCER EN TODOS SUS TÉRMINOS, Y EN ESPECIAL DE LOS PUNTOS RELATIVOS A LAS CONCLUSIONES Y RECOMENDACIONES ';
             $p7 = 'QUE SE COMPROMETE A SEGUIR Y QUE EN SEÑAL DE CONFORMIDAD SUSCRIBE EL PRESENTE.</p>';
             $confidencial = $p1.$p2.$p3.$p4.$p5.$p6.$p7;
+            $examenes = [];
             $detservicio->informe()->create([
                 'confidencial' => $confidencial,
+                'examenes' => json_encode($examenes),
             ]);
         }else{
             if(empty($detservicio->informe->confidencial)){
@@ -81,8 +83,10 @@ class InformeController extends Controller
             $p3 = '<p>PADECER DE , DESDE TIEMPO ATRÁS Y QUE ESTA BAJO CONTROL CON LOS TRATAMIENTOS Y DIETAS PERTINENTES ESPECIALIZADAS.</p><p>&nbsp;</p>';
             $p4 = '<p>DANDO FIDELIDAD Y BAJO JURAMENTO LO ESCRITO.</p>';
             $dj = $p1.$p2.$p3.$p4;
+            $examenes = [];
             $detservicio->informe()->create([
                 'dj' => $dj,
+                'examenes' => json_encode($examenes),
             ]);
         }else{
             if(empty($detservicio->informe->dj)){
@@ -114,8 +118,10 @@ class InformeController extends Controller
             $p2 = ', a realizar examen Toxicológico (Drogas), en cumplimiento al perfil médico de mi puesto laboral.</p>';
             $p3 = '<p>&nbsp;</p><p>En los últimos 7 días he consumido algunos de los siguientes medicamentos:</p>';
             $drogas = $p1.$p2.$p3;
+            $examenes = [];
             $detservicio->informe()->create([
                 'drogas' => $drogas,
+                'examenes' => json_encode($examenes),
             ]);
         }else{
             if(empty($detservicio->informe->drogas)){
@@ -141,9 +147,10 @@ class InformeController extends Controller
 
     public function realizados(Request $request, Detservicio $detservicio)
     {
+        $examenes = [];
         if($detservicio->informe()->count() == 0){
             $detservicio->informe()->create([
-                $examenes = [],
+                'examenes' => json_encode($examenes),
             ]);
         }
         return view('admin.informes.realizados', compact(
