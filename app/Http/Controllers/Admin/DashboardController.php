@@ -203,8 +203,8 @@ class DashboardController extends Controller
 		// $this->agregar_permiso('13','PRUEBAS BIOQUÍMICA','admin.pruebas.edit','Puede editar Pruebas');
 		// $this->agregar_permiso('13','PRUEBAS BIOQUÍMICA','admin.pruebas.destroy','Puede eliminar Pruebas');
 //-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.psicosometrica.index','Ver Psicosometrica');
-		$this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.psicosometrica.edit','Editar Psicosometrica');
+		// $this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.psicosometrica.index','Ver Psicosometrica');
+		// $this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.psicosometrica.edit','Editar Psicosometrica');
 
 		return redirect()->route('admin.inicio')->with('message', 'Permisos Agregados')->with('typealert', 'success');
 	}
