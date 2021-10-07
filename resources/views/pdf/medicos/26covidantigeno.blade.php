@@ -151,7 +151,7 @@
             </td>
             <td width='90%'>
                 PUEDE VERIFICAR ESTE DOCUMENTO  EN: <br>
-                {{ $param->dominio.'/verificar/' }} <br>
+                {{ $param->dominio.'/verifica' }} <br>
                 CON EL CÓDIGO: {{ str_pad($detservicio->id, 5, '0', STR_PAD_LEFT).'26' }}
             </td>
         </tr>

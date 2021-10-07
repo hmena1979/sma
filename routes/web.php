@@ -21,6 +21,9 @@ use App\Http\Controllers\Controller;
 // });
 
 Route::get('/',[Controller::class,'welcome'])->name('welcome');
+Route::get('/verifica',[Controller::class,'verifica'])->name('verifica');
+Route::get('/verificar/{codigo}',[Controller::class,'verificar'])->name('verificar');
+Route::post('/resultado',[Controller::class,'resultado'])->name('resultado');
 
 // Auth::routes();
 
@@ -32,5 +35,6 @@ Route::get('/registerate',[ConnectController::class,'getRegister'])->name('resgi
 Route::post('/registerate',[ConnectController::class,'postRegister'])->name('resgisterate');
 Route::post('/logout',[ConnectController::class,'getLogout'])->name('logout');
 Route::get('/logoutg',[ConnectController::class,'getLogout'])->name('logoutg');
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

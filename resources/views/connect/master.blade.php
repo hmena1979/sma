@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">     
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 	<link rel="stylesheet" href="{{ url('/static/css/connect.css?v='.time()) }}">
     
 </head>
@@ -48,6 +48,17 @@
         </div>
         
     @endif
-
+    <script>
+        $(document).ready(function(){
+            $('.numero').keypress(function(event){
+                var regex = new RegExp("^[0-9]+$");
+                var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+                if(!regex.test(key)){
+                    event.preventDefault();
+                    return false;
+                }
+            });
+        });
+    </script>
 </body>
 </html>
