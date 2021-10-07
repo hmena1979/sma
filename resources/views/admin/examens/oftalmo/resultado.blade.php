@@ -1,13 +1,19 @@
 <div class="row mt-3">
     <div class="col-md-12 form-group">
         {!! Form::label('diagnostico', 'Diagnóstico:') !!}
-        {!! Form::text('diagnostico', null, ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+        {!! Form::text('diagnostico', null, ['class'=>'form-control mayuscula','maxlength'=>'100','autocomplete'=>'off']) !!}
     </div>
 </div>
 <div class="row">
     <div class="col-md-12 form-group">
         {!! Form::label('recomendaciones', 'Recomendaciones:') !!}
-        {!! Form::text('recomendaciones', null, ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+        {!! Form::text('recomendaciones', null, ['class'=>'form-control mayuscula','maxlength'=>'100','autocomplete'=>'off']) !!}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 form-group">
+        {!! Form::label('restricciones', 'Restricciones:') !!}
+        {!! Form::text('restricciones', null, ['class'=>'form-control mayuscula','maxlength'=>'100','autocomplete'=>'off']) !!}
     </div>
 </div>
 <div class="row mt-1">

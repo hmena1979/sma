@@ -5,6 +5,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>@yield('title')</title>
 
+    <meta name="description" content="Centro de Salud Ocupacional San Miguel de Arcangel, Salud Ocupacional"/>
+    <meta name="keywords" content="San Miguel, Salud Ocupacional, Examen Covid-19, Evaluación Ocupacional"/>
+
 	<!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="routeName" content="{{ Route::currentRouteName() }}">

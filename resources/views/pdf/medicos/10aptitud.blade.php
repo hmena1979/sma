@@ -188,7 +188,9 @@
         <tr>
             <td class="filacolumna">
                 <div class="negrita">RECOMENDACIONES:</div>
-                <div class="aptitudrecomendacion">{{ $detservicio->recomendaciones }}</div>
+                <div class="aptitudrecomendacion">
+                    {!! htmlspecialchars_decode(nl2br($detservicio->recomendaciones)) !!}
+                </div>
             </td>
         </tr>
         <tr>

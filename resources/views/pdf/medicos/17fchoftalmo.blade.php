@@ -269,6 +269,10 @@
                 <th>RECOMENDACIONES:</th>
                 <td>{{ $detservicio->exaoftalmo->recomendaciones }}</td>
             </tr>
+            <tr>
+                <th>RESTRICCIONES:</th>
+                <td>{{ $detservicio->exaoftalmo->restricciones }}</td>
+            </tr>
         </tbody>
     </table>
     <table class="cuadrosborde letra9 text-left">
