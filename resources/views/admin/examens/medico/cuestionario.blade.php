@@ -6,10 +6,12 @@
                 {{-- {!! Form::select('manicarga',[1=>'< 25',2=>'25 - 50',3=>'> 50'],null,['class'=>'custom-select']) !!} --}}
                 <div class="cuadro">
                     {!! Form::radio('manicarga',1,['class'=>'form-check-input']) !!}
-                    {!! Form::label('manicarga', '< 25',['class' =>'form-check-label mr-4']) !!}
+                    {!! Form::label('manicarga', 'NO',['class' =>'form-check-label mr-3']) !!}
                     {!! Form::radio('manicarga',2,['class'=>'form-check-input']) !!}
-                    {!! Form::label('manicarga', '25 - 50',['class' =>'form-check-label mr-4']) !!}
+                    {!! Form::label('manicarga', '< 25',['class' =>'form-check-label mr-3']) !!}
                     {!! Form::radio('manicarga',3,['class'=>'form-check-input']) !!}
+                    {!! Form::label('manicarga', '25 - 50',['class' =>'form-check-label mr-3']) !!}
+                    {!! Form::radio('manicarga',4,['class'=>'form-check-input']) !!}
                     {!! Form::label('manicarga', '> 50',['class' =>'form-check-label']) !!}
                 </div>
             </div>

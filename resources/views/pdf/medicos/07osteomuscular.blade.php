@@ -57,9 +57,9 @@
             <tr>
                 <td>{{ $detservicio->area->nombre }}</td>
                 <td>{{ $detservicio->puesto->nombre }}</td>
-                <td class="text-center">{{ $detservicio->examedico->manicarga==1 ? 'X':'' }}</td>
                 <td class="text-center">{{ $detservicio->examedico->manicarga==2 ? 'X':'' }}</td>
                 <td class="text-center">{{ $detservicio->examedico->manicarga==3 ? 'X':'' }}</td>
+                <td class="text-center">{{ $detservicio->examedico->manicarga==4 ? 'X':'' }}</td>
                 <td class="text-center">{{ $detservicio->examedico->postura==1 ? 'X':'' }}</td>
                 <td class="text-center">{{ $detservicio->examedico->postura==2 ? 'X':'' }}</td>
                 <td class="text-center">{{ kvfj($detservicio->examedico->movrep, 'mrcabeza')==1 ? 'X':'' }}</td>
