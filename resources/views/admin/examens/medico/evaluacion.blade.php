@@ -17,7 +17,7 @@
             </div>
             <div class="col-md-3 form-group">
                 {!! Form::label('peso', 'Peso(Kg):') !!}
-                {!! Form::text('peso', null, ['class'=>'form-control numero','id'=>'peso','maxlength'=>'3','autocomplete'=>'off']) !!}
+                {!! Form::text('peso', null, ['class'=>'form-control decimal','id'=>'peso','maxlength'=>'5','autocomplete'=>'off']) !!}
             </div>
             <div class="col-md-3 form-group">
                 {!! Form::label('imc', 'IMC:') !!}
