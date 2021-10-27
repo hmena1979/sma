@@ -47,16 +47,16 @@
                                 <td>{{ str_pad($detservicio->id, 5, '0', STR_PAD_LEFT) }}28</td>
                             </tr>
                             <tr>
+                                <th>TIPO DE PACIENTE:</th>
+                                <td>{{ $detservicio->servicio->cliente->razsoc}}</td>
                                 <th>TIPO DE ATENCIÓN:</th>
                                 <td>AMBULATORIO</td>
-                                <th>TIPO DE PACIENTE:</th>
-                                <td>{{ $detservicio->servicio->cliente->tipo==1?'EMPRESA':'PARTICULAR' }}</td>
                             </tr>
                             <tr>
                                 <th>FECHA DE ATENCION:</th>
                                 <td>{{ date('d-m-Y',strtotime($detservicio->exacovidpcr->fecha_tm)) }}</td>
                                 <th>FECHA TOMA DE MUESTRA:</th>
-                                <td>{{ date('d-m-Y',strtotime($detservicio->exacovidpcr->fecha_val)) }}</td>
+                                <td>{{ date('d-m-Y',strtotime($detservicio->exacovidpcr->fecha_tm)) }}</td>
                             </tr>
                             <tr>
                                 <th>LOCALIDAD:</th>

@@ -91,6 +91,17 @@
             @php $pagina = 1; @endphp
             @include('pdf.medicos.11aptitud02')
         @endif
+        @if (kvfa2($detalle,'12')
+                && $detservicio->examedico()->count() <> 0 
+                && $detservicio->exaaudio()->count() <> 0
+                && $detservicio->exaradio()->count() <> 0
+                && $detservicio->exaoftalmo()->count() <> 0)
+            @if ($pagina <> 0)
+                <div style="page-break-after:always;"></div>
+            @endif
+            @php $pagina = 1; @endphp
+            @include('pdf.medicos.12fcha16')
+        @endif
         @if (kvfa2($detalle,'13') && $detservicio->exapsico()->count() <> 0)
             @if ($pagina <> 0)
                 <div style="page-break-after:always;"></div>

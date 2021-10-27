@@ -299,7 +299,7 @@
     </tbody>
 </table>
 </div>
-<table class="cuadrosborde letra10">
+<table class="cuadrosborde lchicas">
     <tbody>
         <tr>
             <td width='10%'>

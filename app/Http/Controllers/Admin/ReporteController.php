@@ -135,6 +135,7 @@ class ReporteController extends Controller
             '2' => 'NEDIANO PLAZO',
             '3' => 'LARGO PLAZO',
         ];
+        $altitud = Categoria::where('modulo', 11)->pluck('nombre','codigo');
         
         $qrcode = base64_encode(QrCode::format('svg')
             ->size(100)
@@ -158,7 +159,8 @@ class ReporteController extends Controller
             'memoria' => $memoria,
             'doctor' => $doctor,
             'docfirma' => $docfirma,
-            'aprobado' => $aprobado
+            'aprobado' => $aprobado,
+            'altitud' => $altitud
         ];
         // return view('pdf.informe', $data);
         $pdf = PDF::loadView('pdf.informe', $data)->setPaper('A4', 'portrait');

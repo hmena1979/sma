@@ -153,17 +153,17 @@
             <tr>
                 <td width='10%'></td>
                 <th colspan="2">Indice de Masa Corporal</th>
-                <td>{{ $detservicio->examedico->peso }} Kg/mt<sup>2</sup></td>
+                <td>{{ $detservicio->examedico->imc }} Kg/mt<sup>2</sup></td>
             </tr>
             <tr>
                 <td width='10%'></td>
                 <th colspan="2">Perímetro abdominal</th>
-                <td>{{ $detservicio->examedico->peso }}</td>
+                <td>{{ $detservicio->examedico->pabdominal }}</td>
             </tr>
             <tr>
                 <td width='10%'></td>
                 <th colspan="2">Presión Arterial</th>
-                <td>{{ $detservicio->examedico->peso }}</td>
+                <td>{{ $detservicio->examedico->pa }}</td>
             </tr>
             <tr>
                 <th colspan="4">Evaluación por sistemas y aparatos</th>

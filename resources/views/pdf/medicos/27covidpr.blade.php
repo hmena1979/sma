@@ -47,10 +47,10 @@
                                 <td>{{ str_pad($detservicio->id, 5, '0', STR_PAD_LEFT) }}27</td>
                             </tr>
                             <tr>
+                                <th>TIPO DE PACIENTE:</th>
+                                <td>{{ $detservicio->servicio->cliente->razsoc }}</td>
                                 <th>TIPO DE ATENCIÓN:</th>
                                 <td>AMBULATORIO</td>
-                                <th>TIPO DE PACIENTE:</th>
-                                <td>{{ $detservicio->servicio->cliente->tipo==1?'EMPRESA':'PARTICULAR' }}</td>
                             </tr>
                             <tr>
                                 <th>FECHA DE ATENCION:</th>

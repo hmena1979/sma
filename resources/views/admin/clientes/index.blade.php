@@ -31,7 +31,7 @@
 							<thead>
 								<tr>
 									<th width="50%">Nombre</th>
-									<th width="10%">N° Doc</th>
+									<th width="10%">RUC</th>
 									<th width="10%">Celular</th>
 									<th width="10%">Teléfono</th>
 									<th width="10%">Clave</th>

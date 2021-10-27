@@ -130,10 +130,15 @@
                                             APTITUD MODELO II
                                         </label><br>                                            
                                         @endif
-                                        <label>
-                                            {!! Form::checkbox('detalle[]', 12, false,['class' => 'mr-1']) !!}
-                                            FICHA N° 16
-                                        </label><br>
+                                        @if ($detservicio->examedico()->count() <> 0 
+                                            && $detservicio->exaaudio()->count() <> 0
+                                            && $detservicio->exaradio()->count() <> 0
+                                            && $detservicio->exaoftalmo()->count() <> 0)
+                                            <label>
+                                                {!! Form::checkbox('detalle[]', 12, false,['class' => 'mr-1']) !!}
+                                                FICHA N° 16
+                                            </label><br>                                            
+                                        @endif
                                     </div>
                                 </div>
                             </div>                                

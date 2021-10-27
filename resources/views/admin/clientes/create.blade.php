@@ -10,7 +10,7 @@
 @section('contenido')
 	<div class="container-fluid">
         <div class="alert alert-warning" role="alert" style="display:none" id = 'buscando'>
-			Buscando número de documento
+			Buscando RUC
 		</div>
         {!! Form::open(['route'=>'admin.clientes.store']) !!}
 		<div class="row">
@@ -31,7 +31,7 @@
                                 {!! Form::select('tipo',[1=>'EMPRESA',2=>'PARTICULAR'],1,['class'=>'custom-select']) !!}
 							</div>
 							<div class="col-md-2 form-group">
-                                {!! Form::label('numdoc', 'Número documento:') !!}
+                                {!! Form::label('numdoc', 'RUC:') !!}
 								{!! Form::text('numdoc', null, ['class'=>'form-control','maxlength'=>'15','autocomplete'=>'off']) !!}
 							</div>
 							<div class="col-md-4 form-group">
