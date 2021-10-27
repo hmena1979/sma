@@ -937,7 +937,7 @@
                             <tr>
                                 <td colspan="3" class="espaciado cuadro100" valign='top'>
                                     <div class="negrita">OBSERVACIONES</div>
-                                    <div>{{ $detservicio->conclusion }}</div>
+                                    <div>{!! htmlspecialchars_decode(nl2br($detservicio->examedico->comentarios)) !!}</div>
                                 </td>
                             </tr>
                         </tbody>
