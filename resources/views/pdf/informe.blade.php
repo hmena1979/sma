@@ -95,6 +95,7 @@
                 && $detservicio->examedico()->count() <> 0 
                 && $detservicio->exaaudio()->count() <> 0
                 && $detservicio->exaradio()->count() <> 0
+                && $detservicio->exaespiro()->count() <> 0
                 && $detservicio->exaoftalmo()->count() <> 0)
             @if ($pagina <> 0)
                 <div style="page-break-after:always;"></div>

@@ -133,6 +133,7 @@
                                         @if ($detservicio->examedico()->count() <> 0 
                                             && $detservicio->exaaudio()->count() <> 0
                                             && $detservicio->exaradio()->count() <> 0
+                                            && $detservicio->exaespiro()->count() <> 0
                                             && $detservicio->exaoftalmo()->count() <> 0)
                                             <label>
                                                 {!! Form::checkbox('detalle[]', 12, false,['class' => 'mr-1']) !!}
