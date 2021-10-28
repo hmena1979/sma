@@ -33,11 +33,48 @@
                                 {!! Form::label('fecha', 'Fecha:') !!}
                                 {!! Form::date('fecha', null, ['class'=>'form-control','autocomplete'=>'off']) !!}
                             </div>
+                            <div class="col-md-2 form-group">
+                                {!! Form::label('calidad', 'Calidad:') !!}
+                                {!! Form::text('calidad', null, ['class'=>'form-control mayuscula','maxlength'=>'30','autocomplete'=>'off']) !!}
+                            </div>
+                            <div class="col-md-4 form-group">
+                                {!! Form::label('simbolos', 'Simbolos:') !!}
+                                {!! Form::text('simbolos', null, ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+                            </div>
+                            <div class="col-md-4 form-group">
+                                {!! Form::label('vertice', 'Vértices:') !!}
+                                {!! Form::text('vertice', null, ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <h5 class="colorprin ml-2">
+                                CAMPOS PULMONARES
+                            </h5>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 form-group">
+                                {!! Form::label('cphilios', 'HILIOS:') !!}
+                                {!! Form::text('cphilios', null, ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+                            </div>
+                            <div class="col-md-4 form-group">
+                                {!! Form::label('cpsenos', 'SENOS:') !!}
+                                {!! Form::text('cpsenos', null, ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+                            </div>
+                            <div class="col-md-4 form-group">
+                                {!! Form::label('cpmedia', 'MEDIASTINOS:') !!}
+                                {!! Form::text('cpmedia', null, ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 form-group">
                                 {!! Form::label('informe', 'INFORME:',['class' => 'colorprin']) !!}
                                 {!! Form::textarea('informe',null,['class'=>'form-control mayuscula', 'rows'=>'5','autocomplete'=>'off']) !!}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                {!! Form::label('silcardio', 'SILUETA CARDIOVASCULAR:',['class' => 'colorprin']) !!}
+                                {!! Form::text('silcardio', null, ['class'=>'form-control mayuscula','maxlength'=>'50','autocomplete'=>'off']) !!}
                             </div>
                         </div>
                         <div class="row">

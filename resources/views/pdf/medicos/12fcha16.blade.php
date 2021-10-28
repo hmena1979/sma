@@ -845,7 +845,14 @@
                 <td colspan="2" width='8%' class="text-center">3/2, 3/3, 3/+</td>
                 <td width='8%' class="text-center">A, B, C</td>
                 <td width='8%' class="text-center">St</td>
-                <td width='34%'>NEGATIVO (X)</td>
+                <td width='34%'>
+                    NEGATIVO 
+                    @if ($lues==2)
+                    (X)
+                    @else
+                    ({!! htmlspecialchars_decode("&nbsp;&nbsp;") !!})
+                    @endif
+                </td>
             </tr>
             <tr>
                 <th width='10%' class="text-center">CERO</th>
@@ -856,7 +863,14 @@
                 <th width='8%' class="text-center">TRES</th>
                 <th width='8%' class="text-center">CUATRO</th>
                 <th width='4%'></th>
-                <td width='34%'>POSITIVO ({!! htmlspecialchars_decode("&nbsp;&nbsp;") !!})</td>
+                <td width='34%'>
+                    POSITIVO 
+                    @if ($lues==1)
+                    (X)
+                    @else
+                    ({!! htmlspecialchars_decode("&nbsp;&nbsp;") !!})
+                    @endif
+                </td>
             </tr>
             <tr>
                 <td class="text-center letra7">Sin neumoconiosis</td>

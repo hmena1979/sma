@@ -116,6 +116,20 @@ class ReporteController extends Controller
                     'VLDL' => $bio->valor
                 ]);
             }
+            if($bio->prueba_id == 48){
+                $laboratorio = array_merge($laboratorio,[
+                    'VDRL' => $bio->valor
+                ]);
+            }
+        }
+        if(array_key_exists('VDRL', $laboratorio)){
+            if($laboratorio['VDRL'] == 'POSITIVO' )
+                $lues = 1;
+            else{
+                $lues = 2;
+            }
+        }else{
+            $lues = 2;
         }
         
         $inteligencia = [
@@ -160,7 +174,8 @@ class ReporteController extends Controller
             'doctor' => $doctor,
             'docfirma' => $docfirma,
             'aprobado' => $aprobado,
-            'altitud' => $altitud
+            'altitud' => $altitud,
+            'lues' => $lues
         ];
         // return view('pdf.informe', $data);
         $pdf = PDF::loadView('pdf.informe', $data)->setPaper('A4', 'portrait');
