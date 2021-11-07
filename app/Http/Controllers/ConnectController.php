@@ -25,6 +25,7 @@ class ConnectController extends Controller
 
     public function getLogin()
     {
+		return false;
     	return view('connect.login');
     }
 

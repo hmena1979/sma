@@ -11,6 +11,7 @@ class ConnectController extends Controller
 {
     public function login()
     {
+        return false;
         return view('company.login');
     }
 

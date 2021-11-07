@@ -19,6 +19,7 @@ class Controller extends BaseController
 
     public function welcome()
     {
+        return false;
     	$param = Param::find('1');
         $sedes = Sede::where('activo',1)->orderBy('id')->get();
     	$data = [
