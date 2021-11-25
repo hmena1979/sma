@@ -60,7 +60,7 @@
                             </tr>
                             <tr>
                                 <th>CLIENTE:</th>
-                                <td>{{ $detservicio->servicio->cliente->tipo==1?'EMPRESA':'PARTICULAR' }}</td>
+                                <td>{{ $detservicio->servicio->cliente->razsoc }}</td>
                                 <th>EMISIÓN:</th>
                                 <td>{{ date('d-m-Y',strtotime($detservicio->exacovidant->fecha_val)) }}</td>
                             </tr>

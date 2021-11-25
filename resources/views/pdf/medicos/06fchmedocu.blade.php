@@ -694,25 +694,64 @@
             </tr>
             <tr>
                 <td>{{$detservicio->otrdiagocu1}}</td>
-                <td class="text-center">{{ $detservicio->otrdiagpdr1==1?'X':'' }}</td>
+                <td class="text-center">
+                    @if ($detservicio->otrdiagpdr1==1&&!empty($detservicio->otrdiagocu1))
+                    X
+                    @else
+                    {!! htmlspecialchars_decode("&nbsp;") !!}
+                    @endif
+                    {{-- {{ $detservicio->otrdiagpdr1==1&&!empty($detservicio->otrdiagocu1)?'X':'' }} --}}
+                </td>
                 <td class="text-center">{{ $detservicio->otrdiagpdr1==2?'X':'' }}</td>
                 <td class="text-center">{{ $detservicio->otrdiagpdr1==3?'X':'' }}</td>
                 <td class="text-center">{{ $detservicio->otrdiagcie1 }}</td>
             </tr>
             <tr>
                 <td>{{$detservicio->otrdiagocu2}}</td>
-                <td class="text-center">{{ $detservicio->otrdiagpdr2==1?'X':'' }}</td>
+                <td class="text-center">
+                    @if ($detservicio->otrdiagpdr2==1&&!empty($detservicio->otrdiagocu2))
+                    X
+                    @else
+                    {!! htmlspecialchars_decode("&nbsp;") !!}
+                    @endif
+                    {{-- {{ $detservicio->otrdiagpdr2==1&&!empty($detservicio->otrdiagocu2)?'X':'' }} --}}
+                </td>
                 <td class="text-center">{{ $detservicio->otrdiagpdr2==2?'X':'' }}</td>
                 <td class="text-center">{{ $detservicio->otrdiagpdr2==3?'X':'' }}</td>
                 <td class="text-center">{{ $detservicio->otrdiagcie2 }}</td>
             </tr>
             <tr>
                 <td>{{$detservicio->otrdiagocu3}}</td>
-                <td class="text-center">{{ $detservicio->otrdiagpdr3==1?'X':'' }}</td>
+                <td class="text-center">
+                    @if ($detservicio->otrdiagpdr3==1&&!empty($detservicio->otrdiagocu3))
+                    X
+                    @else
+                    {!! htmlspecialchars_decode("&nbsp;") !!}
+                    @endif
+                    {{-- {{ $detservicio->otrdiagpdr3==1&&!empty($detservicio->otrdiagocu3)?'X':'' }} --}}
+                </td>
                 <td class="text-center">{{ $detservicio->otrdiagpdr3==2?'X':'' }}</td>
                 <td class="text-center">{{ $detservicio->otrdiagpdr3==3?'X':'' }}</td>
                 <td class="text-center">{{ $detservicio->otrdiagcie3 }}</td>
             </tr>
+            @if (!empty($detservicio->otrdiagocu4))
+            <tr>
+                <td>{{$detservicio->otrdiagocu4}}</td>
+                <td class="text-center">{{ $detservicio->otrdiagpdr4==1&&!empty($detservicio->otrdiagocu4)?'X':'' }}</td>
+                <td class="text-center">{{ $detservicio->otrdiagpdr4==2?'X':'' }}</td>
+                <td class="text-center">{{ $detservicio->otrdiagpdr4==3?'X':'' }}</td>
+                <td class="text-center">{{ $detservicio->otrdiagcie4 }}</td>
+            </tr>
+            @endif
+            @if (!empty($detservicio->otrdiagocu5))
+            <tr>
+                <td>{{$detservicio->otrdiagocu5}}</td>
+                <td class="text-center">{{ $detservicio->otrdiagpdr5==1&&!empty($detservicio->otrdiagocu5)?'X':'' }}</td>
+                <td class="text-center">{{ $detservicio->otrdiagpdr5==2?'X':'' }}</td>
+                <td class="text-center">{{ $detservicio->otrdiagpdr5==3?'X':'' }}</td>
+                <td class="text-center">{{ $detservicio->otrdiagcie5 }}</td>
+            </tr>                
+            @endif
         </tbody>
     </table>
     <table>

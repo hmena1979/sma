@@ -81,6 +81,42 @@
     </div>
 </div>
 <div class="row">
+    <div class="col-md-5 form-group">
+        {!! Form::text('otrdiagocu4', null, ['class'=>'form-control mayuscula','maxlength'=>'100','autocomplete'=>'off']) !!}
+    </div>
+    <div class="col-md-2 form-group">
+        <div class="cuadro">
+            {!! Form::radio('otrdiagpdr4',1,['class'=>'form-check-input']) !!}
+            {!! Form::label('otrdiagpdr4', 'P',['class' =>'form-check-label mr-4']) !!}
+            {!! Form::radio('otrdiagpdr4',2,['class'=>'form-check-input']) !!}
+            {!! Form::label('otrdiagpdr4', 'D',['class' =>'form-check-label mr-4']) !!}
+            {!! Form::radio('otrdiagpdr4',3,['class'=>'form-check-input']) !!}
+            {!! Form::label('otrdiagpdr4', 'R',['class' =>'form-check-label']) !!}
+        </div>
+    </div>
+    <div class="col-md-5">
+        {!! Form::select('otrdiagcie4',$cie10s,null,['class'=>'custom-select cieselect','placeholder' => 'Seleccione CIE10']) !!}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5 form-group">
+        {!! Form::text('otrdiagocu5', null, ['class'=>'form-control mayuscula','maxlength'=>'100','autocomplete'=>'off']) !!}
+    </div>
+    <div class="col-md-2 form-group">
+        <div class="cuadro">
+            {!! Form::radio('otrdiagpdr5',1,['class'=>'form-check-input']) !!}
+            {!! Form::label('otrdiagpdr5', 'P',['class' =>'form-check-label mr-4']) !!}
+            {!! Form::radio('otrdiagpdr5',2,['class'=>'form-check-input']) !!}
+            {!! Form::label('otrdiagpdr5', 'D',['class' =>'form-check-label mr-4']) !!}
+            {!! Form::radio('otrdiagpdr5',3,['class'=>'form-check-input']) !!}
+            {!! Form::label('otrdiagpdr5', 'R',['class' =>'form-check-label']) !!}
+        </div>
+    </div>
+    <div class="col-md-5">
+        {!! Form::select('otrdiagcie5',$cie10s,null,['class'=>'custom-select cieselect','placeholder' => 'Seleccione CIE10']) !!}
+    </div>
+</div>
+<div class="row">
     <div class="col-md-12 form-group">
         {!! Form::label('conclusion', 'CONCLUSIÓN:',['class' => 'colorprin']) !!}
         {!! Form::textarea('conclusion',null,['class'=>'form-control mayuscula', 'rows'=>'2','autocomplete'=>'off']) !!}

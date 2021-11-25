@@ -286,7 +286,7 @@ class ServicioController extends Controller
         $resultado = Categoria::where('modulo', 7)->orderBy('nombre')->pluck('nombre','codigo');
         $altitud = Categoria::where('modulo', 11)->pluck('nombre','codigo');
         $doctors = Doctor::orderBy('nombre')->pluck('nombre','id');
-        $cie = [$detservicio->diagcie, $detservicio->otrdiagcie1, $detservicio->otrdiagcie2, $detservicio->otrdiagcie3];
+        $cie = [$detservicio->diagcie, $detservicio->otrdiagcie1, $detservicio->otrdiagcie2, $detservicio->otrdiagcie3, $detservicio->otrdiagcie4, $detservicio->otrdiagcie5];
         $cie10s = Cie10::whereIn('codigo',$cie)->orderBy('codigo')->get()->pluck('codigo_nombre','codigo');
         $examenes = $detservicio->servicio->examenes;
         $fecha = $detservicio->servicio->fecha;
@@ -680,6 +680,12 @@ class ServicioController extends Controller
             'otrdiagocu3' => $request->input('otrdiagocu3'),
             'otrdiagpdr3' => $request->input('otrdiagpdr3'),
             'otrdiagcie3' => $request->input('otrdiagcie3'),
+            'otrdiagocu4' => $request->input('otrdiagocu4'),
+            'otrdiagpdr4' => $request->input('otrdiagpdr4'),
+            'otrdiagcie4' => $request->input('otrdiagcie4'),
+            'otrdiagocu5' => $request->input('otrdiagocu5'),
+            'otrdiagpdr5' => $request->input('otrdiagpdr5'),
+            'otrdiagcie5' => $request->input('otrdiagcie5'),
             'conclusion' => $request->input('conclusion'),
             'recomendaciones' => $request->input('recomendaciones'),
             'restricciones' => $request->input('restricciones'),
