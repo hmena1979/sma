@@ -147,7 +147,7 @@ class DashboardController extends Controller
 	public function permisosfaltantes()
 	{
 		// $this->agregar_permiso('1','INICIO','admin.imports.index','Puede Importar Tablas iniciales');
-
+		
 		// $this->agregar_permiso('6','CATEGORIAS','admin.categorias.index','Puede ver listado Categorías');
 		// $this->agregar_permiso('6','CATEGORIAS','admin.categorias.create','Puede agregar Categorías');
 		// $this->agregar_permiso('6','CATEGORIAS','admin.categorias.edit','Puede editar Categorías');
@@ -167,7 +167,7 @@ class DashboardController extends Controller
 		// $this->agregar_permiso('9','SEDES','admin.sedes.create','Puede agregar Sedes');
 		// $this->agregar_permiso('9','SEDES','admin.sedes.edit','Puede editar Sedes');
 		// $this->agregar_permiso('9','SEDES','admin.sedes.destroy','Puede eliminar Sedes');
-
+		
 		// $this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.medica.index','Ver Examen Médico');
 		// $this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.medica.edit','Modificar Examen Médico');
 		// $this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.psico.index','Ver Evaluación Psicológica');
@@ -192,7 +192,7 @@ class DashboardController extends Controller
 		// $this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.altura25.edit','Editar Evaluación Altura 2500msnm');		
 		// $this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.confinado.index','Ver Espacio Confinado');
 		// $this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.confinado.edit','Editar Espacio Confinado');
-
+		
 		// $this->agregar_permiso('11','LABORATORIO','admin.laboratorio.index','Ver Pruebas');
 		// $this->agregar_permiso('11','LABORATORIO','admin.laboratorio.edit','Editar Pruebas');
 		// $this->agregar_permiso('12','INFORMES','admin.informes.index','Ver Informes');
@@ -201,7 +201,8 @@ class DashboardController extends Controller
 		// $this->agregar_permiso('13','PRUEBAS BIOQUÍMICA','admin.pruebas.index','Puede ver listado Pruebas');
 		// $this->agregar_permiso('13','PRUEBAS BIOQUÍMICA','admin.pruebas.create','Puede agregar Pruebas');
 		// $this->agregar_permiso('13','PRUEBAS BIOQUÍMICA','admin.pruebas.edit','Puede editar Pruebas');
-		// $this->agregar_permiso('13','PRUEBAS BIOQUÍMICA','admin.pruebas.destroy','Puede eliminar Pruebas');
+
+		$this->agregar_permiso('1','INICIO','admin.pendientes','Puede Ver Pendientes');
 //-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 		// $this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.psicosometrica.index','Ver Psicosometrica');
 		// $this->agregar_permiso('10','EVALUACIÓN MÉDICA','admin.psicosometrica.edit','Editar Psicosometrica');

@@ -14,6 +14,7 @@
 							</div>
 							<div class="col-md-5 mt-2">
 								{!! Form::open(['route'=>'admin.inicio.change']) !!}
+								@can('admin.pendientes')
 								<div class="row no-gutters mr-2">
 									<div class="col-md-4 input-group">
 										{!! Form::select('mes',getMeses(),substr($periodo,0,2),['class'=>'custom-select']) !!}
@@ -29,6 +30,15 @@
 									</div>
 								</div>
 								{!! Form::close() !!}
+								@endcan
+								{{-- @if (Auth::user()->can('admin.pendientes'))
+									{{ Auth::user()->can('admin.pendientes') }}
+								@else
+									'No Puede'
+								@endif --}}
+									
+								
+								
 								{{-- <ul>
 									<li>
 										<div class="mt-2">

@@ -19,6 +19,18 @@
                         <div class="row mtop16">
                             <div class="card w-100 ml-2">
                                 <div class="card-header">
+                                    <h4 class="title colorprin">Permisos Faltantes</h4>
+                                </div>
+                                <div class="card-body">
+                                    <a class="btn btn-agregar mt-2" href="{{ route('admin.permisosfaltantes') }}">
+                                        Agregar Permisos
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mtop16">
+                            <div class="card w-100 ml-2">
+                                <div class="card-header">
                                     <h4 class="title colorprin">Importar Categorias</h4>
                                 </div>
                                 <div class="card-body">
