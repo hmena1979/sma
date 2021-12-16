@@ -31,6 +31,12 @@
                             <tr>
                                 <th width='20%'>PACIENTE:</th>
                                 <td width='40%'>{{ $detservicio->colaborador->nombres }}</td>
+                                <th width='25%'></th>
+                                <td width='15%'></td>
+                            </tr>
+                            <tr>
+                                <th width='20%'>FECHA NACIMIENTO:</th>
+                                <td width='40%'>{{ date('d-m-Y',strtotime($detservicio->colaborador->fecnac)) }}</td>
                                 <th width='25%'>EDAD:</th>
                                 <td width='15%'>{{\Carbon\Carbon::parse($detservicio->colaborador->fecnac)->age}}</td>
                             </tr>
@@ -184,7 +190,7 @@
         </tr>
     </tbody>
 </table>
-<br><br><br><br>
+<br><br><br>
 <table class="cuadrosborde letra10">
     <tbody>
         <tr>
