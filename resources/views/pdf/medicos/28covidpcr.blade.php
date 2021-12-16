@@ -119,7 +119,7 @@
                 CORONAVIRUS SARS COV-2 PCR-RT, EXUDADO RESPIRATORIO ( METODO:PCR-RT)
             </td>
             <td  valign='bottom' class="letra7 text-center negrita">
-                {{ $detservicio->exacovidant->pcr==1?'POSITIVO':'NEGATIVO' }}
+                {{ $detservicio->exacovidpcr->pcr==1?'POSITIVO':'NEGATIVO' }}
             </td>
             <td class="letra7">
                 METODOLOGIA: ENSAYO DE REACCION EN CADENA DE LA POLIMERASA CON TRANSCRIPTASA INVERSA EN 
