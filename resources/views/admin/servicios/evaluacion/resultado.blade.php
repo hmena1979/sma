@@ -134,6 +134,12 @@
         {!! Form::textarea('restricciones',null,['class'=>'form-control mayuscula', 'rows'=>'2','autocomplete'=>'off']) !!}
     </div>
 </div>
+<div class="row">
+    <div class="col-md-12 form-group">
+        {!! Form::label('observaciones', 'OBSERVACIONES:',['class' => 'colorprin']) !!}
+        {!! Form::textarea('observaciones',null,['class'=>'form-control mayuscula', 'rows'=>'2','autocomplete'=>'off']) !!}
+    </div>
+</div>
 <div class="row mt-1">
     <div class="col-md-4">
         {!! Form::label('resultado', 'RESULTADO:',['class' => 'colorprin']) !!}

@@ -689,6 +689,7 @@ class ServicioController extends Controller
             'conclusion' => $request->input('conclusion'),
             'recomendaciones' => $request->input('recomendaciones'),
             'restricciones' => $request->input('restricciones'),
+            'observaciones' => $request->input('observaciones'),
             'resultado' => $request->input('resultado'),
             'doctor_id' => $request->input('doctor_id'),
             'finalizado' => $request->input('finalizado'),

@@ -34,7 +34,7 @@
     <tbody>
         <tr>
             <th width='20%'>Pre Ocupacional:</th>
-            <td width='5%' class="celda text-center">
+            <td width='5%' class="celdachica text-center">
                 @if ($detservicio->servicio->evaluacion==1)
                     X
                 @else
@@ -43,7 +43,7 @@
             </td>
             <td width='5%'></td>
             <th width='10%'>Anual:</th>
-            <td width='5%' class="celda text-center">
+            <td width='5%' class="celdachica text-center">
                 @if ($detservicio->servicio->evaluacion==2)
                     X
                 @else
@@ -52,7 +52,7 @@
             </td>
             <td width='5%'></td>
             <th width='10%'>Retiro:</th>
-            <td width='5%' class="celda text-center">
+            <td width='5%' class="celdachica text-center">
                 @if ($detservicio->servicio->evaluacion==3)
                     X
                 @else
@@ -61,7 +61,7 @@
             </td>
             <td width='5%'></td>
             <th width='10%'>Otros:</th>
-            <td width='5%' class="celda text-center">
+            <td width='5%' class="celdachica text-center">
                 @if ($detservicio->servicio->evaluacion==4)
                     X
                 @else
@@ -73,18 +73,18 @@
         <tr><td colspan="12"></td></tr>
         <tr>
             <th colspan="3">APELLIDOS Y NOMBRES:</th>
-            <td colspan="9" class="celda">{{ $detservicio->colaborador->nombres }}</td>
+            <td colspan="9" class="celdachica">{{ $detservicio->colaborador->nombres }}</td>
         </tr>
         <tr><td colspan="12"></td></tr>
         <tr>
             <th>N° DOCUMENTO:</th>
-            <td colspan="3" class="celda">{{ $detservicio->colaborador->numdoc }}</td>
+            <td colspan="3" class="celdachica">{{ $detservicio->colaborador->numdoc }}</td>
             <td></td>
             <th>EDAD:</th>
-            <td class="celda">{{\Carbon\Carbon::parse($detservicio->colaborador->fecnac)->age}}</td>
+            <td class="celdachica">{{\Carbon\Carbon::parse($detservicio->colaborador->fecnac)->age}}</td>
             <td></td>
             <th>GÉNERO:</th>
-            <td colspan="2" class="celda">{{ $detservicio->colaborador->sexo->nombre }}</td>
+            <td colspan="2" class="celdachica">{{ $detservicio->colaborador->sexo->nombre }}</td>
             <td colspan="1"></td>
         </tr>
         <tr><td colspan="12"></td></tr>
@@ -94,9 +94,9 @@
     <tbody>
         <tr>
             <th width='10%'>EMPRESA:</th>
-            <td width='30%' class="celda">{{ $detservicio->servicio->cliente->razsoc }}</td>
+            <td width='30%' class="celdachica">{{ $detservicio->servicio->cliente->razsoc }}</td>
             <th width='27%' class=" text-right">PUESTO AL QUE POSTULA:</th>
-            <td width='33%' class="celda">{{ $detservicio->puesto->nombre }}</td>
+            <td width='33%' class="celdachica">{{ $detservicio->puesto->nombre }}</td>
         </tr>
         <tr><td colspan="4"></td></tr>
     </tbody>
@@ -105,9 +105,9 @@
     <tbody>
         <tr>
             <th width='34%'>Ocupación actual o última ocupación:</th>
-            <td width='31%' class="celda">{{ $detservicio->ocuactual }}</td>
+            <td width='31%' class="celdachica">{{ $detservicio->ocuactual }}</td>
             <th width='20%' class=" text-right">GRUPO SANGUÍNEO Y FACTOR RH:</th>
-            <td width='15%' class="celda">{{ $laboratorio['GrupoSan'].' '.$laboratorio['FactorRH'] }}</td>
+            <td width='15%' class="celdachica">{{ $laboratorio['GrupoSan'].' '.$laboratorio['FactorRH'] }}</td>
         </tr>
         <tr><td colspan="4"></td></tr>
     </tbody>
@@ -120,7 +120,7 @@
                     <tbody>
                         <tr>
                             <td><strong>APTO</strong><br>(Para el puesto en el que trabaja o postula)</td><strong></strong> 
-                            <td class="celda text-center">
+                            <td class="celdachica text-center">
                                 @if ($detservicio->resultado==1)
                                     X
                                 @else
@@ -131,7 +131,7 @@
                         <tr><td colspan="2"></td></tr>
                         <tr>
                             <td><strong>APTO CON RESTRICCIÓN</strong><br>(Para el puesto en el que trabaja o postula)</td><strong></strong> 
-                            <td class="celda text-center">
+                            <td class="celdachica text-center">
                                 @if ($detservicio->resultado==2)
                                     X
                                 @else
@@ -141,8 +141,22 @@
                         </tr>
                         <tr><td colspan="2"></td></tr>
                         <tr>
+                            <th>OBSERVADO</th>
+                            <td class="celdachica text-center" rowspan="2">
+                                @if ($detservicio->resultado==4)
+                                    X
+                                @else
+                                {!! htmlspecialchars_decode("&nbsp;") !!}
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>(Para el puesto en el que trabaja o postula)</td>
+                        </tr>
+                        <tr><td colspan="2"></td></tr>
+                        <tr>
                             <td><strong>NO APTO</strong><br>(Para el puesto en el que trabaja o postula)</td><strong></strong> 
-                            <td class="celda text-center">
+                            <td class="celdachica text-center">
                                 @if ($detservicio->resultado==3)
                                     X
                                 @else
@@ -158,8 +172,17 @@
                     <tbody>
                         <tr>
                             <td class="aptitudrestriccion2" valign='top'>
-                                <div class="negrita">Restricciones:</div>
-                                <div class="letra9">{{ $detservicio->restricciones }}</div>
+                                <div class="negrita">RESTRICCIONES:</div>
+                                <div>
+                                    {!! htmlspecialchars_decode(nl2br($detservicio->restricciones)) !!}
+                                </div>
+                                @if ($detservicio->resultado==4)
+                                <br>
+                                <div class="negrita">OBSERVACIONES:</div>
+                                <div>
+                                    {!! htmlspecialchars_decode(nl2br($detservicio->observaciones)) !!}
+                                </div>
+                                @endif
                             </td>
                         </tr>
                         <tr>
