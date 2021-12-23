@@ -81,6 +81,68 @@
     </div>
 </div>
 <div class="row">
+    <div class="col-md-8">
+        {!! Form::label('audioizq', 'Vía Aérea ',['class' => '']) !!}
+        <table class="table table-bordered ">
+            <thead>
+                <tr>
+                    <th class="text-center">Hz</th>
+                    <th class="text-center">500</th>
+                    <th class="text-center">1000</th>
+                    <th class="text-center">2000</th>
+                    <th class="text-center">3000</th>
+                    <th class="text-center">4000</th>
+                    <th class="text-center">6000</th>
+                    <th class="text-center">8000</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>dB(A)</th>
+                    <td>{!! Form::text('va500', null, ['class'=>'form-control mayuscula','maxlength'=>'5','autocomplete'=>'off']) !!}</td>
+                    <td>{!! Form::text('va1000', null, ['class'=>'form-control mayuscula','maxlength'=>'5','autocomplete'=>'off']) !!}</td>
+                    <td>{!! Form::text('va2000', null, ['class'=>'form-control mayuscula','maxlength'=>'5','autocomplete'=>'off']) !!}</td>
+                    <td>{!! Form::text('va3000', null, ['class'=>'form-control mayuscula','maxlength'=>'5','autocomplete'=>'off']) !!}</td>
+                    <td>{!! Form::text('va4000', null, ['class'=>'form-control mayuscula','maxlength'=>'5','autocomplete'=>'off']) !!}</td>
+                    <td>{!! Form::text('va6000', null, ['class'=>'form-control mayuscula','maxlength'=>'5','autocomplete'=>'off']) !!}</td>
+                    <td>{!! Form::text('va8000', null, ['class'=>'form-control mayuscula','maxlength'=>'5','autocomplete'=>'off']) !!}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        {!! Form::label('audioizq', 'Vía Ósea',['class' => '']) !!}
+        <table class="table table-bordered ">
+            <thead>
+                <tr>
+                    <th class="text-center">Hz</th>
+                    <th class="text-center">500</th>
+                    <th class="text-center">1000</th>
+                    <th class="text-center">2000</th>
+                    <th class="text-center">3000</th>
+                    <th class="text-center">4000</th>
+                    <th class="text-center">6000</th>
+                    <th class="text-center">8000</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>dB(A)</th>
+                    <td>{!! Form::text('vo500', null, ['class'=>'form-control mayuscula','maxlength'=>'5','autocomplete'=>'off']) !!}</td>
+                    <td>{!! Form::text('vo1000', null, ['class'=>'form-control mayuscula','maxlength'=>'5','autocomplete'=>'off']) !!}</td>
+                    <td>{!! Form::text('vo2000', null, ['class'=>'form-control mayuscula','maxlength'=>'5','autocomplete'=>'off']) !!}</td>
+                    <td>{!! Form::text('vo3000', null, ['class'=>'form-control mayuscula','maxlength'=>'5','autocomplete'=>'off']) !!}</td>
+                    <td>{!! Form::text('vo4000', null, ['class'=>'form-control mayuscula','maxlength'=>'5','autocomplete'=>'off']) !!}</td>
+                    <td>{!! Form::text('vo6000', null, ['class'=>'form-control mayuscula','maxlength'=>'5','autocomplete'=>'off']) !!}</td>
+                    <td>{!! Form::text('vo8000', null, ['class'=>'form-control mayuscula','maxlength'=>'5','autocomplete'=>'off']) !!}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
     <div class="col-md-12 form-group">
         {!! Form::label('au_interpreta', 'Interpretación:',['class' => '']) !!}
         {!! Form::textarea('au_interpreta',null,['class'=>'form-control mayuscula', 'rows'=>'2','autocomplete'=>'off']) !!}
