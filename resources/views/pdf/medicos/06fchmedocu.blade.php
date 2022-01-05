@@ -683,7 +683,11 @@
                 <td class="text-center">{{ $detservicio->diagpdr==1?'X':'' }}</td>
                 <td class="text-center">{{ $detservicio->diagpdr==2?'X':'' }}</td>
                 <td class="text-center">{{ $detservicio->diagpdr==3?'X':'' }}</td>
-                <td class="text-center">{{ $detservicio->diagcie }}</td>
+                <td class="text-center">
+                    @if ($detservicio->diagcie <> '---')
+                    {{ $detservicio->diagcie }}                        
+                    @endif
+                </td>
             </tr>
             <tr>
                 <th width="70%">OTROS DIAGNÓSTICOS</th>
@@ -704,7 +708,11 @@
                 </td>
                 <td class="text-center">{{ $detservicio->otrdiagpdr1==2?'X':'' }}</td>
                 <td class="text-center">{{ $detservicio->otrdiagpdr1==3?'X':'' }}</td>
-                <td class="text-center">{{ $detservicio->otrdiagcie1 }}</td>
+                <td class="text-center">
+                    @if ($detservicio->otrdiagcie1 <> '---')
+                    {{ $detservicio->otrdiagcie1 }}
+                    @endif
+                </td>
             </tr>
             <tr>
                 <td>{{$detservicio->otrdiagocu2}}</td>
@@ -718,7 +726,11 @@
                 </td>
                 <td class="text-center">{{ $detservicio->otrdiagpdr2==2?'X':'' }}</td>
                 <td class="text-center">{{ $detservicio->otrdiagpdr2==3?'X':'' }}</td>
-                <td class="text-center">{{ $detservicio->otrdiagcie2 }}</td>
+                <td class="text-center">
+                    @if ($detservicio->otrdiagcie2 <> '---')
+                    {{ $detservicio->otrdiagcie2 }}
+                    @endif
+                </td>
             </tr>
             <tr>
                 <td>{{$detservicio->otrdiagocu3}}</td>
@@ -732,7 +744,11 @@
                 </td>
                 <td class="text-center">{{ $detservicio->otrdiagpdr3==2?'X':'' }}</td>
                 <td class="text-center">{{ $detservicio->otrdiagpdr3==3?'X':'' }}</td>
-                <td class="text-center">{{ $detservicio->otrdiagcie3 }}</td>
+                <td class="text-center">
+                    @if ($detservicio->otrdiagcie3 <> '---')
+                    {{ $detservicio->otrdiagcie3 }}
+                    @endif
+                </td>
             </tr>
             @if (!empty($detservicio->otrdiagocu4))
             <tr>
@@ -740,7 +756,11 @@
                 <td class="text-center">{{ $detservicio->otrdiagpdr4==1&&!empty($detservicio->otrdiagocu4)?'X':'' }}</td>
                 <td class="text-center">{{ $detservicio->otrdiagpdr4==2?'X':'' }}</td>
                 <td class="text-center">{{ $detservicio->otrdiagpdr4==3?'X':'' }}</td>
-                <td class="text-center">{{ $detservicio->otrdiagcie4 }}</td>
+                <td class="text-center">
+                    @if ($detservicio->otrdiagcie4 <> '---')
+                    {{ $detservicio->otrdiagcie4 }}
+                    @endif
+                </td>
             </tr>
             @endif
             @if (!empty($detservicio->otrdiagocu5))
@@ -749,7 +769,11 @@
                 <td class="text-center">{{ $detservicio->otrdiagpdr5==1&&!empty($detservicio->otrdiagocu5)?'X':'' }}</td>
                 <td class="text-center">{{ $detservicio->otrdiagpdr5==2?'X':'' }}</td>
                 <td class="text-center">{{ $detservicio->otrdiagpdr5==3?'X':'' }}</td>
-                <td class="text-center">{{ $detservicio->otrdiagcie5 }}</td>
+                <td class="text-center">
+                    @if ($detservicio->otrdiagcie5 <> '---')
+                    {{ $detservicio->otrdiagcie5 }}
+                    @endif
+                </td>
             </tr>                
             @endif
         </tbody>
