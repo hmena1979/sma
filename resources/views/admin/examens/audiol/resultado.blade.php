@@ -18,9 +18,10 @@
         AUDIOGRAMA:
     </h5>
 </div>
+
 <div class="row">
     <div class="col-md-8">
-        {!! Form::label('audioder', 'Audición Derecha',['class' => '']) !!}
+        {!! Form::label('audioder', 'Vía Aerea Derecha',['class' => '']) !!}
         <table class="table table-bordered ">
             <thead>
                 <tr>
@@ -51,7 +52,7 @@
 </div>
 <div class="row">
     <div class="col-md-8">
-        {!! Form::label('audioizq', 'Audición Izquierda',['class' => '']) !!}
+        {!! Form::label('audioizq', 'Vía Aerea Izquierda',['class' => '']) !!}
         <table class="table table-bordered ">
             <thead>
                 <tr>
@@ -82,7 +83,7 @@
 </div>
 <div class="row">
     <div class="col-md-8">
-        {!! Form::label('audioizq', 'Vía Aérea ',['class' => '']) !!}
+        {!! Form::label('audioizq', 'Vía Ósea Derecha',['class' => '']) !!}
         <table class="table table-bordered ">
             <thead>
                 <tr>
@@ -111,9 +112,10 @@
         </table>
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-8">
-        {!! Form::label('audioizq', 'Vía Ósea',['class' => '']) !!}
+        {!! Form::label('audioizq', 'Vía Ósea Izquierda',['class' => '']) !!}
         <table class="table table-bordered ">
             <thead>
                 <tr>
@@ -142,6 +144,9 @@
         </table>
     </div>
 </div>
+
+
+
 <div class="row">
     <div class="col-md-12 form-group">
         {!! Form::label('au_interpreta', 'Interpretación:',['class' => '']) !!}
