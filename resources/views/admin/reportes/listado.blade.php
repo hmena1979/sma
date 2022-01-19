@@ -178,6 +178,10 @@
                                             {!! Form::checkbox('detalle[]', 16, false,['class' => 'mr-1']) !!}
                                             FICHA AUDIOLÓGICA
                                         </label><br>
+                                        <label>
+                                            {!! Form::checkbox('detalle[]', 41, false,['class' => 'mr-1']) !!}
+                                            RESULTADO AUDIOMETRÍA
+                                        </label><br>
                                     </div>
                                 </div>
                             </div>                                

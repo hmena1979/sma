@@ -131,6 +131,13 @@
             @php $pagina = 1; @endphp
             @include('pdf.medicos.16fchaudio')
         @endif
+        @if (kvfa2($detalle,'41') && $detservicio->exaaudio()->count() <> 0)
+            @if ($pagina <> 0)
+                <div style="page-break-after:always;"></div>
+            @endif
+            @php $pagina = 1; @endphp
+            @include('pdf.medicos.41fchaudioresultado')
+        @endif
         @if (kvfa2($detalle,'17') && $detservicio->exaoftalmo()->count() <> 0)
             @if ($pagina <> 0)
                 <div style="page-break-after:always;"></div>
