@@ -119,99 +119,99 @@
             </tr>
             <tr>
                 <td>Consumo de tabaco</td>
-                <td class="text-center">{{ !empty($detservicio->exaaudio->tabaco)?'X':'' }}</td>
-                <td class="text-center">{{ empty($detservicio->exaaudio->tabaco)?'X':'' }}</td>
-                <td>{{ $detservicio->exaaudio->tabaco }}</td>
+                <td class="text-center">{{ !empty($detservicio->exaaudio->tabaco) && $detservicio->exaaudio->tabaco <> 'NO'?'X':'' }}</td>
+                <td class="text-center">{{ empty($detservicio->exaaudio->tabaco) || $detservicio->exaaudio->tabaco == 'NO'?'X':'' }}</td>
+                <td>{{ $detservicio->exaaudio->tabaco <> 'NO'?$detservicio->exaaudio->tabaco:'' }}</td>
             </tr>
             <tr>
                 <td>Servicio Militar</td>
-                <td class="text-center">{{ !empty($detservicio->exaaudio->sermil)?'X':'' }}</td>
-                <td class="text-center">{{ empty($detservicio->exaaudio->sermil)?'X':'' }}</td>
-                <td>{{ $detservicio->exaaudio->sermil }}</td>
+                <td class="text-center">{{ !empty($detservicio->exaaudio->sermil) && $detservicio->exaaudio->sermil <> 'NO'?'X':'' }}</td>
+                <td class="text-center">{{ empty($detservicio->exaaudio->sermil) || $detservicio->exaaudio->sermil == 'NO'?'X':'' }}</td>
+                <td>{{ $detservicio->exaaudio->sermil <> 'NO'?$detservicio->exaaudio->sermil:''}}</td>
             </tr>
             <tr>
                 <td>Hobbies con exposición a ruido</td>
-                <td class="text-center">{{ !empty($detservicio->exaaudio->hobbies)?'X':'' }}</td>
-                <td class="text-center">{{ empty($detservicio->exaaudio->hobbies)?'X':'' }}</td>
-                <td>{{ $detservicio->exaaudio->hobbies }}</td>
+                <td class="text-center">{{ !empty($detservicio->exaaudio->hobbies) && $detservicio->exaaudio->hobbies <> 'NO'?'X':'' }}</td>
+                <td class="text-center">{{ empty($detservicio->exaaudio->hobbies) || $detservicio->exaaudio->hobbies == 'NO'?'X':'' }}</td>
+                <td>{{ $detservicio->exaaudio->hobbies <> 'NO'?$detservicio->exaaudio->hobbies:'' }}</td>
             </tr>
             <tr>
                 <td>Exposición laboral a químicos</td>
-                <td class="text-center">{{ !empty($detservicio->exaaudio->expoquimico)?'X':'' }}</td>
-                <td class="text-center">{{ empty($detservicio->exaaudio->expoquimico)?'X':'' }}</td>
-                <td>{{ $detservicio->exaaudio->expoquimico }}</td>
+                <td class="text-center">{{ !empty($detservicio->exaaudio->expoquimico) && $detservicio->exaaudio->expoquimico <> 'NO'?'X':'' }}</td>
+                <td class="text-center">{{ empty($detservicio->exaaudio->expoquimico) || $detservicio->exaaudio->expoquimico == 'NO'?'X':'' }}</td>
+                <td>{{ $detservicio->exaaudio->expoquimico <> 'NO'?$detservicio->exaaudio->expoquimico:''}}</td>
             </tr>
             <tr>
                 <td>Infección al oído</td>
-                <td class="text-center">{{ !empty($detservicio->exaaudio->infecoido)?'X':'' }}</td>
-                <td class="text-center">{{ empty($detservicio->exaaudio->infecoido)?'X':'' }}</td>
-                <td>{{ $detservicio->exaaudio->infecoido }}</td>
+                <td class="text-center">{{ !empty($detservicio->exaaudio->infecoido) && $detservicio->exaaudio->infecoido <> 'NO'?'X':'' }}</td>
+                <td class="text-center">{{ empty($detservicio->exaaudio->infecoido) || $detservicio->exaaudio->infecoido == 'NO'?'X':'' }}</td>
+                <td>{{ $detservicio->exaaudio->infecoido <> 'NO'?$detservicio->exaaudio->infecoido:'' }}</td>
             </tr>
             <tr>
                 <td>Uso de ototóxicos</td>
-                <td class="text-center">{{ !empty($detservicio->exaaudio->ototoxico)?'X':'' }}</td>
-                <td class="text-center">{{ empty($detservicio->exaaudio->ototoxico)?'X':'' }}</td>
-                <td>{{ $detservicio->exaaudio->ototoxico }}</td>
+                <td class="text-center">{{ !empty($detservicio->exaaudio->ototoxico) && $detservicio->exaaudio->ototoxico <> 'NO'?'X':'' }}</td>
+                <td class="text-center">{{ empty($detservicio->exaaudio->ototoxico) || $detservicio->exaaudio->ototoxico == 'NO'?'X':'' }}</td>
+                <td>{{ $detservicio->exaaudio->ototoxico <> 'NO'?$detservicio->exaaudio->ototoxico:'' }}</td>
             </tr>
             <tr>
                 <td>Asiste a discotecas</td>
-                <td class="text-center">{{ !empty($detservicio->exaaudio->discoteca)?'X':'' }}</td>
-                <td class="text-center">{{ empty($detservicio->exaaudio->discoteca)?'X':'' }}</td>
-                <td>{{ $detservicio->exaaudio->discoteca }}</td>
+                <td class="text-center">{{ !empty($detservicio->exaaudio->discoteca) && $detservicio->exaaudio->discoteca <> 'NO'?'X':'' }}</td>
+                <td class="text-center">{{ empty($detservicio->exaaudio->discoteca) || $detservicio->exaaudio->discoteca == 'NO'?'X':'' }}</td>
+                <td>{{ $detservicio->exaaudio->discoteca <> 'NO'?$detservicio->exaaudio->discoteca:'' }}</td>
             </tr>
             <tr>
                 <td>Dispositivos musicales con audífonos</td>
-                <td class="text-center">{{ !empty($detservicio->exaaudio->audifono)?'X':'' }}</td>
-                <td class="text-center">{{ empty($detservicio->exaaudio->audifono)?'X':'' }}</td>
-                <td>{{ $detservicio->exaaudio->audifono }}</td>
+                <td class="text-center">{{ !empty($detservicio->exaaudio->audifono) && $detservicio->exaaudio->audifono <> 'NO'?'X':'' }}</td>
+                <td class="text-center">{{ empty($detservicio->exaaudio->audifono) || $detservicio->exaaudio->audifono == 'NO'?'X':'' }}</td>
+                <td>{{ $detservicio->exaaudio->audifono <> 'NO'?$detservicio->exaaudio->audifono:'' }}</td>
             </tr>
             <tr>
                 <td>Deporte de caza con arma de fuego</td>
-                <td class="text-center">{{ !empty($detservicio->exaaudio->arma)?'X':'' }}</td>
-                <td class="text-center">{{ empty($detservicio->exaaudio->arma)?'X':'' }}</td>
-                <td>{{ $detservicio->exaaudio->arma }}</td>
+                <td class="text-center">{{ !empty($detservicio->exaaudio->arma) && $detservicio->exaaudio->arma <> 'NO'?'X':'' }}</td>
+                <td class="text-center">{{ empty($detservicio->exaaudio->arma) || $detservicio->exaaudio->arma == 'NO'?'X':'' }}</td>
+                <td>{{ $detservicio->exaaudio->arma <> 'NO'?$detservicio->exaaudio->arma:'' }}</td>
             </tr>
             <tr>
                 <td>Deporte aéreo</td>
-                <td class="text-center">{{ !empty($detservicio->exaaudio->deporte)?'X':'' }}</td>
-                <td class="text-center">{{ empty($detservicio->exaaudio->deporte)?'X':'' }}</td>
-                <td>{{ $detservicio->exaaudio->deporte }}</td>
+                <td class="text-center">{{ !empty($detservicio->exaaudio->deporte) && $detservicio->exaaudio->deporte <> 'NO'?'X':'' }}</td>
+                <td class="text-center">{{ empty($detservicio->exaaudio->deporte) || $detservicio->exaaudio->deporte == 'NO'?'X':'' }}</td>
+                <td>{{ $detservicio->exaaudio->deporte <> 'NO'?$detservicio->exaaudio->deporte:'' }}</td>
             </tr>
             <tr>
                 <td>Deporte Submarino</td>
-                <td class="text-center">{{ !empty($detservicio->exaaudio->submarino)?'X':'' }}</td>
-                <td class="text-center">{{ empty($detservicio->exaaudio->submarino)?'X':'' }}</td>
-                <td>{{ $detservicio->exaaudio->submarino }}</td>
+                <td class="text-center">{{ !empty($detservicio->exaaudio->submarino) && $detservicio->exaaudio->submarino <> 'NO'?'X':'' }}</td>
+                <td class="text-center">{{ empty($detservicio->exaaudio->submarino) || $detservicio->exaaudio->submarino == 'NO'?'X':'' }}</td>
+                <td>{{ $detservicio->exaaudio->submarino <> 'NO'?$detservicio->exaaudio->submarino:'' }}</td>
             </tr>
             <tr>
                 <td>TEC</td>
-                <td class="text-center">{{ !empty($detservicio->exaaudio->tec)?'X':'' }}</td>
-                <td class="text-center">{{ empty($detservicio->exaaudio->tec)?'X':'' }}</td>
-                <td>{{ $detservicio->exaaudio->tec }}</td>
+                <td class="text-center">{{ !empty($detservicio->exaaudio->tec) && $detservicio->exaaudio->tec <> 'NO'?'X':'' }}</td>
+                <td class="text-center">{{ empty($detservicio->exaaudio->tec) || $detservicio->exaaudio->tec == 'NO'?'X':'' }}</td>
+                <td>{{ $detservicio->exaaudio->tec <> 'NO'?$detservicio->exaaudio->tec:'' }}</td>
             </tr>
             <tr>
                 <td>Meningitis</td>
-                <td class="text-center">{{ !empty($detservicio->exaaudio->meningitis)?'X':'' }}</td>
-                <td class="text-center">{{ empty($detservicio->exaaudio->meningitis)?'X':'' }}</td>
-                <td>{{ $detservicio->exaaudio->meningitis }}</td>
+                <td class="text-center">{{ !empty($detservicio->exaaudio->meningitis) && $detservicio->exaaudio->meningitis <> 'NO'?'X':'' }}</td>
+                <td class="text-center">{{ empty($detservicio->exaaudio->meningitis) || $detservicio->exaaudio->meningitis == 'NO'?'X':'' }}</td>
+                <td>{{ $detservicio->exaaudio->meningitis <> 'NO'?$detservicio->exaaudio->meningitis:'' }}</td>
             </tr>
             <tr>
                 <td>Parotiditis</td>
-                <td class="text-center">{{ !empty($detservicio->exaaudio->parotiditis)?'X':'' }}</td>
-                <td class="text-center">{{ empty($detservicio->exaaudio->parotiditis)?'X':'' }}</td>
-                <td>{{ $detservicio->exaaudio->parotiditis }}</td>
+                <td class="text-center">{{ !empty($detservicio->exaaudio->parotiditis) && $detservicio->exaaudio->parotiditis <> 'NO'?'X':'' }}</td>
+                <td class="text-center">{{ empty($detservicio->exaaudio->parotiditis) || $detservicio->exaaudio->parotiditis == 'NO'?'X':'' }}</td>
+                <td>{{ $detservicio->exaaudio->parotiditis <> 'NO'?$detservicio->exaaudio->parotiditis:'' }}</td>
             </tr>
             <tr>
                 <td>Sarampión</td>
-                <td class="text-center">{{ !empty($detservicio->exaaudio->sarampion)?'X':'' }}</td>
-                <td class="text-center">{{ empty($detservicio->exaaudio->sarampion)?'X':'' }}</td>
-                <td>{{ $detservicio->exaaudio->sarampion }}</td>
+                <td class="text-center">{{ !empty($detservicio->exaaudio->sarampion) && $detservicio->exaaudio->sarampion <> 'NO'?'X':'' }}</td>
+                <td class="text-center">{{ empty($detservicio->exaaudio->sarampion) || $detservicio->exaaudio->sarampion == 'NO'?'X':'' }}</td>
+                <td>{{ $detservicio->exaaudio->sarampion <> 'NO'?$detservicio->exaaudio->sarampion:'' }}</td>
             </tr>
             <tr>
                 <td>Otros</td>
-                <td class="text-center">{{ !empty($detservicio->exaaudio->otros)?'X':'' }}</td>
-                <td class="text-center">{{ empty($detservicio->exaaudio->otros)?'X':'' }}</td>
-                <td>{{ $detservicio->exaaudio->otros }}</td>
+                <td class="text-center">{{ !empty($detservicio->exaaudio->otros) && $detservicio->exaaudio->otros <> 'NO'?'X':'' }}</td>
+                <td class="text-center">{{ empty($detservicio->exaaudio->otros) || $detservicio->exaaudio->otros == 'NO'?'X':'' }}</td>
+                <td>{{ $detservicio->exaaudio->otros <> 'NO'?$detservicio->exaaudio->otros:'' }}</td>
             </tr>
             <tr><td colspan="4"></td></tr>
         </tbody>
