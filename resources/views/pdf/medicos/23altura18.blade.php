@@ -259,7 +259,7 @@
             </tr>
         </tbody>
     </table>
-    <table>
+    {{-- <table>
         <tbody>
             <tr>
                 <th colspan="6">APTO PARA TRABAJAR ENCIMA DE LOS 1.8 METROS:</th>
@@ -273,7 +273,7 @@
                 <td width='50%'>{{ $detservicio->exaalt18->para }}</td>
             </tr>
         </tbody>
-    </table>
+    </table> --}}
     <table>
         <tbody>
             <tr>

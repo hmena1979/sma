@@ -280,7 +280,7 @@
     </tbody>
 </table>
 <br>
-<div class="detalleocupacional">
+<div class="detalleocupacional fondofirma">
     <table>
         <tbody>
             <tr>
@@ -308,9 +308,48 @@
             </tr>
         </tbody>
     </table>
+    <div class="firmaalt25">
+        @if (empty($detservicio->exaalt25->doctor_id))
+        <br>
+        @else
+            @if (empty($detservicio->exaalt25->doctor->firma))
+            <br>
+            @else
+            <img src="{{ url('firmas/'.$detservicio->exaalt25->doctor->firma) }}" width="180px" height="100px" alt=""><br>
+            @endif
+        @endif
+        ...........................................................
+        <div class="lchicas">
+            Nombre, Firma y sello del médico Evaluador
+        </div>
+    </div>
+    {{-- <table class="cuadrosborde letra10 text-left">
+        <tbody>
+            <tr>
+                <td width='60%'></td>
+                <td width='40%' class="text-center">
+                    <div>
+                        @if (empty($detservicio->exaalt25->doctor_id))
+                        <br><br><br><br>
+                        @else
+                            @if (empty($detservicio->exaalt25->doctor->firma))
+                            <br><br><br><br>
+                            @else
+                            <img src="{{ url('firmas/'.$detservicio->exaalt25->doctor->firma) }}" height="90px" alt=""><br>
+                            @endif
+                        @endif
+                        ...........................................................
+                        <div class="lchicas">
+                            Nombre, Firma y sello del médico Evaluador
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table> --}}
 </div>
 
-<table class="cuadrosborde letra10 text-left">
+{{-- <table class="cuadrosborde letra10 text-left">
     <tbody>
         <tr>
             <td width='60%'></td>
@@ -333,4 +372,4 @@
             </td>
         </tr>
     </tbody>
-</table>
+</table> --}}
