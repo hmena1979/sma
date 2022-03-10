@@ -587,8 +587,8 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    @if ($detservicio->exaradio()->count() <> 0)
-                        {{$detservicio->exaradio->conclusion}}
+                    @if ($detservicio->exaradio()->count() <> 0 && kvfa($detservicio->servicio->examenes,'9') == 1 )
+                        {{$detservicio->exaradio->conclusion}} 
                     @else
                     {!! htmlspecialchars_decode("&nbsp;") !!}
                     @endif
