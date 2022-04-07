@@ -95,7 +95,7 @@
                     <td>{{ $detservicio->orina->pbiliares==1?'POSITIVO':'NEGATIVO' }}</td>
                 </tr>
                 <tr>
-                    <td>- THEVENON</td>
+                    <td>- HEMATIES</td>
                     <td>{{ $detservicio->orina->thevenon==1?'POSITIVO':'NEGATIVO' }}</td>
                 </tr>
                 <tr>

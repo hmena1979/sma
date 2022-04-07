@@ -94,7 +94,7 @@
                                         {!! Form::select('pbiliares',[1=>'POSITIVO',2=>'NEGATIVO'],null,['class'=>'custom-select']) !!}
                                     </div>
                                     <div class="col-md-4">
-                                        {!! Form::label('thevenon', 'Thevenon:') !!}
+                                        {!! Form::label('thevenon', 'Hematies:') !!}
                                         {!! Form::select('thevenon',[1=>'POSITIVO',2=>'NEGATIVO'],null,['class'=>'custom-select']) !!}
                                     </div>
                                     <div class="col-md-4">

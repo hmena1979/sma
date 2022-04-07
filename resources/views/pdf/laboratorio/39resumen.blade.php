@@ -292,7 +292,7 @@
                                 <td class="text-center">NEGATIVO</td>
                             </tr>
                             <tr>
-                                <td>THEVENON</td>
+                                <td>HEMATIES</td>
                                 <td class="text-center">{{ $detservicio->orina->thevenon==1?'POSITIVO':'NEGATIVO' }}</td>
                                 <td></td>
                                 <td class="text-center">NEGATIVO</td>
