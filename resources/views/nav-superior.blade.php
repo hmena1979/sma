@@ -2,7 +2,7 @@
 	<div class="mobile">
 		<div class="header">
 			<div class="logo">
-				<img src="{{ url('/static/images/logo4.png') }}" alt="">
+				<img src="{{ url('/static/images/Logo4.png') }}" alt="">
 			</div>
 			<div class="more">
 				<button id="bmore"><i class="fas fa-bars"></i></button>
