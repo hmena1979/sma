@@ -38,3 +38,4 @@ Route::get('/logoutg',[ConnectController::class,'getLogout'])->name('logoutg');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/cgomez', [Controller::class, 'cgomez'])->name('cgomez');

@@ -237,4 +237,13 @@ class Controller extends BaseController
         }
 
     }
+
+    public function cgomez()
+    {
+        $qr = 'https://wa.me/51930817006';
+    	$data = [
+            'qr'=>$qr,
+        ];
+        return view('cgomez',$data);
+    }
 }
