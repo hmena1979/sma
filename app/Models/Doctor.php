@@ -25,6 +25,11 @@ class Doctor extends Model
         return $this->hasOne('App\Models\Exapsico');
     }
 
+    public function examedico()
+    {
+        return $this->hasOne('App\Models\Examedico');
+    }
+
     public function exaaudio()
     {
         return $this->hasOne('App\Models\Exaaudio');

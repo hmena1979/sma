@@ -23,4 +23,9 @@ class Examedico extends Model
     {
         return $this->hasOne('App\Models\Categoria', 'codigo', 'resultado')->whereIn('modulo',['7']);
     }
+
+    public function doctor()
+    {
+        return $this->belongsTo('App\Models\Doctor');
+    }
 }
