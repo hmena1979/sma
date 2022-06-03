@@ -744,13 +744,13 @@
             <td width="25%"></td>
             <td width="50%" class="text-center letra10">
                 <div>
-                    @if (empty($detservicio->doctor_id))
+                    @if (empty($detservicio->examedico->doctor_id))
                     <br><br><br><br>
                     @else
-                        @if (empty($detservicio->doctor->firma))
+                        @if (empty($detservicio->examedico->doctor->firma))
                         <br><br><br><br>
                         @else
-                        <img src="{{ url('firmas/'.$detservicio->doctor->firma) }}" width="180px" height="100px" alt=""><br>
+                        <img src="{{ url('firmas/'.$detservicio->examedico->doctor->firma) }}" width="180px" height="100px" alt=""><br>
                         @endif
                     @endif
                     .......................................................

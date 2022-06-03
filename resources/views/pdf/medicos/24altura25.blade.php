@@ -108,145 +108,145 @@
         <tr>
             <th width='60%'>* Anemia</th>
             <th width='4%' class="text-center">NO</th>
-            <td width='3%' class="celdachica text-center">{{ $detservicio->exaalt25->ant01==1?'X':'' }}</td>
+            <td width='3%' class="celdachica text-center">{{ $detservicio->exaalt25->ant01==2?'X':'' }}</td>
             <td width='3%'></td>
             <th width='4%' class="text-center">SI</th>
-            <td width='3%' class="celdachica text-center">{{ $detservicio->exaalt25->ant01==2?'X':'' }}</td>
+            <td width='3%' class="celdachica text-center">{{ $detservicio->exaalt25->ant01==1?'X':'' }}</td>
             <td width='23%'></td>
         </tr>
         <tr>
             <th>* Cirugía mayor reciente</th>
             <th class="text-center">NO</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant02==1?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant02==2?'X':'' }}</td>
             <td></td>
             <th class="text-center">SI</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant02==2?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant02==1?'X':'' }}</td>
             <td></td>
         </tr>
         <tr>
             <th>* Desórdenes de la coagulación, trombosos, etc</th>
             <th class="text-center">NO</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant03==1?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant03==2?'X':'' }}</td>
             <td></td>
             <th class="text-center">SI</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant03==2?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant03==1?'X':'' }}</td>
             <td></td>
         </tr>
         <tr>
             <th>* Diabetes Mellitus</th>
             <th class="text-center">NO</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant04==1?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant04==2?'X':'' }}</td>
             <td></td>
             <th class="text-center">SI</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant04==2?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant04==1?'X':'' }}</td>
             <td></td>
         </tr>
         <tr>
             <th>* Hipertención Arterial</th>
             <th class="text-center">NO</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant05==1?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant05==2?'X':'' }}</td>
             <td></td>
             <th class="text-center">SI</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant05==2?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant05==1?'X':'' }}</td>
             <td></td>
         </tr>
         <tr>
             <th>* Embarazo</th>
             <th class="text-center">NO</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant06==1?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant06==2?'X':'' }}</td>
             <td></td>
             <th class="text-center">SI</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant06==2?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant06==1?'X':'' }}</td>
             <td></td>
         </tr>
         <tr>
             <th>* Problemas neurológicos: epilepsia, vértigo, etc</th>
             <th class="text-center">NO</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant07==1?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant07==2?'X':'' }}</td>
             <td></td>
             <th class="text-center">SI</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant07==2?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant07==1?'X':'' }}</td>
             <td></td>
         </tr>
         <tr>
             <th>* Infecciones recientes(especialmente oídos, nariz, garganta)</th>
             <th class="text-center">NO</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant08==1?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant08==2?'X':'' }}</td>
             <td></td>
             <th class="text-center">SI</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant08==2?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant08==1?'X':'' }}</td>
             <td></td>
         </tr>
         <tr>
             <th>* Obesidad Mórbida (IMC mayor a 35 m/kg2)</th>
             <th class="text-center">NO</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant09==1?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant09==2?'X':'' }}</td>
             <td></td>
             <th class="text-center">SI</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant09==2?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant09==1?'X':'' }}</td>
             <td></td>
         </tr>
         <tr>
             <th>* Problemas Cardíacos: marcapasos, coronariopatía, etc</th>
             <th class="text-center">NO</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant10==1?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant10==2?'X':'' }}</td>
             <td></td>
             <th class="text-center">SI</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant10==2?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant10==1?'X':'' }}</td>
             <td></td>
         </tr>
         <tr>
             <th>* Problemas Respiratórios: asma, EPOC, etc</th>
             <th class="text-center">NO</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant11==1?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant11==2?'X':'' }}</td>
             <td></td>
             <th class="text-center">SI</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant11==2?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant11==1?'X':'' }}</td>
             <td></td>
         </tr>
         <tr>
             <th>* Problemas Oftalmológicos: retinopatía, glaucoma, etc</th>
             <th class="text-center">NO</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant12==1?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant12==2?'X':'' }}</td>
             <td></td>
             <th class="text-center">SI</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant12==2?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant12==1?'X':'' }}</td>
             <td></td>
         </tr>
         <tr>
             <th>* Problemas Digestivos: úlcera péptica, hepatitis, etc</th>
             <th class="text-center">NO</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant13==1?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant13==2?'X':'' }}</td>
             <td></td>
             <th class="text-center">SI</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant13==2?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant13==1?'X':'' }}</td>
             <td></td>
         </tr>
         <tr>
             <th>* Apnea del Sueño</th>
             <th class="text-center">NO</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant14==1?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant14==2?'X':'' }}</td>
             <td></td>
             <th class="text-center">SI</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant14==2?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant14==1?'X':'' }}</td>
             <td></td>
         </tr>
         <tr>
             <th>* Otra condición médica importante</th>
             <th class="text-center">NO</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant15==1?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant15==2?'X':'' }}</td>
             <td></td>
             <th class="text-center">SI</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant15==2?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant15==1?'X':'' }}</td>
             <td></td>
         </tr>
         <tr>
             <th>* Alergías</th>
             <th class="text-center">NO</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant16==1?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant16==2?'X':'' }}</td>
             <td></td>
             <th class="text-center">SI</th>
-            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant16==2?'X':'' }}</td>
+            <td class="celdachica text-center">{{ $detservicio->exaalt25->ant16==1?'X':'' }}</td>
             <td></td>
         </tr>
     </tbody>

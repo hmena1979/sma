@@ -400,10 +400,10 @@
             <tr>
                 <td width="50%" class="text-center">
                     <br><br><br><br>
-                    .......................................................................
+                    {{-- .......................................................................
                     <div class="lchicas">
                         Firma y Huella digital del paciente
-                    </div>
+                    </div> --}}
                 </td>
                 <td width="50%" class="text-center letra10">
                     <div>
